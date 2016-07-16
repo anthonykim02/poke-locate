@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class Register: UIViewController {
     
@@ -21,6 +23,21 @@ class Register: UIViewController {
         super.viewDidLoad()
     }
     @IBAction func registerAction(sender: AnyObject) {
-        print("hello")
+        
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/users/add", parameters: ["name": nameField.text!, "username" : usernameField.text!, "password" : passwordField.text!, "team" : 1, "phone" : numberField.text!]).validate()
+            .responseJSON { (_, _, response) in
+                print(response.data)
+                if let json = response.value {
+                    var json = JSON(response.value!)
+                    var success = json["success"].stringValue
+                    if success == "0" {
+                        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
+                        self.showViewController(vc as! UIViewController, sender: vc)
+                    } else {
+                        print("ERROR")
+                        
+                    }
+                }
+        }
     }
 }

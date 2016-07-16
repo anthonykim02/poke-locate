@@ -1,0 +1,880 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04B802926F828ECF62B8AB5A1113F05B /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7953434CFA2136B3817EF00BEEF31552 /* SwiftyJSON-dummy.m */; };
+		0EFD1FF643346FF85C83679F659672CA /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037968CFF12BFB661915B114C05C0666 /* Stream.swift */; };
+		265AEC22C4AF96EB5118D290A6174D66 /* Pods-pokemonGoAssistant-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C82B1AEE12D72791D70FD7D80AFE5B4C /* Pods-pokemonGoAssistant-dummy.m */; };
+		30A8F35FCAB29F5FBFC9F3F7E25A3B6B /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC678230ADC8E2D9113E7C42C4BE432 /* ServerTrustPolicy.swift */; };
+		3E9392CB5BD9C0CC47B04EDB40639558 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942234281DD8DD088125C1D1267A06C4 /* Validation.swift */; };
+		69A447D12E60E5C3451DA30C6BB4BF7F /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55202B79210FA8753FAE70DBED3C8DB9 /* Manager.swift */; };
+		705E0CF78E9BE7AFE5EE6551BCBDC6B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		73C3C5D48C8948D768FF01B4F0ABD900 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D6BD5F75FE134ACA364FCC5A4A54CA0 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		848CEFBFC69DEBAF0E18885F3269F439 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208E468923C93D3CE3A3241DE696843 /* ResponseSerialization.swift */; };
+		8CDDBA755B16E2CA1EDB07A9DEFB766A /* Pods-pokemonGoAssistant-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FF3AC2435219EC81CEF67F2AC049AE /* Pods-pokemonGoAssistant-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		904BB062CAB2EDC27CDD84E30D345FF0 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D73065D503D00A1BBBF7FDCBC20727 /* SwiftyJSON.swift */; };
+		9077ECA2FA7B9C5D73365490A3D8898F /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D24074A385881B3E46C0DAE2DFBCC /* Download.swift */; };
+		9C8A271AB899DB6EC06BD741BA5F1438 /* Pods-pokemonGoAssistantTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C494A21C7864E92B2B823A008106273D /* Pods-pokemonGoAssistantTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A215FAB60CB15B6E5FA3A15E9E350D7D /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6853482225186AAD4F7C8E46F2D6AF63 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7F6E80A67D1ADB971AA2F78CF9F910F /* Pods-pokemonGoAssistantTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F0CC8EFAD11D7FD5DCEB33191A7546 /* Pods-pokemonGoAssistantTests-dummy.m */; };
+		A8B5EDB7371475F62767B297B1A10CDE /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515A687E2DDF63D8F456703C919869B /* ParameterEncoding.swift */; };
+		BD932AB2F4C149DF7C804EC3A12A2E57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		D39B20327B1DAF6D8753ED5685DDE6DC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB3402BAD9377D04517F9E0BB342983 /* MultipartFormData.swift */; };
+		D8136D3B59D4753690000387A8082B54 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4F8EAEA5348FC382AE518DD8FC4D2 /* Alamofire-dummy.m */; };
+		E5FBE3301FCEBF21D0DC0306284B2DE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		E6D041ABFBB48D9F1D8AA96E7D4C6C34 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6032D10AEB947BA64BC9E51A9443F2 /* Result.swift */; };
+		E7B226D8BB16471AD63665A794036E44 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F288F607AE9B371F1800E5709FFC0 /* Upload.swift */; };
+		E816509B4E3564E1A117CBDC0D845D69 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEECA4397A10234BE5ADFECF3CA2CA19 /* Alamofire.swift */; };
+		ED5756488D6C5648B34F66B41AF1499C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		F16FEF1CB9703FE1887C8A618B84B7C6 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7DBFE4DF11EE4C9B0644B7E24F525 /* Request.swift */; };
+		FE1F95F519342B9266EB69B23B4336CF /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C33547C3D9F3F58A680F8A2010AFD2 /* Error.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0F534192C3E7D2C80C5E09441E8AA9B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B2F30D90D85A544E9EFE2A49D392C25;
+			remoteInfo = Alamofire;
+		};
+		2BE8CDD3E3F55DB1A0B8DAC93B47BC06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1EDE6E5DB748E741F0B0FA8C8550C2A;
+			remoteInfo = SwiftyJSON;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		037968CFF12BFB661915B114C05C0666 /* Stream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = Source/Stream.swift; sourceTree = "<group>"; };
+		0BD60A0D455ACFBC76B51E2D22987371 /* Pods-pokemonGoAssistant-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-pokemonGoAssistant-acknowledgements.plist"; sourceTree = "<group>"; };
+		1CDECA4EAA3CAEB88F81AFE32C5F5BDB /* Pods-pokemonGoAssistant-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-pokemonGoAssistant-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1D6BD5F75FE134ACA364FCC5A4A54CA0 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		24D73065D503D00A1BBBF7FDCBC20727 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		2676899F6DD1107B5E0AAD6E173408F5 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		26ECCFBE534F77197CAEB74EF9BFA180 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34383E57A8E50F2E04B2437DE3903932 /* Pods-pokemonGoAssistantTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pokemonGoAssistantTests-frameworks.sh"; sourceTree = "<group>"; };
+		38C33547C3D9F3F58A680F8A2010AFD2 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Source/Error.swift; sourceTree = "<group>"; };
+		3CFD99788F8058A0B097555264B99093 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		4BB4F8EAEA5348FC382AE518DD8FC4D2 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		50A105A78835469ECBC4FD69A34C9C0A /* Pods-pokemonGoAssistantTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-pokemonGoAssistantTests.modulemap"; sourceTree = "<group>"; };
+		5208E468923C93D3CE3A3241DE696843 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		55202B79210FA8753FAE70DBED3C8DB9 /* Manager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = Source/Manager.swift; sourceTree = "<group>"; };
+		55DC55ED15E6D6CD0C3AB86281ACE593 /* Pods-pokemonGoAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pokemonGoAssistant.release.xcconfig"; sourceTree = "<group>"; };
+		5D4BE31235D2F5CC35CA9CFD79EFE81A /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
+		65C5534706156537FF1887594D9C9226 /* Pods-pokemonGoAssistantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pokemonGoAssistantTests.release.xcconfig"; sourceTree = "<group>"; };
+		6853482225186AAD4F7C8E46F2D6AF63 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		6A6032D10AEB947BA64BC9E51A9443F2 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
+		733089A529073D57B067E15E451D91CC /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		7539BECDF0AF3064C4870482BEC3FBF8 /* Pods_pokemonGoAssistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokemonGoAssistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		762F1825D63D7DBC7461D0FCC70C9C98 /* Pods-pokemonGoAssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pokemonGoAssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
+		775DFC6BEB6598946D769170B824ADED /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7953434CFA2136B3817EF00BEEF31552 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
+		82725BFA52C31D438766C3DBACA5E90C /* Pods-pokemonGoAssistant.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-pokemonGoAssistant.modulemap"; sourceTree = "<group>"; };
+		90B9394381BCB9A11A3514B590FD1C7F /* Pods_pokemonGoAssistantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokemonGoAssistantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		942234281DD8DD088125C1D1267A06C4 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		9E103B0A613A7D67105C8C5DCA34A55E /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
+		9EC678230ADC8E2D9113E7C42C4BE432 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		A46D24074A385881B3E46C0DAE2DFBCC /* Download.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Download.swift; path = Source/Download.swift; sourceTree = "<group>"; };
+		A7D2FE4A891D6F29AE616E73992E8497 /* Pods-pokemonGoAssistant-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pokemonGoAssistant-frameworks.sh"; sourceTree = "<group>"; };
+		A92C3F15237B79A59862506695C08FDF /* Pods-pokemonGoAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pokemonGoAssistant.debug.xcconfig"; sourceTree = "<group>"; };
+		AA8C53DC8AE222E7A3052115C587D4C5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABD7A4DCDED14ABB85BAF71EA090EA4D /* Pods-pokemonGoAssistantTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pokemonGoAssistantTests-resources.sh"; sourceTree = "<group>"; };
+		AC299DF3085BCC633E6A7C56AC4569F8 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		B5FF3AC2435219EC81CEF67F2AC049AE /* Pods-pokemonGoAssistant-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-pokemonGoAssistant-umbrella.h"; sourceTree = "<group>"; };
+		B9C43F180569720E6D9C31517F1A0260 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C22A35D5510BD26666A39407592F9363 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3F0CC8EFAD11D7FD5DCEB33191A7546 /* Pods-pokemonGoAssistantTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-pokemonGoAssistantTests-dummy.m"; sourceTree = "<group>"; };
+		C494A21C7864E92B2B823A008106273D /* Pods-pokemonGoAssistantTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-pokemonGoAssistantTests-umbrella.h"; sourceTree = "<group>"; };
+		C515A687E2DDF63D8F456703C919869B /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
+		C82B1AEE12D72791D70FD7D80AFE5B4C /* Pods-pokemonGoAssistant-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-pokemonGoAssistant-dummy.m"; sourceTree = "<group>"; };
+		C84D40F82F2C4F852899CD989FDAC29E /* Pods-pokemonGoAssistant-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pokemonGoAssistant-resources.sh"; sourceTree = "<group>"; };
+		C971DFF84545C24A3EBCDAF2BB08DD84 /* Pods-pokemonGoAssistantTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-pokemonGoAssistantTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DEECA4397A10234BE5ADFECF3CA2CA19 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		E3EDBC4D633751615473F7466CD729B1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA5F288F607AE9B371F1800E5709FFC0 /* Upload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Upload.swift; path = Source/Upload.swift; sourceTree = "<group>"; };
+		F1779E1B0B67A16A2661F478C51C0020 /* Pods-pokemonGoAssistantTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-pokemonGoAssistantTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FBB3402BAD9377D04517F9E0BB342983 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
+		FDA7DBFE4DF11EE4C9B0644B7E24F525 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		14409D151BCE19B917E1ACDD56DC85F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD932AB2F4C149DF7C804EC3A12A2E57 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D29B748424B48D8A1A386318C9F6AB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED5756488D6C5648B34F66B41AF1499C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73C07FB4962F9FDD8FCA3626EA67A79D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				705E0CF78E9BE7AFE5EE6551BCBDC6B5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3DB803BCAB482CD9B527CCF52EF1567 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5FBE3301FCEBF21D0DC0306284B2DE7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07327B4E3EA6DF2900D88D8E4077ADE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C22A35D5510BD26666A39407592F9363 /* Alamofire.framework */,
+				7539BECDF0AF3064C4870482BEC3FBF8 /* Pods_pokemonGoAssistant.framework */,
+				90B9394381BCB9A11A3514B590FD1C7F /* Pods_pokemonGoAssistantTests.framework */,
+				26ECCFBE534F77197CAEB74EF9BFA180 /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B4F5AD886F1EBDF8299A184A41B243B /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				24D73065D503D00A1BBBF7FDCBC20727 /* SwiftyJSON.swift */,
+				552965F11BB9C68FAB4EA4E05A3FD9A0 /* Support Files */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		552965F11BB9C68FAB4EA4E05A3FD9A0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9C43F180569720E6D9C31517F1A0260 /* Info.plist */,
+				5D4BE31235D2F5CC35CA9CFD79EFE81A /* SwiftyJSON.modulemap */,
+				9E103B0A613A7D67105C8C5DCA34A55E /* SwiftyJSON.xcconfig */,
+				7953434CFA2136B3817EF00BEEF31552 /* SwiftyJSON-dummy.m */,
+				AC299DF3085BCC633E6A7C56AC4569F8 /* SwiftyJSON-prefix.pch */,
+				1D6BD5F75FE134ACA364FCC5A4A54CA0 /* SwiftyJSON-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyJSON";
+			sourceTree = "<group>";
+		};
+		5BF28DAE764D142D4FFAE8EFF6F7E482 /* Pods-pokemonGoAssistant */ = {
+			isa = PBXGroup;
+			children = (
+				E3EDBC4D633751615473F7466CD729B1 /* Info.plist */,
+				82725BFA52C31D438766C3DBACA5E90C /* Pods-pokemonGoAssistant.modulemap */,
+				1CDECA4EAA3CAEB88F81AFE32C5F5BDB /* Pods-pokemonGoAssistant-acknowledgements.markdown */,
+				0BD60A0D455ACFBC76B51E2D22987371 /* Pods-pokemonGoAssistant-acknowledgements.plist */,
+				C82B1AEE12D72791D70FD7D80AFE5B4C /* Pods-pokemonGoAssistant-dummy.m */,
+				A7D2FE4A891D6F29AE616E73992E8497 /* Pods-pokemonGoAssistant-frameworks.sh */,
+				C84D40F82F2C4F852899CD989FDAC29E /* Pods-pokemonGoAssistant-resources.sh */,
+				B5FF3AC2435219EC81CEF67F2AC049AE /* Pods-pokemonGoAssistant-umbrella.h */,
+				A92C3F15237B79A59862506695C08FDF /* Pods-pokemonGoAssistant.debug.xcconfig */,
+				55DC55ED15E6D6CD0C3AB86281ACE593 /* Pods-pokemonGoAssistant.release.xcconfig */,
+			);
+			name = "Pods-pokemonGoAssistant";
+			path = "Target Support Files/Pods-pokemonGoAssistant";
+			sourceTree = "<group>";
+		};
+		6B34F4A948CFDEFFD33CBB1309E4DE85 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5BF28DAE764D142D4FFAE8EFF6F7E482 /* Pods-pokemonGoAssistant */,
+				B253E4BF289AE95EEC89FCDA9D26DD27 /* Pods-pokemonGoAssistantTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				D4DC2528802D5143120EA397BE51FC7F /* Pods */,
+				07327B4E3EA6DF2900D88D8E4077ADE7 /* Products */,
+				6B34F4A948CFDEFFD33CBB1309E4DE85 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		825752A14377AD7F73463077A47D7F73 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				DEECA4397A10234BE5ADFECF3CA2CA19 /* Alamofire.swift */,
+				A46D24074A385881B3E46C0DAE2DFBCC /* Download.swift */,
+				38C33547C3D9F3F58A680F8A2010AFD2 /* Error.swift */,
+				55202B79210FA8753FAE70DBED3C8DB9 /* Manager.swift */,
+				FBB3402BAD9377D04517F9E0BB342983 /* MultipartFormData.swift */,
+				C515A687E2DDF63D8F456703C919869B /* ParameterEncoding.swift */,
+				FDA7DBFE4DF11EE4C9B0644B7E24F525 /* Request.swift */,
+				5208E468923C93D3CE3A3241DE696843 /* ResponseSerialization.swift */,
+				6A6032D10AEB947BA64BC9E51A9443F2 /* Result.swift */,
+				9EC678230ADC8E2D9113E7C42C4BE432 /* ServerTrustPolicy.swift */,
+				037968CFF12BFB661915B114C05C0666 /* Stream.swift */,
+				EA5F288F607AE9B371F1800E5709FFC0 /* Upload.swift */,
+				942234281DD8DD088125C1D1267A06C4 /* Validation.swift */,
+				E0CAA12A0B174F57988F9869C9D89D42 /* Support Files */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		B253E4BF289AE95EEC89FCDA9D26DD27 /* Pods-pokemonGoAssistantTests */ = {
+			isa = PBXGroup;
+			children = (
+				775DFC6BEB6598946D769170B824ADED /* Info.plist */,
+				50A105A78835469ECBC4FD69A34C9C0A /* Pods-pokemonGoAssistantTests.modulemap */,
+				F1779E1B0B67A16A2661F478C51C0020 /* Pods-pokemonGoAssistantTests-acknowledgements.markdown */,
+				C971DFF84545C24A3EBCDAF2BB08DD84 /* Pods-pokemonGoAssistantTests-acknowledgements.plist */,
+				C3F0CC8EFAD11D7FD5DCEB33191A7546 /* Pods-pokemonGoAssistantTests-dummy.m */,
+				34383E57A8E50F2E04B2437DE3903932 /* Pods-pokemonGoAssistantTests-frameworks.sh */,
+				ABD7A4DCDED14ABB85BAF71EA090EA4D /* Pods-pokemonGoAssistantTests-resources.sh */,
+				C494A21C7864E92B2B823A008106273D /* Pods-pokemonGoAssistantTests-umbrella.h */,
+				762F1825D63D7DBC7461D0FCC70C9C98 /* Pods-pokemonGoAssistantTests.debug.xcconfig */,
+				65C5534706156537FF1887594D9C9226 /* Pods-pokemonGoAssistantTests.release.xcconfig */,
+			);
+			name = "Pods-pokemonGoAssistantTests";
+			path = "Target Support Files/Pods-pokemonGoAssistantTests";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4DC2528802D5143120EA397BE51FC7F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				825752A14377AD7F73463077A47D7F73 /* Alamofire */,
+				3B4F5AD886F1EBDF8299A184A41B243B /* SwiftyJSON */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E0CAA12A0B174F57988F9869C9D89D42 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				733089A529073D57B067E15E451D91CC /* Alamofire.modulemap */,
+				2676899F6DD1107B5E0AAD6E173408F5 /* Alamofire.xcconfig */,
+				4BB4F8EAEA5348FC382AE518DD8FC4D2 /* Alamofire-dummy.m */,
+				3CFD99788F8058A0B097555264B99093 /* Alamofire-prefix.pch */,
+				6853482225186AAD4F7C8E46F2D6AF63 /* Alamofire-umbrella.h */,
+				AA8C53DC8AE222E7A3052115C587D4C5 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Alamofire";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		87AD700B929A40354E094CA8066893F6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8A271AB899DB6EC06BD741BA5F1438 /* Pods-pokemonGoAssistantTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94CBBBD7BABFA0E958C252C9099AB1BA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CDDBA755B16E2CA1EDB07A9DEFB766A /* Pods-pokemonGoAssistant-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4BF25033E71C57D14B2233D45AC175D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73C3C5D48C8948D768FF01B4F0ABD900 /* SwiftyJSON-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF115D13DFBDD03E0ABD3097C5108DCC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A215FAB60CB15B6E5FA3A15E9E350D7D /* Alamofire-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3CF48955396C0997C2582BC72E811D0F /* Pods-pokemonGoAssistant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 125695CA6DB88D499FB3CE85AA861668 /* Build configuration list for PBXNativeTarget "Pods-pokemonGoAssistant" */;
+			buildPhases = (
+				BBB34EA12F45B32C71AFB57ACF204195 /* Sources */,
+				73C07FB4962F9FDD8FCA3626EA67A79D /* Frameworks */,
+				94CBBBD7BABFA0E958C252C9099AB1BA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85AE5F2A51559540C18D3016CBB249A1 /* PBXTargetDependency */,
+				717C18B8DF868F21C3772804A374B173 /* PBXTargetDependency */,
+			);
+			name = "Pods-pokemonGoAssistant";
+			productName = "Pods-pokemonGoAssistant";
+			productReference = 7539BECDF0AF3064C4870482BEC3FBF8 /* Pods_pokemonGoAssistant.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3DF9BE4D66763D8DC8346472B1BDD79D /* Pods-pokemonGoAssistantTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCA527CC93B82616A19DF6770FF84CBF /* Build configuration list for PBXNativeTarget "Pods-pokemonGoAssistantTests" */;
+			buildPhases = (
+				56B77C38CEE7E511845927F7C8A19B45 /* Sources */,
+				1D29B748424B48D8A1A386318C9F6AB0 /* Frameworks */,
+				87AD700B929A40354E094CA8066893F6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-pokemonGoAssistantTests";
+			productName = "Pods-pokemonGoAssistantTests";
+			productReference = 90B9394381BCB9A11A3514B590FD1C7F /* Pods_pokemonGoAssistantTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4B2F30D90D85A544E9EFE2A49D392C25 /* Alamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70DA65F1729D88E78F64BE8BACBAD6AC /* Build configuration list for PBXNativeTarget "Alamofire" */;
+			buildPhases = (
+				5FBF281000F4380394A2338B903D6017 /* Sources */,
+				14409D151BCE19B917E1ACDD56DC85F6 /* Frameworks */,
+				EF115D13DFBDD03E0ABD3097C5108DCC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Alamofire;
+			productName = Alamofire;
+			productReference = C22A35D5510BD26666A39407592F9363 /* Alamofire.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C1EDE6E5DB748E741F0B0FA8C8550C2A /* SwiftyJSON */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A95813709E7DEAD9324813E038EDFBD8 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
+			buildPhases = (
+				BF20F1FDB5C0785CB5D49012D3EDDD2F /* Sources */,
+				B3DB803BCAB482CD9B527CCF52EF1567 /* Frameworks */,
+				C4BF25033E71C57D14B2233D45AC175D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyJSON;
+			productName = SwiftyJSON;
+			productReference = 26ECCFBE534F77197CAEB74EF9BFA180 /* SwiftyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 07327B4E3EA6DF2900D88D8E4077ADE7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B2F30D90D85A544E9EFE2A49D392C25 /* Alamofire */,
+				3CF48955396C0997C2582BC72E811D0F /* Pods-pokemonGoAssistant */,
+				3DF9BE4D66763D8DC8346472B1BDD79D /* Pods-pokemonGoAssistantTests */,
+				C1EDE6E5DB748E741F0B0FA8C8550C2A /* SwiftyJSON */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		56B77C38CEE7E511845927F7C8A19B45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7F6E80A67D1ADB971AA2F78CF9F910F /* Pods-pokemonGoAssistantTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FBF281000F4380394A2338B903D6017 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8136D3B59D4753690000387A8082B54 /* Alamofire-dummy.m in Sources */,
+				E816509B4E3564E1A117CBDC0D845D69 /* Alamofire.swift in Sources */,
+				9077ECA2FA7B9C5D73365490A3D8898F /* Download.swift in Sources */,
+				FE1F95F519342B9266EB69B23B4336CF /* Error.swift in Sources */,
+				69A447D12E60E5C3451DA30C6BB4BF7F /* Manager.swift in Sources */,
+				D39B20327B1DAF6D8753ED5685DDE6DC /* MultipartFormData.swift in Sources */,
+				A8B5EDB7371475F62767B297B1A10CDE /* ParameterEncoding.swift in Sources */,
+				F16FEF1CB9703FE1887C8A618B84B7C6 /* Request.swift in Sources */,
+				848CEFBFC69DEBAF0E18885F3269F439 /* ResponseSerialization.swift in Sources */,
+				E6D041ABFBB48D9F1D8AA96E7D4C6C34 /* Result.swift in Sources */,
+				30A8F35FCAB29F5FBFC9F3F7E25A3B6B /* ServerTrustPolicy.swift in Sources */,
+				0EFD1FF643346FF85C83679F659672CA /* Stream.swift in Sources */,
+				E7B226D8BB16471AD63665A794036E44 /* Upload.swift in Sources */,
+				3E9392CB5BD9C0CC47B04EDB40639558 /* Validation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBB34EA12F45B32C71AFB57ACF204195 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				265AEC22C4AF96EB5118D290A6174D66 /* Pods-pokemonGoAssistant-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF20F1FDB5C0785CB5D49012D3EDDD2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04B802926F828ECF62B8AB5A1113F05B /* SwiftyJSON-dummy.m in Sources */,
+				904BB062CAB2EDC27CDD84E30D345FF0 /* SwiftyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		717C18B8DF868F21C3772804A374B173 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyJSON;
+			target = C1EDE6E5DB748E741F0B0FA8C8550C2A /* SwiftyJSON */;
+			targetProxy = 2BE8CDD3E3F55DB1A0B8DAC93B47BC06 /* PBXContainerItemProxy */;
+		};
+		85AE5F2A51559540C18D3016CBB249A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 4B2F30D90D85A544E9EFE2A49D392C25 /* Alamofire */;
+			targetProxy = 0F534192C3E7D2C80C5E09441E8AA9B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		034014829C1E4434983CF3A690C12017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		0F7FDE02EF5D33467FAC3453F060657F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E103B0A613A7D67105C8C5DCA34A55E /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2CB1BA859AD62CB956AC39F8333EE551 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2676899F6DD1107B5E0AAD6E173408F5 /* Alamofire.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3A7D4E7C07C2DC7448F0DEA1F31880BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65C5534706156537FF1887594D9C9226 /* Pods-pokemonGoAssistantTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-pokemonGoAssistantTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-pokemonGoAssistantTests/Pods-pokemonGoAssistantTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_pokemonGoAssistantTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		76CE12865B9D9CA368E9F00C3CF9B6C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A92C3F15237B79A59862506695C08FDF /* Pods-pokemonGoAssistant.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-pokemonGoAssistant/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-pokemonGoAssistant/Pods-pokemonGoAssistant.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_pokemonGoAssistant;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		890FA45FC2F6EC10D5E5BAE207C9FD96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55DC55ED15E6D6CD0C3AB86281ACE593 /* Pods-pokemonGoAssistant.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-pokemonGoAssistant/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-pokemonGoAssistant/Pods-pokemonGoAssistant.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_pokemonGoAssistant;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C7E474A03CAE21F1CB6046E7344C59BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D069DAC03B1FA1CE52E5FCAD78394BAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2676899F6DD1107B5E0AAD6E173408F5 /* Alamofire.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D8E5DD60114D436E9A36100315E8CA40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 762F1825D63D7DBC7461D0FCC70C9C98 /* Pods-pokemonGoAssistantTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-pokemonGoAssistantTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-pokemonGoAssistantTests/Pods-pokemonGoAssistantTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_pokemonGoAssistantTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E8F0D0FE7AEB0FDF63367401EFE04F8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E103B0A613A7D67105C8C5DCA34A55E /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		125695CA6DB88D499FB3CE85AA861668 /* Build configuration list for PBXNativeTarget "Pods-pokemonGoAssistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76CE12865B9D9CA368E9F00C3CF9B6C6 /* Debug */,
+				890FA45FC2F6EC10D5E5BAE207C9FD96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034014829C1E4434983CF3A690C12017 /* Debug */,
+				C7E474A03CAE21F1CB6046E7344C59BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70DA65F1729D88E78F64BE8BACBAD6AC /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D069DAC03B1FA1CE52E5FCAD78394BAF /* Debug */,
+				2CB1BA859AD62CB956AC39F8333EE551 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A95813709E7DEAD9324813E038EDFBD8 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8F0D0FE7AEB0FDF63367401EFE04F8A /* Debug */,
+				0F7FDE02EF5D33467FAC3453F060657F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCA527CC93B82616A19DF6770FF84CBF /* Build configuration list for PBXNativeTarget "Pods-pokemonGoAssistantTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8E5DD60114D436E9A36100315E8CA40 /* Debug */,
+				3A7D4E7C07C2DC7448F0DEA1F31880BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

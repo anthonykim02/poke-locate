@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-pokemonGoAssistant.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-pokemonGoAssistantTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3CF48955396C0997C2582BC72E811D0F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3DF9BE4D66763D8DC8346472B1BDD79D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4B2F30D90D85A544E9EFE2A49D392C25</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C1EDE6E5DB748E741F0B0FA8C8550C2A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

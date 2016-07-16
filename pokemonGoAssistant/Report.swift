@@ -25,7 +25,7 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         pokemonScroll.delegate = self
     }
     @IBAction func postAction(sender: AnyObject) {
-        print("hello")
+        print("hello", terminator: "")
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

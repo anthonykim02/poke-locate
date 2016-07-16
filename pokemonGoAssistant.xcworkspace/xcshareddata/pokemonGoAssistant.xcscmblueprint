@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CEF927CD5982D6AD1F82602A26B2675CA70F639E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CEF927CD5982D6AD1F82602A26B2675CA70F639E" : 0,
+    "588659E255C8DBC1FFB5AFFAA646630ACE924D4B" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9BA01308-8C0B-4305-879D-8246D5A5C5E9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CEF927CD5982D6AD1F82602A26B2675CA70F639E" : "poke-locate\/",
+    "588659E255C8DBC1FFB5AFFAA646630ACE924D4B" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "pokemonGoAssistant",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "pokemonGoAssistant.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kunaljaydesai\/CrimeApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "588659E255C8DBC1FFB5AFFAA646630ACE924D4B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/anthonykim02\/poke-locate.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CEF927CD5982D6AD1F82602A26B2675CA70F639E"
+    }
+  ]
+}

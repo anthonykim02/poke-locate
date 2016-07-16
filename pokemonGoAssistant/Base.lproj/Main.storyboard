@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBg-5b-6C6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBg-5b-6C6">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -14,7 +15,7 @@
         <!--Map-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="ViewController" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -160,7 +161,7 @@
         <!--Start Screen-->
         <scene sceneID="Rbe-6Z-KfM">
             <objects>
-                <viewController id="hBg-5b-6C6" customClass="StartScreen" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hBg-5b-6C6" customClass="StartScreen" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lHv-Ob-9MA"/>
                         <viewControllerLayoutGuide type="bottom" id="DY1-iY-blD"/>
@@ -222,7 +223,6 @@
         <!--Login-->
         <scene sceneID="i6q-tD-PuF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uvZ-c9-mwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="TYz-xC-sak" customClass="Login" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4kd-ls-1YX"/>
@@ -246,6 +246,9 @@
                                 <state key="normal" image="Login Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginAction:" destination="TYz-xC-sak" eventType="touchUpInside" id="Z5W-0M-Mn1"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rw4-4P-ijX">
                                 <rect key="frame" x="29" y="234" width="482" height="30"/>
@@ -302,7 +305,13 @@
                             <constraint firstItem="mer-UX-UyB" firstAttribute="top" secondItem="Pf9-GF-S60" secondAttribute="top" id="oTa-M7-tBC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="Zm2-H2-AQp" id="cRa-FH-4SX"/>
+                        <outlet property="passwordField" destination="MKp-8R-GLY" id="myy-75-o9Z"/>
+                        <outlet property="usernameField" destination="Rw4-4P-ijX" id="gcJ-cp-g8j"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uvZ-c9-mwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1054" y="-1883"/>
         </scene>
@@ -378,7 +387,6 @@
                                 </state>
                                 <connections>
                                     <action selector="registerAction:" destination="x8V-Fd-H3m" eventType="touchUpInside" id="LRg-0f-OyG"/>
-                                    <segue destination="Myc-m1-bvM" kind="show" id="hWw-ld-d3B"/>
                                 </connections>
                             </button>
                         </subviews>

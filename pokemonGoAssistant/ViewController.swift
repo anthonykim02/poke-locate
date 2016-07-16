@@ -33,9 +33,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         // Dispose of any resources that can be recreated.
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
         let center = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
         
@@ -46,8 +46,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.locationManager.stopUpdatingLocation()
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("Error: " + error.localizedDescription)
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error: " + error.localizedDescription)
     }
     
 }
