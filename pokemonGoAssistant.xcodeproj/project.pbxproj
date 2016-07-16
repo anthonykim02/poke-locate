@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9236F01E1D3A9B6600F13D3F /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9236F01D1D3A9B6600F13D3F /* StartScreen.swift */; };
+		9236F0201D3AAE7A00F13D3F /* Aleo_font_v1.2.2 in Resources */ = {isa = PBXBuildFile; fileRef = 9236F01F1D3AAE7A00F13D3F /* Aleo_font_v1.2.2 */; };
+		9236F0221D3AB1B000F13D3F /* Aleo-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9236F0211D3AB1B000F13D3F /* Aleo-Italic.otf */; };
+		9245B4F01D39E7D700996B5D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9245B4EF1D39E7D700996B5D /* CoreLocation.framework */; };
+		9245B4F41D39F3BA00996B5D /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B4F31D39F3BA00996B5D /* Report.swift */; };
+		9245B4FE1D3A3FBF00996B5D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B4FD1D3A3FBF00996B5D /* Track.swift */; };
+		9245B5001D3A6F2400996B5D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B4FF1D3A6F2400996B5D /* Login.swift */; };
+		9245B5021D3A745B00996B5D /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B5011D3A745B00996B5D /* Register.swift */; };
 		92DE18D41D39DA1900E8C45A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE18D31D39DA1900E8C45A /* AppDelegate.swift */; };
 		92DE18D61D39DA1900E8C45A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE18D51D39DA1900E8C45A /* ViewController.swift */; };
 		92DE18D91D39DA1900E8C45A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DE18D71D39DA1900E8C45A /* Main.storyboard */; };
@@ -26,6 +34,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9236F01D1D3A9B6600F13D3F /* StartScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
+		9236F01F1D3AAE7A00F13D3F /* Aleo_font_v1.2.2 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Aleo_font_v1.2.2; path = ../../../Downloads/Aleo_font_v1.2.2; sourceTree = "<group>"; };
+		9236F0211D3AB1B000F13D3F /* Aleo-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aleo-Italic.otf"; path = "../../../Downloads/Aleo_font_v1.2.2/Desktop OTF/Aleo-Italic.otf"; sourceTree = "<group>"; };
+		9245B4EF1D39E7D700996B5D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9245B4F31D39F3BA00996B5D /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		9245B4FD1D3A3FBF00996B5D /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		9245B4FF1D3A6F2400996B5D /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		9245B5011D3A745B00996B5D /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		92DE18CE1D39DA1900E8C45A /* pokemonGoAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemonGoAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DE18D21D39DA1900E8C45A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DE18D31D39DA1900E8C45A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9245B4F01D39E7D700996B5D /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +76,7 @@
 		92DE18C51D39DA1900E8C45A = {
 			isa = PBXGroup;
 			children = (
+				9245B4EF1D39E7D700996B5D /* CoreLocation.framework */,
 				92DE18D01D39DA1900E8C45A /* pokemonGoAssistant */,
 				92DE18E61D39DA1900E8C45A /* pokemonGoAssistantTests */,
 				92DE18CF1D39DA1900E8C45A /* Products */,
@@ -80,7 +98,14 @@
 				92DE18D31D39DA1900E8C45A /* AppDelegate.swift */,
 				92DE18D51D39DA1900E8C45A /* ViewController.swift */,
 				92DE18D71D39DA1900E8C45A /* Main.storyboard */,
+				9236F01D1D3A9B6600F13D3F /* StartScreen.swift */,
+				9245B5011D3A745B00996B5D /* Register.swift */,
+				9245B4FF1D3A6F2400996B5D /* Login.swift */,
+				9245B4FD1D3A3FBF00996B5D /* Track.swift */,
+				9245B4F31D39F3BA00996B5D /* Report.swift */,
 				92DE18DA1D39DA1900E8C45A /* Images.xcassets */,
+				9236F0211D3AB1B000F13D3F /* Aleo-Italic.otf */,
+				9236F01F1D3AAE7A00F13D3F /* Aleo_font_v1.2.2 */,
 				92DE18DC1D39DA1900E8C45A /* LaunchScreen.xib */,
 				92DE18D11D39DA1900E8C45A /* Supporting Files */,
 			);
@@ -192,7 +217,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9236F0221D3AB1B000F13D3F /* Aleo-Italic.otf in Resources */,
 				92DE18D91D39DA1900E8C45A /* Main.storyboard in Resources */,
+				9236F0201D3AAE7A00F13D3F /* Aleo_font_v1.2.2 in Resources */,
 				92DE18DE1D39DA1900E8C45A /* LaunchScreen.xib in Resources */,
 				92DE18DB1D39DA1900E8C45A /* Images.xcassets in Resources */,
 			);
@@ -212,8 +239,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9245B5021D3A745B00996B5D /* Register.swift in Sources */,
 				92DE18D61D39DA1900E8C45A /* ViewController.swift in Sources */,
+				9245B5001D3A6F2400996B5D /* Login.swift in Sources */,
+				9236F01E1D3A9B6600F13D3F /* StartScreen.swift in Sources */,
 				92DE18D41D39DA1900E8C45A /* AppDelegate.swift in Sources */,
+				9245B4F41D39F3BA00996B5D /* Report.swift in Sources */,
+				9245B4FE1D3A3FBF00996B5D /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +441,7 @@
 				92DE18EF1D39DA1900E8C45A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		92DE18F01D39DA1900E8C45A /* Build configuration list for PBXNativeTarget "pokemonGoAssistantTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +450,7 @@
 				92DE18F21D39DA1900E8C45A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
