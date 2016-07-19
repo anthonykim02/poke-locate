@@ -130,7 +130,6 @@
 				92DE18D31D39DA1900E8C45A /* AppDelegate.swift */,
 				92DE18D51D39DA1900E8C45A /* ViewController.swift */,
 				92DE18D71D39DA1900E8C45A /* Main.storyboard */,
-				9A12A7F51D3C446D00B0E60E /* Aleo-Italic.otf */,
 				9236F01D1D3A9B6600F13D3F /* StartScreen.swift */,
 				9245B5011D3A745B00996B5D /* Register.swift */,
 				9245B4FF1D3A6F2400996B5D /* Login.swift */,
@@ -138,6 +137,7 @@
 				9245B4F31D39F3BA00996B5D /* Report.swift */,
 				92DE18DA1D39DA1900E8C45A /* Images.xcassets */,
 				92DE18DC1D39DA1900E8C45A /* LaunchScreen.xib */,
+				92F1A7AC1D3DF0B4001E4E14 /* Aleo-Italic.otf */,
 				92DE18D11D39DA1900E8C45A /* Supporting Files */,
 				9A12A7F71D3DF7BD00B0E60E /* VCMapViewDelegate.swift */,
 			);
@@ -259,7 +259,6 @@
 			files = (
 				92DE18D91D39DA1900E8C45A /* Main.storyboard in Resources */,
 				92DE18DE1D39DA1900E8C45A /* LaunchScreen.xib in Resources */,
-				9A12A7F61D3C446D00B0E60E /* Aleo-Italic.otf in Resources */,
 				92DE18DB1D39DA1900E8C45A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
