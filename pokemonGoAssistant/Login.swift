@@ -31,9 +31,12 @@ class Login: UIViewController {
                         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
                         self.showViewController(vc as! UIViewController, sender: vc)
                     } else {
-                        print("ERROR")
+                        // make label error message
                     }
+                } else {
+                    // make label error message
                 }
+                
         }
     }
 }

@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Aleo-Italic.otf</string>
+		<string>Aleo-Italic.otf</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location services needed to track Pokemon in your area.</string>

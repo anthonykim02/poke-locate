@@ -14,6 +14,7 @@ import MapKit
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var report: UIButton!
     
     let locationManager = CLLocationManager()
     
@@ -50,6 +51,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         print("Error: " + error.localizedDescription)
     }
     
+    @IBAction func reported(sender: AnyObject) {
+        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Report")
+        self.showViewController(vc as! UIViewController, sender: vc)
+    }
 }
 
 

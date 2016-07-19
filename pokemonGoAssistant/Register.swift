@@ -101,9 +101,11 @@ class Register: UIViewController {
                         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
                         self.showViewController(vc as! UIViewController, sender: vc)
                     } else {
-                        print("ERROR")
+                        // print error message
                         
                     }
+                } else {
+                    //print error message
                 }
         }
     }
