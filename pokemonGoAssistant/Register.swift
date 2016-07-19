@@ -102,7 +102,6 @@ class Register: UIViewController {
                         self.showViewController(vc as! UIViewController, sender: vc)
                     } else {
                         // print error message
-                        
                     }
                 } else {
                     //print error message

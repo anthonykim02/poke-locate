@@ -11,13 +11,13 @@ import CoreLocation
 import MapKit
 
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var report: UIButton!
     
     let locationManager = CLLocationManager()
-    
+    var numberUpdates = 0;
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +27,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.locationManager.startUpdatingLocation()
         
         self.mapView.showsUserLocation = true
+        self.mapView.delegate = self
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,16 +37,18 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        
-        let center = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
-        
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
-        
-        self.mapView.setRegion(region, animated: true)
-        
-        self.locationManager.stopUpdatingLocation()
+        if numberUpdates == 0 {
+            let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+            
+            let center = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
+            
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+            
+            self.mapView.setRegion(region, animated: true)
+        } else {
+            
+        }
+        numberUpdates = numberUpdates + 1
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -54,7 +58,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBAction func reported(sender: AnyObject) {
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Report")
         self.showViewController(vc as! UIViewController, sender: vc)
+        
     }
+    
 }
 
 
