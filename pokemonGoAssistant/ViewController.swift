@@ -19,10 +19,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var nameData = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno","zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"]
     
     let locationManager = CLLocationManager()
+    var latitude = 0.0
+    var longitude = 0.0
     var numberUpdates = 0;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.latitude = 0.0
+        self.longitude = 0.0
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         self.locationManager.requestWhenInUseAuthorization()
@@ -41,18 +45,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        
         if numberUpdates == 0 {
-            let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-            
             let center = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
-            
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
-            
             self.mapView.setRegion(region, animated: true)
         } else {
             
         }
         numberUpdates = numberUpdates + 1
+        latitude = locValue.latitude
+        longitude = locValue.longitude
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -60,9 +64,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func reported(sender: AnyObject) {
-        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Report")
-        self.showViewController(vc as! UIViewController, sender: vc)
-        
+        let vc = storyboard!.instantiateViewControllerWithIdentifier("Report") as! Report
+        vc.latitude = latitude
+        vc.longitude = longitude
+        self.showViewController(vc, sender: vc)
     }
     
     func addPokemon(latitude: Double, longitude: Double, index: Int) {
