@@ -22,6 +22,7 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         super.viewDidLoad()
         pokemonScroll.dataSource = self
         pokemonScroll.delegate = self
+        pokemonImage.image = UIImage(named: "bulbasaur")
     }
     @IBAction func postAction(sender: AnyObject) {
         print("hello", terminator: "")
@@ -36,11 +37,11 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        pokemonImage.image = UIImage(named: pokemonData[row])
-        return pokemonData[row]
+        return pokemonData[row].capitalizedString
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pokemonImage.image = UIImage(named: pokemonData[row])
         someString1 = pokemonData[row]
     }
 }

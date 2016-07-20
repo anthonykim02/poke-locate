@@ -21,10 +21,10 @@ class Track: UIViewController {
     func trackPokemon(pokemon: UITapGestureRecognizer!) {
         let button:UIButton = pokemon.view as! UIButton
         print(button.currentTitle!, terminator: "")
-        if button.backgroundImageForState(UIControlState.Normal) == UIImage(named:"coolBlue"){
+        if button.backgroundImageForState(UIControlState.Normal) == UIImage(named:"pokeball"){
             button.setBackgroundImage(nil, forState: UIControlState.Normal)
         } else {
-            button.setBackgroundImage(UIImage(named: "coolBlue"), forState: UIControlState.Normal)
+            button.setBackgroundImage(UIImage(named: "pokeball"), forState: UIControlState.Normal)
         }
         
     }
