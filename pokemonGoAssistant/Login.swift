@@ -13,6 +13,7 @@ class Login: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var errorMessage: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +32,12 @@ class Login: UIViewController {
                         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
                         self.showViewController(vc as! UIViewController, sender: vc)
                     } else {
-                        // make label error message
+                        self.errorMessage.text = "The username or password is incorrect."
+                        self.errorMessage.hidden = false
                     }
                 } else {
-                    // make label error message
+                    self.errorMessage.text = "Connection Error: Server not found"
+                    self.errorMessage.hidden = false
                 }
                 
         }

@@ -21,7 +21,8 @@
 		92DE18DB1D39DA1900E8C45A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92DE18DA1D39DA1900E8C45A /* Images.xcassets */; };
 		92DE18DE1D39DA1900E8C45A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DE18DC1D39DA1900E8C45A /* LaunchScreen.xib */; };
 		92DE18EA1D39DA1900E8C45A /* pokemonGoAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE18E91D39DA1900E8C45A /* pokemonGoAssistantTests.swift */; };
-		9A12A7F61D3C446D00B0E60E /* Aleo-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A12A7F51D3C446D00B0E60E /* Aleo-Italic.otf */; };
+		92F1A7AE1D3EBE5B001E4E14 /* Aleo-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92F1A7AD1D3EBD41001E4E14 /* Aleo-Italic.otf */; };
+		92F1A7B01D3EFDDD001E4E14 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F1A7AF1D3EFDDD001E4E14 /* CustomPointAnnotation.swift */; };
 		9A12A7F81D3DF7BD00B0E60E /* VCMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12A7F71D3DF7BD00B0E60E /* VCMapViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +56,8 @@
 		92DE18E31D39DA1900E8C45A /* pokemonGoAssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pokemonGoAssistantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DE18E81D39DA1900E8C45A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DE18E91D39DA1900E8C45A /* pokemonGoAssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokemonGoAssistantTests.swift; sourceTree = "<group>"; };
-		9A12A7F51D3C446D00B0E60E /* Aleo-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aleo-Italic.otf"; path = "../../../../../Downloads/aleo/Aleo-Italic.otf"; sourceTree = "<group>"; };
+		92F1A7AD1D3EBD41001E4E14 /* Aleo-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aleo-Italic.otf"; path = "../../Downloads/Aleo_font_v1.2.2/Desktop OTF/Aleo-Italic.otf"; sourceTree = "<group>"; };
+		92F1A7AF1D3EFDDD001E4E14 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		9A12A7F71D3DF7BD00B0E60E /* VCMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapViewDelegate.swift; sourceTree = "<group>"; };
 		C0E683846B057BFD9AD27C12 /* Pods-pokemonGoAssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonGoAssistantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pokemonGoAssistantTests/Pods-pokemonGoAssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4239B32FD6596FC8A916D02 /* Pods-pokemonGoAssistantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonGoAssistantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pokemonGoAssistantTests/Pods-pokemonGoAssistantTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		92DE18C51D39DA1900E8C45A = {
 			isa = PBXGroup;
 			children = (
+				92F1A7AD1D3EBD41001E4E14 /* Aleo-Italic.otf */,
 				9245B4EF1D39E7D700996B5D /* CoreLocation.framework */,
 				92DE18D01D39DA1900E8C45A /* pokemonGoAssistant */,
 				92DE18E61D39DA1900E8C45A /* pokemonGoAssistantTests */,
@@ -130,6 +133,7 @@
 				92DE18D31D39DA1900E8C45A /* AppDelegate.swift */,
 				92DE18D51D39DA1900E8C45A /* ViewController.swift */,
 				92DE18D71D39DA1900E8C45A /* Main.storyboard */,
+				92F1A7AF1D3EFDDD001E4E14 /* CustomPointAnnotation.swift */,
 				9236F01D1D3A9B6600F13D3F /* StartScreen.swift */,
 				9245B5011D3A745B00996B5D /* Register.swift */,
 				9245B4FF1D3A6F2400996B5D /* Login.swift */,
@@ -137,7 +141,6 @@
 				9245B4F31D39F3BA00996B5D /* Report.swift */,
 				92DE18DA1D39DA1900E8C45A /* Images.xcassets */,
 				92DE18DC1D39DA1900E8C45A /* LaunchScreen.xib */,
-				92F1A7AC1D3DF0B4001E4E14 /* Aleo-Italic.otf */,
 				92DE18D11D39DA1900E8C45A /* Supporting Files */,
 				9A12A7F71D3DF7BD00B0E60E /* VCMapViewDelegate.swift */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92F1A7AE1D3EBE5B001E4E14 /* Aleo-Italic.otf in Resources */,
 				92DE18D91D39DA1900E8C45A /* Main.storyboard in Resources */,
 				92DE18DE1D39DA1900E8C45A /* LaunchScreen.xib in Resources */,
 				92DE18DB1D39DA1900E8C45A /* Images.xcassets in Resources */,
@@ -377,6 +381,7 @@
 				92DE18D41D39DA1900E8C45A /* AppDelegate.swift in Sources */,
 				9245B4F41D39F3BA00996B5D /* Report.swift in Sources */,
 				9245B4FE1D3A3FBF00996B5D /* Track.swift in Sources */,
+				92F1A7B01D3EFDDD001E4E14 /* CustomPointAnnotation.swift in Sources */,
 				9A12A7F81D3DF7BD00B0E60E /* VCMapViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

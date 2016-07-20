@@ -17,5 +17,6 @@ extension ViewController: MKMapViewDelegate {
         let mapPointBottomRightX = MKMapRectGetMaxX(mapPoint)
         let mapPointBottomRightY = MKMapRectGetMaxY(mapPoint)
         let bottomRightCoordinates = MKCoordinateForMapPoint(MKMapPoint(x: mapPointBottomRightX, y: mapPointBottomRightY))
+        print(bottomRightCoordinates)
     }
 }

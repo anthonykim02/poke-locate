@@ -16,6 +16,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var report: UIButton!
     
+    var nameData = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno","zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"]
+    
     let locationManager = CLLocationManager()
     var numberUpdates = 0;
     override func viewDidLoad() {
@@ -28,6 +30,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
+        
+        addPokemon(37.774468, longitude: -121.909371, index: 4)
         
     }
     
@@ -42,7 +46,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             let center = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
             
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
             
             self.mapView.setRegion(region, animated: true)
         } else {
@@ -59,6 +63,44 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Report")
         self.showViewController(vc as! UIViewController, sender: vc)
         
+    }
+    
+    func addPokemon(latitude: Double, longitude: Double, index: Int) {
+        print(latitude)
+        print(longitude)
+        print(index)
+        let pokemonName = nameData[index]
+        print(pokemonName)
+        let pokemon = CustomPointAnnotation()
+        pokemon.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+        pokemon.title = pokemonName
+        pokemon.subtitle = "hello"
+        pokemon.pinCustomImageName = pokemonName + ".png"
+        
+        self.mapView.addAnnotation(pokemon)
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?{
+        print("works", terminator: "")
+        if !(annotation is CustomPointAnnotation) {
+            return nil
+        }
+        
+        let reuseId = "test"
+        
+        var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            anView!.canShowCallout = true
+        }
+        else {
+            anView!.annotation = annotation
+        }
+        
+        let cpa = annotation as! CustomPointAnnotation
+        anView!.image = UIImage(named: cpa.pinCustomImageName)
+        
+        return anView
     }
     
 }

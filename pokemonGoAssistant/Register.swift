@@ -16,12 +16,12 @@ class Register: UIViewController {
     @IBOutlet weak var numberField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var teamButton: UISegmentedControl!
     @IBOutlet weak var registerButton: UIButton!
     
     @IBOutlet weak var mysticButton: UIButton!
     @IBOutlet weak var valorButton: UIButton!
     @IBOutlet weak var instinctButton: UIButton!
+    @IBOutlet weak var errorMessage: UILabel!
     
     var instinctShadow = false
     var mysticShadow = false
@@ -101,10 +101,12 @@ class Register: UIViewController {
                         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
                         self.showViewController(vc as! UIViewController, sender: vc)
                     } else {
-                        // print error message
+                        self.errorMessage.text = "Account information already exists."
+                        self.errorMessage.hidden = false
                     }
                 } else {
-                    //print error message
+                    self.errorMessage.text = "Connection Error: Server not found"
+                    self.errorMessage.hidden = false
                 }
         }
     }

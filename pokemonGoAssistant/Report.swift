@@ -11,7 +11,6 @@ import UIKit
 class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var pokemonScroll: UIPickerView!
-    @IBOutlet weak var timeScroll: UIDatePicker!
     @IBOutlet weak var pokemonImage: UIImageView!
     
     var someString1 = ""
