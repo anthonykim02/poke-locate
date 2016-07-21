@@ -12,8 +12,11 @@ class Track: UIViewController {
     @IBOutlet weak var longView: UIView!
     
     var count = 0
+    var selected = false
 
     var nameData = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno","zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"]
+    
+    var buttons:NSMutableArray = []
     
     var x: CGFloat = 0
     var y: CGFloat = 80
@@ -32,6 +35,7 @@ class Track: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         
         while count < 150 {
             let tapGesture = UITapGestureRecognizer(target: self, action: Selector("trackPokemon:"))
@@ -54,6 +58,7 @@ class Track: UIViewController {
             }
             
             longView.addSubview(pokeButton)
+            buttons.addObject(pokeButton)
             count = count + 1
         }
         
@@ -61,6 +66,31 @@ class Track: UIViewController {
         
     }
     
+    @IBAction func backToMap(sender: AnyObject) {
+        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
+        self.showViewController(vc as! UIViewController, sender: vc)
+    }
+    
+    @IBAction func allSelect(sender: AnyObject) {
+        if selected == false {
+            for btn in buttons {
+                btn.setBackgroundImage(UIImage(named: "pokeball"), forState: UIControlState.Normal)
+                selected = true
+            }
+        } else {
+            for btn in buttons {
+                btn.setBackgroundImage(nil, forState: UIControlState.Normal)
+            }
+            selected = false
+        }
+        
+    }
+
+
+
+    @IBAction func save(sender: AnyObject) {
+        print("hello")
+    }
     
     
     override func didReceiveMemoryWarning() {

@@ -9,12 +9,19 @@ import UIKit
 
 class StartScreen: UIViewController {
     
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var registerButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    @IBAction func openLogin(sender: AnyObject) {
+        let loginScreen : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Login")
+        self.showViewController(loginScreen as! UIViewController, sender: loginScreen)
+        
+       
+    }
+    @IBAction func openRegister(sender: AnyObject) {
+        let registerScreen : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Register")
+        self.showViewController(registerScreen as! UIViewController, sender: registerScreen)
     }
 }
 

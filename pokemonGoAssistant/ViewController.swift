@@ -59,6 +59,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         print("Error: " + error.localizedDescription)
     }
     
+    @IBAction func tracked(sender: AnyObject) {
+        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Track")
+        self.showViewController(vc as! UIViewController, sender: vc)
+    }
     @IBAction func reported(sender: AnyObject) {
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Report")
         self.showViewController(vc as! UIViewController, sender: vc)

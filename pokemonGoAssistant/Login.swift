@@ -42,4 +42,8 @@ class Login: UIViewController {
                 
         }
     }
+    @IBAction func backAction(sender: AnyObject) {
+        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
+        self.showViewController(vc as! UIViewController, sender: vc)
+    }
 }

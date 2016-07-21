@@ -34,6 +34,17 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="K5C-Qh-rTX">
                                 <rect key="frame" x="0.0" y="-32" width="600" height="632"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30m-qR-8ka">
+                                <rect key="frame" x="530" y="20" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="BFC-NZ-Gb0"/>
+                                    <constraint firstAttribute="height" constant="50" id="vAr-30-j1O"/>
+                                </constraints>
+                                <state key="normal" image="Search Icon"/>
+                                <connections>
+                                    <action selector="tracked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kg7-Ma-2PG"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQ5-jI-bhE">
                                 <rect key="frame" x="100" y="472" width="400" height="65"/>
                                 <color key="backgroundColor" red="0.20918945565240613" green="0.54511880874633789" blue="0.45674009606530458" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,18 +73,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="reported:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CKn-yG-sBH"/>
-                                    <segue destination="CBd-dB-1xN" kind="show" id="aiP-fJ-4GC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30m-qR-8ka">
-                                <rect key="frame" x="530" y="20" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="BFC-NZ-Gb0"/>
-                                    <constraint firstAttribute="height" constant="50" id="vAr-30-j1O"/>
-                                </constraints>
-                                <state key="normal" image="Search Icon"/>
-                                <connections>
-                                    <segue destination="oAk-A2-BNR" kind="show" id="exv-sy-6vw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -107,12 +106,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1161" y="2433"/>
+            <point key="canvasLocation" x="-1285" y="-651"/>
         </scene>
         <!--Tracking-->
         <scene sceneID="7zP-U7-Q31">
             <objects>
-                <viewController id="oAk-A2-BNR" customClass="Track" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Track" id="oAk-A2-BNR" customClass="Track" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b0t-hX-1lT"/>
                         <viewControllerLayoutGuide type="bottom" id="edl-NN-oSk"/>
@@ -150,25 +149,36 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iys-n0-xrp">
-                                <rect key="frame" x="30" y="40" width="95" height="35"/>
+                                <rect key="frame" x="30" y="40" width="90" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="HzA-j3-HNW"/>
                                     <constraint firstAttribute="height" constant="35" id="OP4-Fe-IyA"/>
                                 </constraints>
                                 <state key="normal" image="Back Button"/>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="ZRB-LN-IFp"/>
+                                    <action selector="backToMap:" destination="oAk-A2-BNR" eventType="touchUpInside" id="wUA-gV-RtA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQg-pf-udb">
-                                <rect key="frame" x="462" y="28" width="95" height="35"/>
+                                <rect key="frame" x="462" y="28" width="90" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Cxl-0N-aow"/>
                                     <constraint firstAttribute="width" constant="95" id="mEO-W8-b1e"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="Report Button"/>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="gW0-2f-kam"/>
+                                    <action selector="save:" destination="oAk-A2-BNR" eventType="touchUpInside" id="Vt1-nG-w8L"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKa-VV-pe1">
+                                <rect key="frame" x="227" y="40" width="90" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="1re-Pj-pYB"/>
+                                    <constraint firstAttribute="height" constant="35" id="S1E-1T-aoy"/>
+                                </constraints>
+                                <state key="normal" title="Select All" image="Mystic"/>
+                                <connections>
+                                    <action selector="allSelect:" destination="oAk-A2-BNR" eventType="touchUpInside" id="vEd-jO-jy2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -184,7 +194,9 @@
                             <constraint firstItem="CZW-F9-OrL" firstAttribute="top" secondItem="b0t-hX-1lT" secondAttribute="bottom" id="bIW-ux-TN8"/>
                             <constraint firstItem="iys-n0-xrp" firstAttribute="top" secondItem="b0t-hX-1lT" secondAttribute="bottom" constant="20" id="oZ7-Ys-Tcw"/>
                             <constraint firstAttribute="trailing" secondItem="wQg-pf-udb" secondAttribute="trailing" constant="10" id="pF4-tj-8DG"/>
+                            <constraint firstItem="aKa-VV-pe1" firstAttribute="centerX" secondItem="gr0-tM-Q4F" secondAttribute="centerX" id="sAx-vP-dcE"/>
                             <constraint firstItem="iys-n0-xrp" firstAttribute="leading" secondItem="gr0-tM-Q4F" secondAttribute="leadingMargin" constant="10" id="ubJ-Re-SuS"/>
+                            <constraint firstItem="iys-n0-xrp" firstAttribute="centerY" secondItem="aKa-VV-pe1" secondAttribute="centerY" id="woE-jV-qYO"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -202,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOe-Ww-93d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="414" y="943"/>
+            <point key="canvasLocation" x="-664" y="1645"/>
         </scene>
         <!--Report-->
         <scene sceneID="Dw3-s0-dwQ">
@@ -246,7 +258,7 @@
                                 </constraints>
                                 <state key="normal" image="Back Button"/>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="Uig-9q-aPO"/>
+                                    <action selector="backAction:" destination="CBd-dB-1xN" eventType="touchUpInside" id="w7f-VQ-lvd"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOu-kQ-byg">
@@ -314,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQc-QV-9u5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-374" y="-598"/>
+            <point key="canvasLocation" x="-650" y="-1042"/>
         </scene>
         <!--Start Screen-->
         <scene sceneID="Rbe-6Z-KfM">
@@ -346,7 +358,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="x8V-Fd-H3m" kind="show" id="QEV-UR-mg3"/>
+                                    <action selector="openRegister:" destination="hBg-5b-6C6" eventType="touchUpInside" id="TQa-bO-2oh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phE-Ng-kFj">
@@ -364,7 +376,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="TYz-xC-sak" kind="show" id="OfB-ly-f4a"/>
+                                    <action selector="openLogin:" destination="hBg-5b-6C6" eventType="touchUpInside" id="juZ-Pu-1a1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -395,12 +407,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gV-KI-haW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2298" y="-966"/>
+            <point key="canvasLocation" x="-2566" y="-1042"/>
         </scene>
         <!--Login-->
         <scene sceneID="i6q-tD-PuF">
             <objects>
-                <viewController id="TYz-xC-sak" customClass="Login" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TYz-xC-sak" customClass="Login" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4kd-ls-1YX"/>
                         <viewControllerLayoutGuide type="bottom" id="smG-re-aEg"/>
@@ -412,37 +424,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Log In Screen 7" translatesAutoresizingMaskIntoConstraints="NO" id="mer-UX-UyB">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXi-b2-cmP">
-                                <rect key="frame" x="30" y="40" width="33" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="6Na-xL-AOn"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="HtH-NI-oxs"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Rlf-0n-YIX"/>
-                                    <constraint firstAttribute="width" constant="95" id="S6a-jg-4ZP"/>
-                                    <constraint firstAttribute="height" constant="45" id="WM4-C1-9cc"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="ajU-Ry-vIN"/>
-                                    <constraint firstAttribute="width" constant="45" id="f3G-ue-j2V"/>
-                                    <constraint firstAttribute="height" constant="35" id="jLt-st-cpg"/>
-                                    <constraint firstAttribute="height" constant="33" id="n15-bN-66p"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="xgT-F8-T53"/>
-                                </constraints>
-                                <state key="normal" image="backArrow"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="HtH-NI-oxs"/>
-                                        <exclude reference="Rlf-0n-YIX"/>
-                                        <exclude reference="S6a-jg-4ZP"/>
-                                        <exclude reference="WM4-C1-9cc"/>
-                                        <exclude reference="ajU-Ry-vIN"/>
-                                        <exclude reference="f3G-ue-j2V"/>
-                                        <exclude reference="jLt-st-cpg"/>
-                                        <exclude reference="xgT-F8-T53"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <segue destination="hBg-5b-6C6" kind="show" id="nia-Nm-jSz"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zm2-H2-AQp">
                                 <rect key="frame" x="200" y="446" width="200" height="50"/>
                                 <constraints>
@@ -530,6 +511,37 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXi-b2-cmP">
+                                <rect key="frame" x="29" y="40" width="33" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="6Na-xL-AOn"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="HtH-NI-oxs"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Rlf-0n-YIX"/>
+                                    <constraint firstAttribute="width" constant="95" id="S6a-jg-4ZP"/>
+                                    <constraint firstAttribute="height" constant="45" id="WM4-C1-9cc"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="ajU-Ry-vIN"/>
+                                    <constraint firstAttribute="width" constant="45" id="f3G-ue-j2V"/>
+                                    <constraint firstAttribute="height" constant="35" id="jLt-st-cpg"/>
+                                    <constraint firstAttribute="height" constant="33" id="n15-bN-66p"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="xgT-F8-T53"/>
+                                </constraints>
+                                <state key="normal" image="backArrow"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HtH-NI-oxs"/>
+                                        <exclude reference="Rlf-0n-YIX"/>
+                                        <exclude reference="S6a-jg-4ZP"/>
+                                        <exclude reference="WM4-C1-9cc"/>
+                                        <exclude reference="ajU-Ry-vIN"/>
+                                        <exclude reference="f3G-ue-j2V"/>
+                                        <exclude reference="jLt-st-cpg"/>
+                                        <exclude reference="xgT-F8-T53"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="backAction:" destination="TYz-xC-sak" eventType="touchUpInside" id="KVP-eb-dVr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -587,12 +599,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uvZ-c9-mwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1047" y="-1345"/>
+            <point key="canvasLocation" x="-1911" y="-1042"/>
         </scene>
         <!--Register-->
         <scene sceneID="vxA-h5-UlT">
             <objects>
-                <viewController id="x8V-Fd-H3m" customClass="Register" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x8V-Fd-H3m" customClass="Register" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NNf-g9-p08"/>
                         <viewControllerLayoutGuide type="bottom" id="5h1-5o-KeT"/>
@@ -624,7 +636,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="hBg-5b-6C6" kind="show" id="Aik-f6-B7o"/>
+                                    <action selector="backAction:" destination="x8V-Fd-H3m" eventType="touchUpInside" id="7pz-wn-K6H"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Line" translatesAutoresizingMaskIntoConstraints="NO" id="pFN-gp-sPP">
@@ -741,7 +753,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="registerAction:" destination="x8V-Fd-H3m" eventType="touchUpInside" id="LRg-0f-OyG"/>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="eqC-eJ-91O"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9o-V3-fso">
@@ -917,7 +928,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RsH-fh-1W9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1676" y="-924"/>
+            <point key="canvasLocation" x="-1911" y="-380"/>
         </scene>
     </scenes>
     <resources>
@@ -928,6 +939,7 @@
         <image name="Login Button" width="2475" height="600"/>
         <image name="Login Screen 25" width="3726" height="6624"/>
         <image name="MYSTIC Button" width="714" height="144"/>
+        <image name="Mystic" width="1059" height="510"/>
         <image name="Register Button" width="2475" height="600"/>
         <image name="Register Screen 4" width="3726" height="6624"/>
         <image name="Report Button" width="2475" height="600"/>
@@ -937,8 +949,4 @@
         <image name="backArrow" width="157" height="115"/>
         <image name="cubone" width="96" height="96"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="eqC-eJ-91O"/>
-        <segue reference="Aik-f6-B7o"/>
-    </inferredMetricsTieBreakers>
 </document>

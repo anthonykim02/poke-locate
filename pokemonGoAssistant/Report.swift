@@ -28,6 +28,11 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         print("hello", terminator: "")
     }
     
+    @IBAction func backAction(sender: AnyObject) {
+        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
+        self.showViewController(vc as! UIViewController, sender: vc)
+        
+    }
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
