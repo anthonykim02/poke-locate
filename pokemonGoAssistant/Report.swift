@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+ 
+    @IBOutlet var pokemonScroll: UIPickerView!
     
-    @IBOutlet weak var pokemonScroll: UIPickerView!
-    @IBOutlet weak var pokemonImage: UIImageView!
-    
+    @IBOutlet var pokemonImage: UIImageView!
     var someString1 = ""
     
+    var pokemon = 0
+    var pokemonIndex = 0
+    
+    var latitude:Double = 0.0
+    var longitude:Double = 0.0
     
     let pokemonData = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno","zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"]
     
@@ -24,8 +31,22 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         pokemonScroll.delegate = self
         pokemonImage.image = UIImage(named: "bulbasaur")
     }
+    
     @IBAction func postAction(sender: AnyObject) {
-        print("hello", terminator: "")
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/add", parameters: ["pokemon": pokemonIndex, "latitude": self.latitude, "longitude" : self.longitude, "user_id" : 0]).validate().responseJSON { (_, _, response) in
+            if let json = response.value {
+                var data = JSON(json)
+                var succesful = data["success"].stringValue
+                if succesful == "1" {
+                    //print error message
+                } else {
+                    print("succesful")
+                }
+            } else {
+                print("network error")
+                //network error
+            }
+        }
     }
     
     @IBAction func backAction(sender: AnyObject) {
@@ -48,5 +69,7 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pokemonImage.image = UIImage(named: pokemonData[row])
         someString1 = pokemonData[row]
+        pokemonIndex = row
     }
+
 }
