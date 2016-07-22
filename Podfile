@@ -5,7 +5,7 @@ use_frameworks!
 target 'pokemonGoAssistant' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'Alamofire', '2.0.2'
+  pod 'Alamofire', ‘~> 2.0.2’
   pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON'
 
   # Pods for pokemonGoAssistant

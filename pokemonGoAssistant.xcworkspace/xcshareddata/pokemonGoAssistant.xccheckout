@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9BA01308-8C0B-4305-879D-8246D5A5C5E9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>pokemonGoAssistant</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>588659E255C8DBC1FFB5AFFAA646630ACE924D4B</key>
+		<string>https://github.com/kunaljaydesai/CrimeApp.git</string>
+		<key>CEF927CD5982D6AD1F82602A26B2675CA70F639E</key>
+		<string>https://github.com/anthonykim02/poke-locate.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>pokemonGoAssistant.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>588659E255C8DBC1FFB5AFFAA646630ACE924D4B</key>
+		<string>../../..</string>
+		<key>CEF927CD5982D6AD1F82602A26B2675CA70F639E</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/anthonykim02/poke-locate.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CEF927CD5982D6AD1F82602A26B2675CA70F639E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>588659E255C8DBC1FFB5AFFAA646630ACE924D4B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CEF927CD5982D6AD1F82602A26B2675CA70F639E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>poke-locate</string>
+		</dict>
+	</array>
+</dict>
+</plist>
