@@ -10,6 +10,8 @@ import UIKit
 
 class Track: UIViewController {
     @IBOutlet weak var longView: UIView!
+
+    @IBOutlet weak var selectButton: UIButton!
     
     var count = 0
     var selected = false
@@ -67,6 +69,8 @@ class Track: UIViewController {
     }
     
     @IBAction func backToMap(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
         self.showViewController(vc as! UIViewController, sender: vc)
     }
@@ -75,13 +79,17 @@ class Track: UIViewController {
         if selected == false {
             for btn in buttons {
                 btn.setBackgroundImage(UIImage(named: "pokeball"), forState: UIControlState.Normal)
-                selected = true
+                
             }
+            selected = true
+            selectButton.setImage(UIImage(named: "Deselect All Button"), forState: UIControlState.Normal)
+            
         } else {
             for btn in buttons {
                 btn.setBackgroundImage(nil, forState: UIControlState.Normal)
             }
             selected = false
+            selectButton.setImage(UIImage(named: "Select All Button"), forState: UIControlState.Normal)
         }
         
     }
@@ -89,7 +97,7 @@ class Track: UIViewController {
 
 
     @IBAction func save(sender: AnyObject) {
-        print("hello")
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     

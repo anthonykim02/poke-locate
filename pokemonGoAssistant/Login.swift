@@ -29,6 +29,7 @@ class Login: UIViewController {
                     var success = json["success"].stringValue
                     if success == "0" {
                         print("Success = 0")
+                        
                         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
                         self.showViewController(vc as! UIViewController, sender: vc)
                     } else {
@@ -42,7 +43,10 @@ class Login: UIViewController {
                 
         }
     }
+    
     @IBAction func backAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
         self.showViewController(vc as! UIViewController, sender: vc)
     }

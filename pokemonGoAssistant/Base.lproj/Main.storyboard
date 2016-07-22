@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBg-5b-6C6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBg-5b-6C6">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -73,20 +73,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="reported:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CKn-yG-sBH"/>
-<<<<<<< HEAD
-=======
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30m-qR-8ka">
-                                <rect key="frame" x="530" y="20" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="BFC-NZ-Gb0"/>
-                                    <constraint firstAttribute="height" constant="50" id="vAr-30-j1O"/>
-                                </constraints>
-                                <state key="normal" image="Search Icon"/>
-                                <connections>
-                                    <segue destination="oAk-A2-BNR" kind="show" id="exv-sy-6vw"/>
->>>>>>> 3f5db88452e0e173ec27e6b134c6584c93ba49b4
                                 </connections>
                             </button>
                         </subviews>
@@ -179,7 +165,7 @@
                                     <constraint firstAttribute="height" constant="35" id="Cxl-0N-aow"/>
                                     <constraint firstAttribute="width" constant="95" id="mEO-W8-b1e"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="Report Button"/>
+                                <state key="normal" title="Button" image="Save Button"/>
                                 <connections>
                                     <action selector="save:" destination="oAk-A2-BNR" eventType="touchUpInside" id="Vt1-nG-w8L"/>
                                 </connections>
@@ -190,13 +176,13 @@
                                     <constraint firstAttribute="width" constant="90" id="1re-Pj-pYB"/>
                                     <constraint firstAttribute="height" constant="35" id="S1E-1T-aoy"/>
                                 </constraints>
-                                <state key="normal" title="Select All" image="Mystic"/>
+                                <state key="normal" title="Select All" image="Select All Button"/>
                                 <connections>
                                     <action selector="allSelect:" destination="oAk-A2-BNR" eventType="touchUpInside" id="vEd-jO-jy2"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.54509803921568623" green="0.93333333333333335" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="PcA-7b-DQX" secondAttribute="width" id="0td-BQ-aoI"/>
                             <constraint firstAttribute="trailing" secondItem="CZW-F9-OrL" secondAttribute="trailing" id="ATZ-2N-s1Y"/>
@@ -224,6 +210,7 @@
                     <size key="freeformSize" width="600" height="4650"/>
                     <connections>
                         <outlet property="longView" destination="PcA-7b-DQX" id="r1D-F5-u8G"/>
+                        <outlet property="selectButton" destination="aKa-VV-pe1" id="0YP-n6-Hxu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOe-Ww-93d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -953,12 +940,13 @@
         <image name="Login Button" width="2475" height="600"/>
         <image name="Login Screen 25" width="3726" height="6624"/>
         <image name="MYSTIC Button" width="714" height="144"/>
-        <image name="Mystic" width="1059" height="510"/>
         <image name="Register Button" width="2475" height="600"/>
         <image name="Register Screen 4" width="3726" height="6624"/>
         <image name="Report Button" width="2475" height="600"/>
         <image name="Report Page 3" width="1242" height="2208"/>
+        <image name="Save Button" width="262" height="119"/>
         <image name="Search Icon" width="279" height="246"/>
+        <image name="Select All Button" width="545" height="119"/>
         <image name="VALOR Button" width="639" height="144"/>
         <image name="backArrow" width="157" height="115"/>
         <image name="cubone" width="96" height="96"/>

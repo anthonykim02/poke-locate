@@ -98,6 +98,7 @@ class Register: UIViewController {
                     var json = JSON(response.value!)
                     var success = json["success"].stringValue
                     if success == "0" {
+                        
                         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
                         self.showViewController(vc as! UIViewController, sender: vc)
                     } else {
@@ -111,6 +112,8 @@ class Register: UIViewController {
         }
     }
     @IBAction func backAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
         self.showViewController(vc as! UIViewController, sender: vc)
     }

@@ -47,9 +47,12 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
                 //network error
             }
         }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func backAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
         self.showViewController(vc as! UIViewController, sender: vc)
         
