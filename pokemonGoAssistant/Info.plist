@@ -8,6 +8,8 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location services needed to track Pokemon in your area.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Opt in to location services to receive notifications.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

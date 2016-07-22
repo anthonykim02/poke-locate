@@ -33,7 +33,8 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     @IBAction func postAction(sender: AnyObject) {
-        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/add", parameters: ["pokemon": pokemonIndex, "latitude": self.latitude, "longitude" : self.longitude, "user_id" : 0]).validate().responseJSON { (_, _, response) in
+        let defaults = NSUserDefaults()
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/add", parameters: ["pokemon": pokemonIndex, "latitude": self.latitude, "longitude" : self.longitude, "user_id" : defaults.stringForKey("user_id")!]).validate().responseJSON { (_, _, response) in
             if let json = response.value {
                 var data = JSON(json)
                 var succesful = data["success"].stringValue
