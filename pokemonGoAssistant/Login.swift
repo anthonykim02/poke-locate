@@ -29,7 +29,8 @@ class Login: UIViewController {
                     var success = json["success"].stringValue
                     if success == "0" {
                         print("Success = 0")
-                        
+                        let defaults = NSUserDefaults()
+                        defaults.setObject(json["user"]["id"].stringValue, forKey: "user_id")
                         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
                         self.showViewController(vc as! UIViewController, sender: vc)
                     } else {

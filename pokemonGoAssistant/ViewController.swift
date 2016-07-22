@@ -29,9 +29,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.longitude = 0.0
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.requestAlwaysAuthorization()
         self.locationManager.startUpdatingLocation()
-        
+        self.locationManager.startMonitoringSignificantLocationChanges()
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
         
@@ -111,6 +111,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         return anView
     }
+    
     
 }
 

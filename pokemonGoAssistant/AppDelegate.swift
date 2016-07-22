@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import CoreLocation
+import Alamofire
+import SwiftyJSON
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-
+    var locationManager = CLLocationManager()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        let defaults = NSUserDefaults()
+        if defaults.stringForKey("user_id") != nil {
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil) // this assumes your storyboard is titled "Main.storyboard"
+            let yourVC = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController // inside "YOUR_VC_IDENTIFIER" substitute the Storyboard ID you created in step 2 for the view controller you want to open here. And substitute YourViewController with the name of your view controller, like, for example, ViewController2.
+            appDelegate.window?.rootViewController = yourVC
+            appDelegate.window?.makeKeyAndVisible()
+        }
         return true
     }
 
@@ -27,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        self.locationManager.delegate = self
+        self.locationManager.startMonitoringSignificantLocationChanges()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -39,8 +52,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        self.locationManager.stopMonitoringSignificantLocationChanges()
     }
-
+    
+    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+        self.sendLocationToServer(newLocation)
+    }
+    
+    func sendLocationToServer(location: CLLocation) {
+        let defaults = NSUserDefaults()
+        print(defaults.stringForKey("user_id"))
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/notifications/send", parameters: ["user": defaults.stringForKey("user_id")!, "latitude": location.coordinate.latitude, "longitude" : location.coordinate.longitude]).validate().responseJSON { (_, _, response) in
+            if let json = response.value {
+                var data = JSON(json)
+                var succesful = data["success"].stringValue
+                if succesful == "1" {
+                    //print error message
+                } else {
+                    print("succesful")
+                }
+            } else {
+                print("network error")
+                print(response.value)
+                //network error
+            }
+        }
+    }
 
 }
 
