@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class Login: UIViewController {
+class Login: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -17,6 +17,12 @@ class Login: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameField.delegate = self
+        passwordField.delegate = self
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
     
     @IBAction func loginAction(sender: AnyObject) {
@@ -49,5 +55,14 @@ class Login: UIViewController {
         
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
         self.showViewController(vc as! UIViewController, sender: vc)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 }

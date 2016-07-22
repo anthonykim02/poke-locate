@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class Register: UIViewController {
+class Register: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var numberField: UITextField!
@@ -29,6 +29,15 @@ class Register: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameField.delegate = self
+        numberField.delegate = self
+        usernameField.delegate = self
+        passwordField.delegate = self
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
         instinctButton.layer.shadowColor = nil
         instinctButton.layer.shadowRadius = 5
         instinctButton.layer.shadowOpacity = 1.0
@@ -116,5 +125,14 @@ class Register: UIViewController {
         
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
         self.showViewController(vc as! UIViewController, sender: vc)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 }
