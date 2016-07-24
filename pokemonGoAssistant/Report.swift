@@ -42,6 +42,8 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
                     //print error message
                 } else {
                     print("succesful")
+//                    let mapScreen = ViewController()
+//                    mapScreen.refreshFunction()
                 }
             } else {
                 print("network error")
