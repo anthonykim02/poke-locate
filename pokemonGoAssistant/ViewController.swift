@@ -138,7 +138,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     @IBAction func tracked(sender: AnyObject) {
-        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Track")
+        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("VCTracking")
         self.showViewController(vc as! UIViewController, sender: vc)
     }
     @IBAction func reported(sender: AnyObject) {
