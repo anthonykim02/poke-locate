@@ -31,7 +31,6 @@ class Track: UIViewController {
         } else {
             button.setBackgroundImage(UIImage(named: "pokeball"), forState: UIControlState.Normal)
         }
-        
     }
     
     override func viewDidLoad() {

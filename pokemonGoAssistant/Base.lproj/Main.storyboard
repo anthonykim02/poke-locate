@@ -75,16 +75,29 @@
                                     <action selector="reported:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CKn-yG-sBH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xa3-mA-neK">
+                                <rect key="frame" x="252" y="27" width="95" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Tax-Oa-k8t"/>
+                                    <constraint firstAttribute="width" constant="95" id="hwO-ap-xUb"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Refresh Button"/>
+                                <connections>
+                                    <action selector="refresh:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iST-4D-tMq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="30m-qR-8ka" firstAttribute="leading" secondItem="K5C-Qh-rTX" secondAttribute="trailing" constant="-70" id="0g2-1Z-mhO"/>
                             <constraint firstAttribute="trailing" secondItem="K5C-Qh-rTX" secondAttribute="trailing" id="6UP-az-0Kc"/>
+                            <constraint firstItem="xa3-mA-neK" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="72L-IQ-CPG"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="K5C-Qh-rTX" secondAttribute="bottom" id="LXJ-cd-r9J"/>
                             <constraint firstItem="yQ5-jI-bhE" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="WnF-uy-p0d"/>
                             <constraint firstAttribute="trailing" secondItem="yQ5-jI-bhE" secondAttribute="trailing" constant="50" id="axE-ej-sHa"/>
                             <constraint firstItem="yQ5-jI-bhE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="50" id="ls5-rZ-rPN"/>
                             <constraint firstItem="30m-qR-8ka" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="qII-lq-bht"/>
+                            <constraint firstItem="xa3-mA-neK" firstAttribute="centerY" secondItem="30m-qR-8ka" secondAttribute="centerY" id="qMB-aU-Kph"/>
                             <constraint firstItem="K5C-Qh-rTX" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="32" id="sjY-ka-BMW"/>
                             <constraint firstItem="30m-qR-8ka" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="su6-Ln-Mp3"/>
                             <constraint firstItem="K5C-Qh-rTX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="wdT-8c-G1C"/>
@@ -106,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1285" y="-651"/>
+            <point key="canvasLocation" x="-1272" y="-621"/>
         </scene>
         <!--Tracking-->
         <scene sceneID="7zP-U7-Q31">
@@ -940,6 +953,7 @@
         <image name="Login Button" width="2475" height="600"/>
         <image name="Login Screen 25" width="3726" height="6624"/>
         <image name="MYSTIC Button" width="714" height="144"/>
+        <image name="Refresh Button" width="488" height="122"/>
         <image name="Register Button" width="2475" height="600"/>
         <image name="Register Screen 4" width="3726" height="6624"/>
         <image name="Report Button" width="2475" height="600"/>
