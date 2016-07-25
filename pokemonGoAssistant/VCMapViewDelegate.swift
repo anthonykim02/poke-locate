@@ -30,7 +30,8 @@ extension ViewController: MKMapViewDelegate {
                             let latitude = report["latitude"].doubleValue
                             let longitude = report["longitude"].doubleValue
                             let pokemon = report["pokemon"].intValue
-                            self.addPokemon(latitude, longitude: longitude, index: pokemon)
+                            let time = report["timestamp"].floatValue
+                            self.addPokemon(latitude, longitude: longitude, index: pokemon, timePosted: time)
                         }
                     } else {
                         // error message
