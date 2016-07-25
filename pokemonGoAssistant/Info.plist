@@ -34,10 +34,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Aleo-Italic.otf</string>
-<<<<<<< HEAD
 		<string>Aleo-Regular.otf</string>
-=======
->>>>>>> f7f5b690d8adf62afedb8c5b00862ec1347365c3
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
