@@ -11,4 +11,12 @@ import MapKit
 
 class CustomPointAnnotation: MKPointAnnotation {
     var pinCustomImageName:String!
+    var latitude:Double!
+    var longitude:Double!
+    var distance:Double!
+    var address:String!
+    var postedBy:String!
+    var userRating:Int!
+    var postRating:Int!
+    var timePosted:Float!
 }
