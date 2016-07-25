@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     var window: UIWindow?
     var locationManager = CLLocationManager()
+    var timeInterval = NSDate().timeIntervalSince1970
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let defaults = NSUserDefaults()
@@ -27,9 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             appDelegate.window?.rootViewController = yourVC
             appDelegate.window?.makeKeyAndVisible()
         }
-        let settings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-        UIApplication.sharedApplication().registerForRemoteNotifications()
         return true
     }
 
@@ -42,6 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         self.locationManager.delegate = self
+        if #available(iOS 9.0, *) {
+            self.locationManager.allowsBackgroundLocationUpdates = true
+        } else {
+            // Fallback on earlier versions
+        }
+        locationManager.distanceFilter = 15
         self.locationManager.startUpdatingLocation()
     }
 
@@ -51,11 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        self.locationManager.stopUpdatingLocation()
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        self.locationManager.stopMonitoringSignificantLocationChanges()
+        self.locationManager.stopUpdatingLocation()
     }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
@@ -63,32 +68,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     
     func sendLocationToServer(location: CLLocation) {
+        let newTimeInterval = NSDate().timeIntervalSince1970
+        if newTimeInterval - timeInterval > 60 {
+            let defaults = NSUserDefaults()
+            print("Users location updated to: (" + String(location.coordinate.longitude) + ", " + String(location.coordinate.latitude) + ")")
+            Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/notifications/send", parameters: ["user": defaults.stringForKey("user_id")!, "latitude": location.coordinate.latitude, "longitude" : location.coordinate.longitude]).validate().responseJSON { (_, _, response) in
+                if let json = response.value {
+                    var data = JSON(json)
+                    var succesful = data["success"].stringValue
+                    if succesful == "1" {
+                        //print error message
+                    } else {
+                        print("Location was sent to server")
+                        self.timeInterval = newTimeInterval
+                    }
+                } else {
+                    print("there was a network error while sending location to server")
+                }
+            }
+        }
+        
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        print("Got token data! \(deviceToken)")
+        updateDeviceToken(String(stripDT(deviceToken)))
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print("Couldn't register: \(error)")
+    }
+    
+    func updateDeviceToken(deviceToken: String) {
         let defaults = NSUserDefaults()
-        print(defaults.stringForKey("user_id"))
-        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/notifications/send", parameters: ["user": defaults.stringForKey("user_id")!, "latitude": location.coordinate.latitude, "longitude" : location.coordinate.longitude]).validate().responseJSON { (_, _, response) in
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/notifications/update_device_token", parameters: ["user": defaults.stringForKey("user_id")!, "dt": deviceToken]).validate().responseJSON { (_, _, response) in
             if let json = response.value {
                 var data = JSON(json)
                 var succesful = data["success"].stringValue
                 if succesful == "1" {
                     //print error message
                 } else {
-                    print("latitude: " + String(location.coordinate.latitude))
-                    print("longitude: " + String(location.coordinate.longitude))
+                    print("updating device token was succesful")
                 }
             } else {
-                print("network error")
-                print(response.value)
+                print("network error on updating device token")
+                print("and this was returned " + String(response.value))
                 //network error
             }
         }
     }
     
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        print("Got token data! \(deviceToken)")
-    }
-    
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        print("Couldn't register: \(error)")
+    func stripDT(deviceToken: NSData) -> String{
+        var token = NSString(format: "%@", deviceToken)
+        token = token.stringByReplacingOccurrencesOfString("<", withString: "")
+        token = token.stringByReplacingOccurrencesOfString(">", withString: "")
+        token = token.stringByReplacingOccurrencesOfString(" ", withString: "")
+        return token as String
     }
 
 }

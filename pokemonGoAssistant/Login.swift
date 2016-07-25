@@ -28,16 +28,16 @@ class Login: UIViewController, UITextFieldDelegate {
     @IBAction func loginAction(sender: AnyObject) {
         Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/users/authenticate", parameters: ["username": usernameField.text!, "password" : passwordField.text!]).validate()
             .responseJSON { (_, _, response) in
-                print(response.data)
                 if let json = response.value {
                     var json = JSON(response.value!)
-                    print(json)
                     var success = json["success"].stringValue
                     if success == "0" {
-                        print("Success = 0")
                         let defaults = NSUserDefaults()
                         defaults.setObject(json["user"]["id"].stringValue, forKey: "user_id")
                         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
+                        let settings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
+                        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+                        UIApplication.sharedApplication().registerForRemoteNotifications()
                         self.showViewController(vc as! UIViewController, sender: vc)
                     } else {
                         self.errorMessage.text = "The username or password is incorrect."

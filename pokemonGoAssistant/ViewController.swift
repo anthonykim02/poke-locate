@@ -153,11 +153,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     func addPokemon(latitude: Double, longitude: Double, index: Int) {
-        print(latitude)
-        print(longitude)
-        print(index)
         let pokemonName = nameData[index]
-        print(pokemonName)
         let pokemon = CustomPointAnnotation()
         pokemon.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
         pokemon.title = pokemonName
@@ -168,11 +164,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     @IBAction func likeAction(sender: AnyObject) {
-        print("like")
+        print("Like button pressed.")
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?{
-        print("works", terminator: "")
         if !(annotation is CustomPointAnnotation) {
             return nil
         }
@@ -211,7 +206,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let bottomRightCoordinates = MKCoordinateForMapPoint(MKMapPoint(x: mapPointBottomRightX, y: mapPointBottomRightY))
         Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/filter", parameters: ["top_left_latitude" : topLeftCoordinates.latitude, "top_left_longitude" : topLeftCoordinates.longitude, "bottom_right_latitude": bottomRightCoordinates.latitude, "bottom_right_longitude": bottomRightCoordinates.longitude]).validate()
             .responseJSON{ (_, _, response) in
-                print(response.value)
                 if let json = response.value {
                     let data = JSON(json)
                     if data["success"] == 0 {

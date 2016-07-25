@@ -41,12 +41,10 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
                 if succesful == "1" {
                     //print error message
                 } else {
-                    print("succesful")
-//                    let mapScreen = ViewController()
-//                    mapScreen.refreshFunction()
+
                 }
             } else {
-                print("network error")
+                print("There was a network error while reporting.")
                 //network error
             }
         }

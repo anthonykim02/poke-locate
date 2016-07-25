@@ -188,10 +188,10 @@ class VCTracking: UIViewController, UITableViewDataSource
                 if succesful == "1" {
                     //print error message
                 } else {
-                    print("add succesful")
+                    print("Notification was succesfully added.")
                 }
             } else {
-                print("network error")
+                print("Ran into a network error while adding a notification.")
                 //network error
             }
         }
@@ -207,10 +207,10 @@ class VCTracking: UIViewController, UITableViewDataSource
                 if succesful == "1" {
                     //print error message
                 } else {
-                    print("delete succesful")
+                    print("Succesfully deleted notification.")
                 }
             } else {
-                print("network error")
+                print("There was a network error while deleting the notification.")
                 //network error
             }
         }

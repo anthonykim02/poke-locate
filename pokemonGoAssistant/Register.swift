@@ -102,7 +102,6 @@ class Register: UIViewController, UITextFieldDelegate {
         
         Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/users/add", parameters: ["name": nameField.text!, "username" : usernameField.text!, "password" : passwordField.text!, "team" : 1, "phone" : numberField.text!]).validate()
             .responseJSON { (_, _, response) in
-                print(response.data)
                 if let json = response.value {
                     var json = JSON(response.value!)
                     var success = json["success"].stringValue
