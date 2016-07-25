@@ -19,6 +19,7 @@ extension ViewController: MKMapViewDelegate {
         let mapPointBottomRightX = MKMapRectGetMaxX(mapPoint)
         let mapPointBottomRightY = MKMapRectGetMaxY(mapPoint)
         let bottomRightCoordinates = MKCoordinateForMapPoint(MKMapPoint(x: mapPointBottomRightX, y: mapPointBottomRightY))
+        clearAnnotations()
         Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/filter", parameters: ["top_left_latitude" : topLeftCoordinates.latitude, "top_left_longitude" : topLeftCoordinates.longitude, "bottom_right_latitude": bottomRightCoordinates.latitude, "bottom_right_longitude": bottomRightCoordinates.longitude]).validate()
             .responseJSON{ (_, _, response) in
                 print(response.value)
@@ -40,5 +41,10 @@ extension ViewController: MKMapViewDelegate {
                 }
             }
 
+    }
+    
+    func clearAnnotations() {
+        let annotations = self.mapView.annotations
+        self.mapView.removeAnnotations(annotations)
     }
 }

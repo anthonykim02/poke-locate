@@ -236,6 +236,11 @@
 					92DE18CD1D39DA1900E8C45A = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = T24NKQARLL;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					92DE18E21D39DA1900E8C45A = {
 						CreatedOnToolsVersion = 6.4;
