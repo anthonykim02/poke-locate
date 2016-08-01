@@ -19,4 +19,6 @@ class CustomPointAnnotation: MKPointAnnotation {
     var userRating:Int!
     var postRating:Int!
     var timePosted:Float!
+    var like:Bool!
+    var dislike:Bool!
 }
