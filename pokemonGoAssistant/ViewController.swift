@@ -1,4 +1,4 @@
-//
+    //
 //  ViewController.swift
 //  pokemonGoAssistant
 //
@@ -202,7 +202,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         pokemon.distance = Double(round(10 * (userLocation.distanceFromLocation(aLocation) * 0.000621371))/10)
         
         pokemon.timePosted = timePosted
-        print(timePosted)
         
         CLGeocoder().reverseGeocodeLocation(aLocation, completionHandler: { (placemarks, error) -> Void in
             
@@ -215,7 +214,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             if placemarks!.count > 0
             {
                 let pm = placemarks![0] as! CLPlacemark
-                let address: String = pm.thoroughfare! + ", " + pm.locality!
+                var address:String = ""
+                if pm.thoroughfare != nil && pm.locality != nil {
+                    address = pm.thoroughfare! + ", " + pm.locality!
+                }
                 pokemon.address = address
             }
         })
