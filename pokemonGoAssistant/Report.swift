@@ -12,9 +12,9 @@ import SwiftyJSON
 
 class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
  
-    @IBOutlet var pokemonScroll: UIPickerView!
-    
-    @IBOutlet var pokemonImage: UIImageView!
+//    @IBOutlet var pokemonScroll: UIPickerView!
+//    
+//    @IBOutlet var pokemonImage: UIImageView!
     var someString1 = ""
     
     var pokemon = 0
@@ -23,13 +23,43 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     var latitude:Double = 0.0
     var longitude:Double = 0.0
     
-    let pokemonData = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno","zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"]
+    let pokeScroll = UIPickerView()
+    let pokeImage = UIImageView()
+    let searchBar = UISearchBar()
+    
+    let orderData = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno","zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"]
+    
+    var pokemonData = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pokemonScroll.dataSource = self
-        pokemonScroll.delegate = self
-        pokemonImage.image = UIImage(named: "bulbasaur")
+//        pokemonScroll.dataSource = self
+//        pokemonScroll.delegate = self
+//        pokemonImage.image = UIImage(named: "abra")
+        pokemonData = orderData.sort()
+        
+        let screenHeight = self.view.frame.size.height
+        let screenWidth = self.view.frame.size.width
+        
+        pokeScroll.dataSource = self
+        pokeScroll.delegate = self
+        pokeImage.image = UIImage(named: "abra")
+        
+        let scrollSize = CGSize(width: screenWidth * 0.57895, height: screenHeight * 0.2671)
+        pokeScroll.frame = CGRect(x: screenWidth * 0.2825, y: screenHeight * 0.16471, width: scrollSize.width, height: scrollSize.height)
+        searchBar.frame = CGRect(x: screenWidth * 0.2825, y: screenHeight * 0.168, width: scrollSize.width, height: scrollSize.height / 4)
+        searchBar.layer.cornerRadius = 4.0
+        searchBar.clipsToBounds = true
+        
+        let imageSize = CGSize(width: screenWidth * 0.522, height: screenHeight * 0.293)
+        pokeImage.frame = CGRect(x: screenWidth * 0.274, y: screenHeight * 0.5196, width: imageSize.width, height: imageSize.height)
+        
+        
+        self.view.addSubview(pokeScroll)
+        self.view.addSubview(pokeImage)
+        self.view.addSubview(searchBar)
+        
+        
     }
     
     @IBAction func postAction(sender: AnyObject) {
@@ -71,8 +101,8 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pokemonImage.image = UIImage(named: pokemonData[row])
-        someString1 = pokemonData[row]
+        pokeImage.image = UIImage(named: pokemonData[row] as! String)
+        someString1 = pokemonData[row] as! String
         pokemonIndex = row
     }
 

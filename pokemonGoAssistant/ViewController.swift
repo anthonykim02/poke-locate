@@ -193,9 +193,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         pokemon.latitude = latitude
         pokemon.longitude = longitude
         pokemon.title = pokemonName.capitalizedString
-        pokemon.subtitle = "click for more info"
         pokemon.like = false
         pokemon.dislike = false
+        
+        let date = NSDate(timeIntervalSince1970: NSTimeInterval(timePosted))
+        
+        let dayTimePeriodFormatter = NSDateFormatter()
+        dayTimePeriodFormatter.dateFormat = "MMM dd YYYY hh:mm a"
+        
+        let dateString = dayTimePeriodFormatter.stringFromDate(date)
+        
+        pokemon.subtitle = "Last Seen " + dateString
         
         let userLocation = CLLocation(latitude: userLat, longitude: userLon)
         let aLocation = CLLocation(latitude: latitude, longitude: longitude)
@@ -270,21 +278,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let currentTime = Float(NSDate().timeIntervalSince1970)
         let elapsedTime = (currentTime - cpa!.timePosted)
         var duration = Int(elapsedTime)
+        var timeMessage = ""
         if duration < 60 {
-            time.text = String(duration) + " second(s) ago"
+            timeMessage = String(duration) + " second(s) ago"
         }
         else if duration >= 86400 {
             duration = Int(duration / 86400)
-            time.text = String(duration) + " day(s) ago"
+            timeMessage = String(duration) + " day(s) ago"
         }
         else if duration >= 3600 {
             duration = Int(duration / 3600)
-            time.text = String(duration) + " hour(s) ago"
+            timeMessage = String(duration) + " hour(s) ago"
         }
         else {
             duration = Int(duration / 60)
-            time.text = String(duration) + " minute(s) ago"
+            timeMessage = String(duration) + " minute(s) ago"
         }
+        
+        time.text = timeMessage
         
         
         let userLocation = CLLocation(latitude: userLat, longitude: userLon)
