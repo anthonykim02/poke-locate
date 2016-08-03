@@ -197,12 +197,13 @@ class Register: UIViewController, UITextFieldDelegate {
         self.view.addSubview(errorMsg)
         self.view.addSubview(team)
         self.view.addSubview(regButton)
-        self.view.addSubview(articuno)
-        self.view.addSubview(zapdos)
-        self.view.addSubview(moltres)
+        
         self.view.addSubview(instinct)
         self.view.addSubview(valor)
         self.view.addSubview(mystic)
+        self.view.addSubview(articuno)
+        self.view.addSubview(zapdos)
+        self.view.addSubview(moltres)
         
     }
 //    
@@ -280,17 +281,31 @@ class Register: UIViewController, UITextFieldDelegate {
         zapdos.hidden = false
         articuno.hidden = true
         moltres.hidden = true
+        
+        instinct.setImage(UIImage(named: "INSTINCT BLURRED"), forState: UIControlState.Normal)
+        valor.setImage(UIImage(named: "VALOR Button"), forState: UIControlState.Normal)
+        mystic.setImage(UIImage(named: "MYSTIC Button"), forState: UIControlState.Normal)
+
+        
     }
     
     func valorAction(sender: UIButton!) {
         zapdos.hidden = true
         articuno.hidden = true
         moltres.hidden = false
+        
+        instinct.setImage(UIImage(named: "INSTINCT Button"), forState: UIControlState.Normal)
+        valor.setImage(UIImage(named: "VALOR BLURRED"), forState: UIControlState.Normal)
+        mystic.setImage(UIImage(named: "MYSTIC Button"), forState: UIControlState.Normal)
     }
     func mysticAction(sender: UIButton!) {
         zapdos.hidden = true
         articuno.hidden = false
         moltres.hidden = true
+        
+        instinct.setImage(UIImage(named: "INSTINCT Button"), forState: UIControlState.Normal)
+        valor.setImage(UIImage(named: "VALOR Button"), forState: UIControlState.Normal)
+        mystic.setImage(UIImage(named: "MYSTIC BLURRED"), forState: UIControlState.Normal)
     }
     @IBAction func backAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)

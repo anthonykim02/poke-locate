@@ -266,71 +266,22 @@
                                     <action selector="backAction:" destination="CBd-dB-1xN" eventType="touchUpInside" id="w7f-VQ-lvd"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOu-kQ-byg">
-                                <rect key="frame" x="279" y="289" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cubone" translatesAutoresizingMaskIntoConstraints="NO" id="V4e-fS-VkF">
-                                <rect key="frame" x="263" y="325" width="150" height="150"/>
-                            </imageView>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mhN-CO-Zjt">
-                                <rect key="frame" x="168" y="95" width="350" height="172"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="V4e-fS-VkF" secondAttribute="trailing" constant="190" id="2HD-dk-uAq"/>
                             <constraint firstItem="QeC-Wa-7lq" firstAttribute="centerX" secondItem="mod-a8-o4m" secondAttribute="centerX" id="2g7-gl-7zA"/>
-                            <constraint firstItem="gOu-kQ-byg" firstAttribute="top" secondItem="mhN-CO-Zjt" secondAttribute="bottom" constant="22" id="2y1-6k-SfR"/>
                             <constraint firstItem="4wg-1Q-9hG" firstAttribute="leading" secondItem="mod-a8-o4m" secondAttribute="leading" id="3Pn-pM-XBX"/>
                             <constraint firstAttribute="trailing" secondItem="QeC-Wa-7lq" secondAttribute="trailing" constant="60" id="48K-vH-ywt"/>
-                            <constraint firstItem="QeC-Wa-7lq" firstAttribute="top" secondItem="V4e-fS-VkF" secondAttribute="bottom" constant="70" id="4E7-Ma-izV"/>
-                            <constraint firstItem="QeC-Wa-7lq" firstAttribute="top" secondItem="V4e-fS-VkF" secondAttribute="bottom" constant="60" id="4Md-qc-AKo"/>
-                            <constraint firstItem="mhN-CO-Zjt" firstAttribute="top" secondItem="6Uf-mw-R96" secondAttribute="bottom" constant="73" id="8yF-TP-f8l"/>
                             <constraint firstItem="QeC-Wa-7lq" firstAttribute="leading" secondItem="mod-a8-o4m" secondAttribute="leading" constant="60" id="B6J-0W-4MH"/>
                             <constraint firstItem="S0q-T8-uDj" firstAttribute="top" secondItem="4wg-1Q-9hG" secondAttribute="bottom" id="BYt-eO-vQR"/>
-                            <constraint firstItem="gOu-kQ-byg" firstAttribute="centerY" secondItem="mod-a8-o4m" secondAttribute="centerY" id="CdX-1F-haH"/>
                             <constraint firstAttribute="trailing" secondItem="4wg-1Q-9hG" secondAttribute="trailing" id="Co2-aa-lh8"/>
-                            <constraint firstItem="mhN-CO-Zjt" firstAttribute="centerX" secondItem="mod-a8-o4m" secondAttribute="centerX" id="Dmy-T8-hOw"/>
-                            <constraint firstItem="gOu-kQ-byg" firstAttribute="centerX" secondItem="mod-a8-o4m" secondAttribute="centerX" id="HGk-cX-LrZ"/>
-                            <constraint firstItem="mhN-CO-Zjt" firstAttribute="leading" secondItem="mod-a8-o4m" secondAttribute="leading" constant="120" id="JQz-H5-73X"/>
                             <constraint firstItem="Moe-hw-rcC" firstAttribute="leading" secondItem="mod-a8-o4m" secondAttribute="leadingMargin" constant="10" id="OVV-GG-V5j"/>
                             <constraint firstItem="4wg-1Q-9hG" firstAttribute="top" secondItem="mod-a8-o4m" secondAttribute="top" id="Q4W-ds-gnv"/>
-                            <constraint firstItem="V4e-fS-VkF" firstAttribute="top" secondItem="gOu-kQ-byg" secondAttribute="bottom" constant="20" id="QeI-Wp-46f"/>
-                            <constraint firstItem="V4e-fS-VkF" firstAttribute="centerX" secondItem="mod-a8-o4m" secondAttribute="centerX" id="Qzc-dm-xhN"/>
-                            <constraint firstItem="V4e-fS-VkF" firstAttribute="top" secondItem="gOu-kQ-byg" secondAttribute="bottom" constant="20" id="RNU-Bl-RzZ"/>
-                            <constraint firstItem="V4e-fS-VkF" firstAttribute="top" secondItem="mhN-CO-Zjt" secondAttribute="bottom" constant="30" id="UL1-bp-xq5"/>
-                            <constraint firstAttribute="trailing" secondItem="V4e-fS-VkF" secondAttribute="trailing" constant="80" id="ahu-14-Pit"/>
-                            <constraint firstAttribute="trailing" secondItem="V4e-fS-VkF" secondAttribute="trailing" constant="187" id="cID-G5-dla"/>
                             <constraint firstItem="Moe-hw-rcC" firstAttribute="top" secondItem="6Uf-mw-R96" secondAttribute="bottom" constant="20" id="e3x-JX-mlV"/>
-                            <constraint firstItem="V4e-fS-VkF" firstAttribute="leading" secondItem="mod-a8-o4m" secondAttribute="leading" constant="260" id="eEm-Eb-Lqv"/>
-                            <constraint firstItem="V4e-fS-VkF" firstAttribute="centerX" secondItem="mhN-CO-Zjt" secondAttribute="centerX" id="iiM-ru-Jsm"/>
                             <constraint firstItem="S0q-T8-uDj" firstAttribute="top" secondItem="QeC-Wa-7lq" secondAttribute="bottom" constant="22" id="oMA-dD-q8H"/>
-                            <constraint firstItem="mhN-CO-Zjt" firstAttribute="leading" secondItem="gOu-kQ-byg" secondAttribute="trailing" constant="-153" id="oSj-PT-2b3"/>
-                            <constraint firstItem="V4e-fS-VkF" firstAttribute="leading" secondItem="mod-a8-o4m" secondAttribute="leading" constant="110" id="sAj-4O-aGj"/>
-                            <constraint firstAttribute="trailing" secondItem="mhN-CO-Zjt" secondAttribute="trailing" constant="70" id="uIE-2G-wJr"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="oSj-PT-2b3"/>
-                                <exclude reference="2HD-dk-uAq"/>
-                                <exclude reference="Qzc-dm-xhN"/>
-                                <exclude reference="RNU-Bl-RzZ"/>
-                                <exclude reference="UL1-bp-xq5"/>
-                                <exclude reference="cID-G5-dla"/>
-                                <exclude reference="eEm-Eb-Lqv"/>
-                                <exclude reference="iiM-ru-Jsm"/>
-                                <exclude reference="4Md-qc-AKo"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Report" id="Xh3-II-Hya"/>
-                    <connections>
-                        <outlet property="pokemonImage" destination="V4e-fS-VkF" id="cJT-sk-KTQ"/>
-                        <outlet property="pokemonScroll" destination="mhN-CO-Zjt" id="7cZ-YN-7c6"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQc-QV-9u5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -581,6 +532,5 @@
         <image name="Select All Button" width="545" height="119"/>
         <image name="Updated report button" width="833" height="208"/>
         <image name="backArrow" width="157" height="115"/>
-        <image name="cubone" width="96" height="96"/>
     </resources>
 </document>
