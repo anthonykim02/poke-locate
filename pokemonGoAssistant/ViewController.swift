@@ -27,8 +27,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     let user = UILabel()
     let userRate = UILabel()
     let postRate = UILabel()
-    let likeButton = UIButton()
-    let dislikeButton = UIButton()
+    let likeButton = CustomButton()
+    let dislikeButton = CustomButton()
     
     var mapHeight:CGFloat = 0.0
     var mapWidth:CGFloat = 0.0
@@ -38,7 +38,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     var selectedPokemon:String! = "pokemon name here"
     var popOut = false
     
-    var nameData = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno","zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"]
+    var nameData = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno","zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"]
     
     let locationManager = CLLocationManager()
     var userLat = 0.0
@@ -122,14 +122,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let buttonSize = CGSize(width: mapWidth / 7, height: mapWidth / 7)
         likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
         dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
-        
-//        likeButton.frame = CGRect(x: mapWidth * 0.65, y: (mapHeight / 3) - (buttonSize.width / 2), width: buttonSize.width, height: buttonSize.height)
-//        dislikeButton.frame = CGRect(x: likeButton.frame.maxX, y: (mapHeight / 3) - (buttonSize.width / 2), width: buttonSize.width, height: buttonSize.height)
-        
-//        likeButton.hidden = true
-//        dislikeButton.hidden = true
+ 
         likeButton.frame = CGRect(x: mapWidth * 0.65 + (buttonSize.width / 2), y: popUpHeight, width: 0, height: 0)
         dislikeButton.frame = CGRect(x: likeButton.frame.maxX + (buttonSize.width / 2), y: popUpHeight, width: 0, height: 0)
+        
+        likeButton.addTarget(self, action: Selector("likeAction:"),forControlEvents: .TouchUpInside)
+        dislikeButton.addTarget(self, action: Selector("likeAction:"), forControlEvents: .TouchUpInside)
         
         pop.addSubview(pokemonImage)
         pop.addSubview(time)
@@ -169,7 +167,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Error: " + error.localizedDescription)
+        print("Location Error: " + error.localizedDescription)
     }
     
     @IBAction func tracked(sender: AnyObject) {
@@ -196,6 +194,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         pokemon.longitude = longitude
         pokemon.title = pokemonName.capitalizedString
         pokemon.subtitle = "click for more info"
+        pokemon.like = false
+        pokemon.dislike = false
         
         let userLocation = CLLocation(latitude: userLat, longitude: userLon)
         let aLocation = CLLocation(latitude: latitude, longitude: longitude)
@@ -207,7 +207,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             
             if error != nil
             {
-                print("Error: " + error!.localizedDescription)
+                print("Geocode Error: " + error!.localizedDescription)
                 return
             }
             
@@ -225,9 +225,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         self.mapView.addAnnotation(pokemon)
     }
     
-    @IBAction func likeAction(sender: AnyObject) {
-        print("Like button pressed.")
-    }
+    
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?{
         if !(annotation is CustomPointAnnotation) {
@@ -271,12 +269,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         let currentTime = Float(NSDate().timeIntervalSince1970)
         let elapsedTime = (currentTime - cpa!.timePosted)
-        print(currentTime)
-        print(cpa!.timePosted)
-        print(elapsedTime)
         var duration = Int(elapsedTime)
         if duration < 60 {
             time.text = String(duration) + " second(s) ago"
+        }
+        else if duration >= 86400 {
+            duration = Int(duration / 86400)
+            time.text = String(duration) + " day(s) ago"
         }
         else if duration >= 3600 {
             duration = Int(duration / 3600)
@@ -308,6 +307,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let aWidth = pop.frame.size.width
         
         let buttonSize = CGSize(width: mapWidth / 7, height: mapWidth / 7)
+        likeButton.view = view
+        dislikeButton.view = view
+        
+        if cpa!.like == true {
+            likeButton.setImage(UIImage(named: "Thumbs Up highlight"), forState: UIControlState.Normal)
+        }
+        else {
+            likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
+        }
+        
+        if cpa!.dislike == true {
+            dislikeButton.setImage(UIImage(named: "Thumbs Down highlight"), forState: UIControlState.Normal)
+        }
+        else {
+            dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
+        }
         
         UIView.animateWithDuration(0.4, animations: {
             self.pop.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
@@ -318,6 +333,47 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             self.dislikeButton.frame = CGRect(x: self.likeButton.frame.maxX, y: self.popUpHeight - (buttonSize.width / 2), width: buttonSize.width, height: buttonSize.height)
             
         })
+        
+        
+        
+        
+    }
+    
+    func likeAction(sender: CustomButton!) {
+        let cpa = sender.view.annotation as? CustomPointAnnotation
+        if sender == likeButton {
+            sender.setImage(UIImage(named: "Thumbs Up highlight"), forState: UIControlState.Normal)
+        }
+        else {
+            sender.setImage(UIImage(named: "Thumbs Down highlight"), forState: UIControlState.Normal)
+        }
+        
+        
+        if cpa!.like == true && sender == likeButton {
+            likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
+            cpa!.like = false
+        }
+        else if cpa!.dislike == true && sender == dislikeButton {
+            dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
+            cpa!.dislike = false
+        }
+        else {
+            if cpa!.like == true && sender == dislikeButton {
+                likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
+                cpa!.like = false
+            }
+            else if cpa!.dislike == true && sender == likeButton {
+                dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
+                cpa!.dislike = false
+            }
+            
+            if sender == dislikeButton {
+                cpa!.dislike = true
+            }
+            else if sender == likeButton {
+                cpa!.like = true
+            }
+        }
         
         
     }
@@ -373,6 +429,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                 
             })
             popOut = false
+            
         }
         
     }

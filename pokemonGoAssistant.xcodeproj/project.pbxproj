@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01EB006B2B8180B26E3D647A /* Pods_pokemonGoAssistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2EE69BE4708B6946041100 /* Pods_pokemonGoAssistantTests.framework */; };
 		50EAD58E3C61EA93D15A6C29 /* Pods_pokemonGoAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA537871131E004D94DE08F /* Pods_pokemonGoAssistant.framework */; };
+		92180A591D473DA700D42D9D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92180A581D473DA700D42D9D /* CustomButton.swift */; };
 		9236F01E1D3A9B6600F13D3F /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9236F01D1D3A9B6600F13D3F /* StartScreen.swift */; };
 		9245B4F01D39E7D700996B5D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9245B4EF1D39E7D700996B5D /* CoreLocation.framework */; };
 		9245B4F41D39F3BA00996B5D /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B4F31D39F3BA00996B5D /* Report.swift */; };
@@ -42,6 +43,7 @@
 		1C2EE69BE4708B6946041100 /* Pods_pokemonGoAssistantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokemonGoAssistantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CA537871131E004D94DE08F /* Pods_pokemonGoAssistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokemonGoAssistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		860A5C51484C9432866A7215 /* Pods-pokemonGoAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonGoAssistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pokemonGoAssistant/Pods-pokemonGoAssistant.debug.xcconfig"; sourceTree = "<group>"; };
+		92180A581D473DA700D42D9D /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		9236F01D1D3A9B6600F13D3F /* StartScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
 		9245B4EF1D39E7D700996B5D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9245B4F31D39F3BA00996B5D /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				92DE18D31D39DA1900E8C45A /* AppDelegate.swift */,
 				92DE18D51D39DA1900E8C45A /* ViewController.swift */,
+				92180A581D473DA700D42D9D /* CustomButton.swift */,
 				9A65FB201D43F92C00456AD4 /* TrackingTableViewCell.swift */,
 				9A65FB1E1D43F82200456AD4 /* VCTracking.swift */,
 				92DE18D71D39DA1900E8C45A /* Main.storyboard */,
@@ -397,6 +400,7 @@
 				92DE18D41D39DA1900E8C45A /* AppDelegate.swift in Sources */,
 				9A65FB1F1D43F82200456AD4 /* VCTracking.swift in Sources */,
 				9245B4F41D39F3BA00996B5D /* Report.swift in Sources */,
+				92180A591D473DA700D42D9D /* CustomButton.swift in Sources */,
 				9245B4FE1D3A3FBF00996B5D /* Track.swift in Sources */,
 				92F1A7B01D3EFDDD001E4E14 /* CustomPointAnnotation.swift in Sources */,
 				9A12A7F81D3DF7BD00B0E60E /* VCMapViewDelegate.swift in Sources */,
