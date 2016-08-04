@@ -16,7 +16,7 @@ import SwiftyJSON
 class ViewController: UIViewController, CLLocationManagerDelegate{
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var report: UIButton!
+//    @IBOutlet weak var report: UIButton!
     
     let pop = UIView()
     let shadow = UIView()
@@ -29,6 +29,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     let postRate = UILabel()
     let likeButton = CustomButton()
     let dislikeButton = CustomButton()
+    let refresh = UIButton()
+    let reportButton = UIButton()
+    let trackButton = UIButton()
+    let logoutButton = UIButton()
     
     var mapHeight:CGFloat = 0.0
     var mapWidth:CGFloat = 0.0
@@ -81,8 +85,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         shadow.backgroundColor = UIColor.blackColor()
         shadow.alpha = 0
         
-        
-        
         let pokeSize = CGSize(width: mapHeight / 8, height: mapHeight / 8)
         pokemonImage.frame = CGRect(x: (mapWidth / 2) - (pokeSize.width / 2), y: 0, width: pokeSize.width, height: pokeSize.height)
         
@@ -129,6 +131,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         likeButton.addTarget(self, action: Selector("likeAction:"),forControlEvents: .TouchUpInside)
         dislikeButton.addTarget(self, action: Selector("likeAction:"), forControlEvents: .TouchUpInside)
         
+        let reportSize = CGSize(width: mapWidth * 0.75, height: mapHeight / 10)
+        reportButton.setImage(UIImage(named: "Updated report button"), forState: UIControlState.Normal)
+        reportButton.frame = CGRect(x: (mapWidth / 2) - (reportSize.width / 2), y: mapHeight * 0.825, width: reportSize.width, height: reportSize.height)
+        reportButton.addTarget(self, action: Selector("reportAction:"), forControlEvents: .TouchUpInside)
+        
+        let refreshSize = CGSize(width: mapWidth * 0.25, height: mapHeight / 20)
+        refresh.setImage(UIImage(named: "Refresh Button Rounded"), forState: UIControlState.Normal)
+        refresh.frame = CGRect(x: (mapWidth / 2) - (refreshSize.width / 2), y: refreshSize.height * 1.5, width: refreshSize.width, height: refreshSize.height)
+        refresh.addTarget(self, action: Selector("refreshAction:"), forControlEvents: .TouchUpInside)
+        
+        trackButton.setImage(UIImage(named: "Refresh Button Rounded"), forState: UIControlState.Normal)
+        trackButton.frame = CGRect(x: (mapWidth + refresh.frame.maxX) / 2 - (refreshSize.width / 2), y: refresh.frame.minY, width: refreshSize.width, height: refreshSize.height)
+        trackButton.addTarget(self, action: Selector("trackAction:"), forControlEvents: .TouchUpInside)
+        
+        logoutButton.setImage(UIImage(named: "Log Out Button Rounded"), forState: UIControlState.Normal)
+        logoutButton.frame = CGRect(x: (refresh.frame.minX / 2) - (refreshSize.width / 2), y: refresh.frame.minY, width: refreshSize.width, height: refreshSize.height)
+        
         pop.addSubview(pokemonImage)
         pop.addSubview(time)
         pop.addSubview(distance)
@@ -140,6 +159,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         self.view.addSubview(shadow)
         self.view.addSubview(likeButton)
         self.view.addSubview(dislikeButton)
+        self.view.addSubview(reportButton)
+        self.view.addSubview(refresh)
+        self.view.addSubview(trackButton)
+        self.view.addSubview(logoutButton)
         self.view.bringSubviewToFront(shadow)
         self.view.bringSubviewToFront(pop)
         self.view.bringSubviewToFront(likeButton)
@@ -170,18 +193,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         print("Location Error: " + error.localizedDescription)
     }
     
-    @IBAction func tracked(sender: AnyObject) {
+//    @IBAction func tracked(sender: AnyObject) {
+//        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("VCTracking")
+//        self.showViewController(vc as! UIViewController, sender: vc)
+//    }
+    
+    func trackAction(sender: UIButton!) {
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("VCTracking")
         self.showViewController(vc as! UIViewController, sender: vc)
     }
-    @IBAction func reported(sender: AnyObject) {
+    
+//    @IBAction func reported(sender: AnyObject) {
+//        let vc = storyboard!.instantiateViewControllerWithIdentifier("Report") as! Report
+//        vc.latitude = userLat
+//        vc.longitude = userLon
+//        self.showViewController(vc, sender: vc)
+//    }
+    
+    func reportAction(sender: UIButton!) {
         let vc = storyboard!.instantiateViewControllerWithIdentifier("Report") as! Report
         vc.latitude = userLat
         vc.longitude = userLon
         self.showViewController(vc, sender: vc)
     }
     
-    @IBAction func refresh(sender: AnyObject) {
+//    @IBAction func refresh(sender: AnyObject) {
+//        refreshFunction()
+//    }
+    
+    func refreshAction(sender: UIButton!) {
         refreshFunction()
     }
     
