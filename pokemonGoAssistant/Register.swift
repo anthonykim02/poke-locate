@@ -55,9 +55,9 @@ class Register: UIViewController, UITextFieldDelegate {
 //        usernameField.delegate = self
 //        passwordField.delegate = self
 //        
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-//        view.addGestureRecognizer(tap)
-//        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+//
 //        instinctButton.layer.shadowColor = nil
 //        instinctButton.layer.shadowRadius = 5
 //        instinctButton.layer.shadowOpacity = 1.0
