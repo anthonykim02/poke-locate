@@ -15,6 +15,7 @@
 		9245B4F41D39F3BA00996B5D /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B4F31D39F3BA00996B5D /* Report.swift */; };
 		9245B5001D3A6F2400996B5D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B4FF1D3A6F2400996B5D /* Login.swift */; };
 		9245B5021D3A745B00996B5D /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B5011D3A745B00996B5D /* Register.swift */; };
+		929FB9731D59638B00572FBA /* Aleo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 929FB9721D59637A00572FBA /* Aleo-Regular.otf */; };
 		92DE18D41D39DA1900E8C45A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE18D31D39DA1900E8C45A /* AppDelegate.swift */; };
 		92DE18D61D39DA1900E8C45A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE18D51D39DA1900E8C45A /* ViewController.swift */; };
 		92DE18D91D39DA1900E8C45A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DE18D71D39DA1900E8C45A /* Main.storyboard */; };
@@ -25,7 +26,6 @@
 		9A12A7F81D3DF7BD00B0E60E /* VCMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12A7F71D3DF7BD00B0E60E /* VCMapViewDelegate.swift */; };
 		9A65FB1F1D43F82200456AD4 /* VCTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A65FB1E1D43F82200456AD4 /* VCTracking.swift */; };
 		9A65FB211D43F92C00456AD4 /* TrackingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A65FB201D43F92C00456AD4 /* TrackingTableViewCell.swift */; };
-		9A8D51D01D45BB2600EED4B1 /* Aleo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A8D51CF1D45BB1500EED4B1 /* Aleo-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +48,7 @@
 		9245B4F31D39F3BA00996B5D /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		9245B4FF1D3A6F2400996B5D /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		9245B5011D3A745B00996B5D /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		929FB9721D59637A00572FBA /* Aleo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aleo-Regular.otf"; path = "../../../Downloads/Aleo_font_v1.2.2/Desktop OTF/Aleo-Regular.otf"; sourceTree = "<group>"; };
 		92DE18CE1D39DA1900E8C45A /* pokemonGoAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemonGoAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DE18D21D39DA1900E8C45A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DE18D31D39DA1900E8C45A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		9A12A7F71D3DF7BD00B0E60E /* VCMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapViewDelegate.swift; sourceTree = "<group>"; };
 		9A65FB1E1D43F82200456AD4 /* VCTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCTracking.swift; sourceTree = "<group>"; };
 		9A65FB201D43F92C00456AD4 /* TrackingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingTableViewCell.swift; sourceTree = "<group>"; };
-		9A8D51CF1D45BB1500EED4B1 /* Aleo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aleo-Regular.otf"; path = "../../../../../Downloads/aleo/Aleo-Regular.otf"; sourceTree = "<group>"; };
 		C0E683846B057BFD9AD27C12 /* Pods-pokemonGoAssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonGoAssistantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pokemonGoAssistantTests/Pods-pokemonGoAssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4239B32FD6596FC8A916D02 /* Pods-pokemonGoAssistantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonGoAssistantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pokemonGoAssistantTests/Pods-pokemonGoAssistantTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD6E10469C3CF7B8AFA8DB2E /* Pods-pokemonGoAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonGoAssistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-pokemonGoAssistant/Pods-pokemonGoAssistant.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 				9245B5011D3A745B00996B5D /* Register.swift */,
 				9245B4FF1D3A6F2400996B5D /* Login.swift */,
 				9245B4F31D39F3BA00996B5D /* Report.swift */,
-				9A8D51CF1D45BB1500EED4B1 /* Aleo-Regular.otf */,
+				929FB9721D59637A00572FBA /* Aleo-Regular.otf */,
 				92DE18DA1D39DA1900E8C45A /* Images.xcassets */,
 				92DE18DC1D39DA1900E8C45A /* LaunchScreen.xib */,
 				92DE18D11D39DA1900E8C45A /* Supporting Files */,
@@ -275,7 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A8D51D01D45BB2600EED4B1 /* Aleo-Regular.otf in Resources */,
+				929FB9731D59638B00572FBA /* Aleo-Regular.otf in Resources */,
 				92DE18D91D39DA1900E8C45A /* Main.storyboard in Resources */,
 				92DE18DE1D39DA1900E8C45A /* LaunchScreen.xib in Resources */,
 				92DE18DB1D39DA1900E8C45A /* Images.xcassets in Resources */,
