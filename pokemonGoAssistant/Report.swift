@@ -118,7 +118,7 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
         self.dismissViewControllerAnimated(true, completion: nil)
         
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
-        self.showViewController(vc as! UIViewController, sender: vc)
+        self.showViewController(vc as! UIViewController, sender: vc) 
         
     }
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

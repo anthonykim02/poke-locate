@@ -271,6 +271,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         })
         
         self.mapView.addAnnotation(pokemon)
+        
     }
     
     
