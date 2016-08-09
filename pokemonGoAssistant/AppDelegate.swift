@@ -12,10 +12,10 @@ import Alamofire
 import SwiftyJSON
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var locationManager = CLLocationManager()
+    //var locationManager = CLLocationManager()
     var timeInterval = NSDate().timeIntervalSince1970
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -39,14 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        self.locationManager.delegate = self
+        /*self.locationManager.delegate = self
+        print("App entered background")
         if #available(iOS 9.0, *) {
             self.locationManager.allowsBackgroundLocationUpdates = true
         } else {
             // Fallback on earlier versions
         }
-        locationManager.distanceFilter = 15
-        self.locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = 0
+        self.locationManager.startUpdatingLocation()*/
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -55,22 +56,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        self.locationManager.stopUpdatingLocation()
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        self.locationManager.stopUpdatingLocation()
+        //self.locationManager.stopUpdatingLocation()
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+    /*func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         self.sendLocationToServer(newLocation)
     }
     
     func sendLocationToServer(location: CLLocation) {
         let newTimeInterval = NSDate().timeIntervalSince1970
-        if newTimeInterval - timeInterval > 60 {
-            let defaults = NSUserDefaults()
+        let defaults = NSUserDefaults()
+        if defaults.stringForKey("user_id") != nil && newTimeInterval - timeInterval > 60 {
             print("Users location updated to: (" + String(location.coordinate.longitude) + ", " + String(location.coordinate.latitude) + ")")
             Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/notifications/send", parameters: ["user": defaults.stringForKey("user_id")!, "latitude": location.coordinate.latitude, "longitude" : location.coordinate.longitude]).validate().responseJSON { (_, _, response) in
                 if let json = response.value {
@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         }
         
-    }
+    }*/
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         print("Got token data! \(deviceToken)")

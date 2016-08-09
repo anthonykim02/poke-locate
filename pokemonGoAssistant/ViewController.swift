@@ -1,4 +1,4 @@
-//
+    //
 //  ViewController.swift
 //  pokemonGoAssistant
 //
@@ -42,25 +42,41 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     var selectedPokemon:String! = "pokemon name here"
     var popOut = false
     
-    var nameData = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno","zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"]
+    var orderData = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno","zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"]
+    var nameData = []
     
     let locationManager = CLLocationManager()
     var userLat = 0.0
     var userLon = 0.0
     var numberUpdates = 0;
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        //self.mapView.removeFromSuperview()
+        //self.mapView = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameData = orderData.sort()
+        print(nameData)
+        print("Map Controller View loaded.")
         self.userLat = 0.0
         self.userLon = 0.0
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.startUpdatingLocation()
+        //self.locationManager.startUpdatingLocation()
         self.locationManager.startMonitoringSignificantLocationChanges()
+        if #available(iOS 9.0, *) {
+            self.locationManager.allowsBackgroundLocationUpdates = true
+        } else {
+            
+        }
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
-        
+        self.mapView.mapType = MKMapType.Standard
+        self.mapView.zoomEnabled = false
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("removePopUp:"))
         view.addGestureRecognizer(tap)
         
@@ -171,7 +187,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.mapView.removeAnnotations(self.mapView.annotations)
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -187,6 +203,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         numberUpdates = numberUpdates + 1
         userLat = locValue.latitude
         userLon = locValue.longitude
+        sendLocationToServer(manager.location!)
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -229,7 +246,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let pokemonName = nameData[index]
         let pokemon = CustomPointAnnotation()
         pokemon.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
-        pokemon.pinCustomImageName = pokemonName + ".png"
+        pokemon.pinCustomImageName = (pokemonName as! String) + ".png"
         pokemon.latitude = latitude
         pokemon.longitude = longitude
         pokemon.title = pokemonName.capitalizedString
@@ -262,7 +279,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             if placemarks!.count > 0
             {
                 let pm = placemarks![0] as! CLPlacemark
-                var address: String = ""
+                var address:String = ""
                 if pm.thoroughfare != nil && pm.locality != nil {
                     address = pm.thoroughfare! + ", " + pm.locality!
                 }
@@ -303,19 +320,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         selectedPokemon = view.annotation!.title!!.lowercaseString
         pokemonImage.image = UIImage(named: selectedPokemon)
         popOut = true
-//        likeButton.hidden = false
-//        dislikeButton.hidden = false
-        
-//        let userLocation = CLLocation(latitude: userLat, longitude: userLon)
-//        let aLocation = CLLocation(latitude: view.annotation!.coordinate.latitude, longitude: view.annotation!.coordinate.longitude)
-//        let milesAway = Double(round(10 * (userLocation.distanceFromLocation(aLocation) * 0.000621371))/10)
-//        let text = String(format: "%.1f", arguments: [milesAway])
-//        distance.text = text + " miles away"
-        
         
         let cpa = view.annotation as? CustomPointAnnotation
-        
-        
         let currentTime = Float(NSDate().timeIntervalSince1970)
         let elapsedTime = (currentTime - cpa!.timePosted)
         var duration = Int(elapsedTime)
@@ -436,6 +442,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let mapPointBottomRightX = MKMapRectGetMaxX(mapPoint)
         let mapPointBottomRightY = MKMapRectGetMaxY(mapPoint)
         let bottomRightCoordinates = MKCoordinateForMapPoint(MKMapPoint(x: mapPointBottomRightX, y: mapPointBottomRightY))
+        self.mapView.removeAnnotations(self.mapView.annotations)
         Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/filter", parameters: ["top_left_latitude" : topLeftCoordinates.latitude, "top_left_longitude" : topLeftCoordinates.longitude, "bottom_right_latitude": bottomRightCoordinates.latitude, "bottom_right_longitude": bottomRightCoordinates.longitude]).validate()
             .responseJSON{ (_, _, response) in
                 if let json = response.value {
@@ -452,9 +459,57 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                     } else {
                         // error message
                     }
-                    
                 }
         }
+    }
+    
+    func getReportData(id: Int) -> NSDictionary {
+        let dictionary:NSDictionary = NSDictionary()
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/get", parameters: ["id" : id]).validate()
+            .responseJSON{ (_, _, response) in
+                if let json = response.value {
+                    let data = JSON(json)
+                    
+                    if data["success"] == 0 {
+                        dictionary.setValue(0, forKey: "success")
+                        dictionary.setValue(data["report"]["upvote"].intValue, forKey: "upvote")
+                        dictionary.setValue(data["report"]["downvote"].intValue, forKey: "downvote")
+                    } else {
+                        dictionary.setValue(1, forKey: "success")
+                    }
+                } else {
+                    dictionary.setValue(1, forKey: "success")
+                }
+        }
+        return dictionary
+    }
+    
+    func upvotePost(id: Int) -> Bool {
+        var succesful:Bool = false
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/upvote", parameters: ["id" : id]).validate()
+            .responseJSON{ (_, _, response) in
+                if let json = response.value {
+                    let data = JSON(json)
+                    if data["success"] == 0 {
+                        succesful = true
+                    }
+                }
+        }
+        return succesful
+    }
+    
+    func downvotePost(id: Int) -> Bool {
+        var succesful:Bool = false
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/downvote", parameters: ["id" : id]).validate()
+            .responseJSON{ (_, _, response) in
+                if let json = response.value {
+                    let data = JSON(json)
+                    if data["success"] == 0 {
+                        succesful = true
+                    }
+                }
+        }
+        return succesful
     }
     
     func removePopUp(tap: UITapGestureRecognizer) {
@@ -484,6 +539,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             
         }
         
+    }
+    
+    func sendLocationToServer(location: CLLocation) {
+        let defaults = NSUserDefaults()
+        print("Users location updated to: (" + String(location.coordinate.longitude) + ", " + String(location.coordinate.latitude) + ")")
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/notifications/send", parameters: ["user": defaults.stringForKey("user_id")!, "latitude": location.coordinate.latitude, "longitude" : location.coordinate.longitude]).validate().responseJSON { (_, _, response) in
+            if let json = response.value {
+                var data = JSON(json)
+                var succesful = data["success"].stringValue
+                if succesful == "1" {
+                
+                } else {
+                    print("Location was sent to server")
+                }
+            } else {
+                print("there was a network error while sending location to server")
+            }
+        }
     }
     
 }

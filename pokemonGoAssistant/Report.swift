@@ -37,9 +37,6 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        pokemonScroll.dataSource = self
-//        pokemonScroll.delegate = self
-//        pokemonImage.image = UIImage(named: "abra")
         pokemonData = orderData.sort()
         var filteredPokemon = pokemonData
         
@@ -116,10 +113,8 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
     
     @IBAction func backAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
-        self.showViewController(vc as! UIViewController, sender: vc) 
-        
+        self.showViewController(vc as! UIViewController, sender: vc)
     }
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
