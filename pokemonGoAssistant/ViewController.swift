@@ -57,6 +57,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         //self.mapView = nil
     }
     
+    override func viewDidAppear(animated: Bool) {
+        print("ViewController viewDidAppear ran.")
+        super.viewDidAppear(animated)
+        refreshFunction()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nameData = orderData.sort()
@@ -554,8 +560,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                 self.pop.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
                 self.shadow.alpha = 0
             })
-//            likeButton.hidden = true
-//            dislikeButton.hidden = true
+
             UIButton.animateWithDuration(0.28, animations: {
                 self.likeButton.frame = CGRect(x: self.mapWidth * 0.65 + (buttonSize.width / 2), y: self.popUpHeight, width: 0, height: 0)
                 self.dislikeButton.frame = CGRect(x: self.likeButton.frame.maxX + (buttonSize.width / 2), y: self.popUpHeight, width: 0, height: 0)
