@@ -170,13 +170,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background 2" translatesAutoresizingMaskIntoConstraints="NO" id="5bf-Zu-vOK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background 2" translatesAutoresizingMaskIntoConstraints="NO" id="5bf-Zu-vOK">
                                 <rect key="frame" x="0.0" y="-20" width="600" height="620"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5bf-Zu-vOK" firstAttribute="top" secondItem="EiR-eJ-0qc" secondAttribute="top" constant="20" id="4rW-TA-JLp"/>
+                            <constraint firstItem="5bf-Zu-vOK" firstAttribute="top" secondItem="EiR-eJ-0qc" secondAttribute="top" constant="-20" id="4rW-TA-JLp"/>
                             <constraint firstAttribute="trailing" secondItem="5bf-Zu-vOK" secondAttribute="trailing" id="Aol-os-QCS"/>
                             <constraint firstItem="5bf-Zu-vOK" firstAttribute="leading" secondItem="EiR-eJ-0qc" secondAttribute="leading" id="Rzm-0T-gmX"/>
                             <constraint firstItem="DY1-iY-blD" firstAttribute="top" secondItem="5bf-Zu-vOK" secondAttribute="bottom" id="eAr-1O-Dsd"/>
@@ -238,19 +238,27 @@
                         <constraints>
                             <constraint firstItem="lJs-3w-ydu" firstAttribute="leading" secondItem="Pf9-GF-S60" secondAttribute="leading" id="BFW-PO-5Og"/>
                             <constraint firstItem="lJs-3w-ydu" firstAttribute="top" secondItem="Pf9-GF-S60" secondAttribute="top" constant="20" id="FVx-0b-Sho"/>
+                            <constraint firstItem="smG-re-aEg" firstAttribute="top" secondItem="lJs-3w-ydu" secondAttribute="bottom" id="MWa-2Q-hCg"/>
+                            <constraint firstItem="lJs-3w-ydu" firstAttribute="leading" secondItem="Pf9-GF-S60" secondAttribute="leadingMargin" id="QFM-j8-vjv"/>
                             <constraint firstItem="lXi-b2-cmP" firstAttribute="top" secondItem="4kd-ls-1YX" secondAttribute="bottom" constant="40" id="Z2l-3x-DN1"/>
                             <constraint firstItem="lXi-b2-cmP" firstAttribute="top" secondItem="4kd-ls-1YX" secondAttribute="bottom" constant="20" id="ZFj-dK-ZeU"/>
                             <constraint firstItem="lXi-b2-cmP" firstAttribute="leading" secondItem="Pf9-GF-S60" secondAttribute="leading" constant="30" id="bIB-9K-Xbr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lJs-3w-ydu" secondAttribute="trailing" id="duA-FY-k8b"/>
                             <constraint firstItem="lXi-b2-cmP" firstAttribute="leading" secondItem="Pf9-GF-S60" secondAttribute="leading" constant="10" id="qyY-q6-TMo"/>
+                            <constraint firstItem="lJs-3w-ydu" firstAttribute="top" secondItem="Pf9-GF-S60" secondAttribute="topMargin" constant="-20" id="s76-AN-Rh1"/>
                             <constraint firstItem="smG-re-aEg" firstAttribute="top" secondItem="lJs-3w-ydu" secondAttribute="bottom" id="tIa-Rx-WjE"/>
                             <constraint firstAttribute="trailing" secondItem="lJs-3w-ydu" secondAttribute="trailing" id="wKV-mZ-8Pj"/>
                             <constraint firstItem="lXi-b2-cmP" firstAttribute="top" secondItem="4kd-ls-1YX" secondAttribute="bottom" constant="10" id="zDg-Xi-VRu"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="BFW-PO-5Og"/>
+                                <exclude reference="FVx-0b-Sho"/>
+                                <exclude reference="wKV-mZ-8Pj"/>
                                 <exclude reference="Z2l-3x-DN1"/>
                                 <exclude reference="ZFj-dK-ZeU"/>
                                 <exclude reference="bIB-9K-Xbr"/>
+                                <exclude reference="tIa-Rx-WjE"/>
                             </mask>
                         </variation>
                     </view>
@@ -294,7 +302,7 @@
                                     <action selector="backAction:" destination="x8V-Fd-H3m" eventType="touchUpInside" id="7pz-wn-K6H"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background 2" translatesAutoresizingMaskIntoConstraints="NO" id="Mvt-Ku-Tq8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Background 2" translatesAutoresizingMaskIntoConstraints="NO" id="Mvt-Ku-Tq8">
                                 <rect key="frame" x="0.0" y="-20" width="600" height="620"/>
                             </imageView>
                         </subviews>
@@ -307,6 +315,14 @@
                             <constraint firstItem="NOO-uJ-fTa" firstAttribute="leading" secondItem="kL7-9c-swl" secondAttribute="leading" constant="10" id="Zsi-DR-TI5"/>
                             <constraint firstItem="5h1-5o-KeT" firstAttribute="top" secondItem="Mvt-Ku-Tq8" secondAttribute="bottom" id="tTc-pJ-ytY"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Nq1-WJ-p8c"/>
+                                <exclude reference="SPL-Qm-TNd"/>
+                                <exclude reference="VbP-lN-MLl"/>
+                                <exclude reference="tTc-pJ-ytY"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RsH-fh-1W9" userLabel="First Responder" sceneMemberID="firstResponder"/>

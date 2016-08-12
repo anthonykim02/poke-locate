@@ -324,27 +324,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             pokemonImage.image = UIImage(named: selectedPokemon)
             
             let cpa = view.annotation as? CustomPointAnnotation
-            let currentTime = Float(NSDate().timeIntervalSince1970)
-            let elapsedTime = (currentTime - cpa!.timePosted)
-            var duration = Int(elapsedTime)
-            var timeMessage = ""
-            if duration < 60 {
-                timeMessage = String(duration) + " second(s) ago"
-            }
-            else if duration >= 86400 {
-                duration = Int(duration / 86400)
-                timeMessage = String(duration) + " day(s) ago"
-            }
-            else if duration >= 3600 {
-                duration = Int(duration / 3600)
-                timeMessage = String(duration) + " hour(s) ago"
-            }
-            else {
-                duration = Int(duration / 60)
-                timeMessage = String(duration) + " minute(s) ago"
-            }
-            
-            time.text = timeMessage
             
             let id = cpa!.pinID
             let dictionary:NSMutableDictionary = NSMutableDictionary()
@@ -360,6 +339,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                             dictionary.setObject(data["report"]["user"]["username"].stringValue, forKey: "username")
                             dictionary.setObject(data["report"]["voted"].intValue, forKey: "voted")
                             dictionary.setObject(data["report"]["user"]["rating"].intValue, forKey: "rating")
+                            dictionary.setObject(data["report"]["timestamp"].floatValue, forKey: "time")
                         } else {
                             dictionary.setValue(1, forKey: "success")
                         }
@@ -380,6 +360,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                         }
                         self.postRate.text = "Current Rating: +" + String(upvote) + " -" + String(downvote)
                         self.userRate.text = "User's Current Rating: " + String(userRating)
+                        
+                        let currentTime = Float(NSDate().timeIntervalSince1970)
+                        let timePosted = dictionary["time"] as! Float
+                        let elapsedTime = (currentTime - timePosted)
+                        var duration = Int(elapsedTime)
+                        var timeMessage = ""
+                        print(currentTime)
+                        print(elapsedTime)
+                        print(cpa!.timePosted)
+                        if duration < 60 {
+                            timeMessage = String(duration) + " second(s) ago"
+                        }
+                        else if duration >= 86400 {
+                            duration = Int(duration / 86400)
+                            timeMessage = String(duration) + " day(s) ago"
+                        }
+                        else if duration >= 3600 {
+                            duration = Int(duration / 3600)
+                            timeMessage = String(duration) + " hour(s) ago"
+                        }
+                        else {
+                            duration = Int(duration / 60)
+                            timeMessage = String(duration) + " minute(s) ago"
+                        }
+                        
+                        self.time.text = timeMessage
                     }
                     
                     let xCoord = self.pop.frame.origin.x
@@ -501,7 +507,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                             let latitude = report["latitude"].doubleValue
                             let longitude = report["longitude"].doubleValue
                             let pokemon = report["pokemon"].intValue
-                            let time = report["time"].floatValue
+                            let time = report["timestamp"].floatValue
                             let id = report["id"].intValue
                             self.addPokemon(latitude, longitude: longitude, index: pokemon, timePosted: time, postID: id)
                         }
