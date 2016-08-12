@@ -62,11 +62,6 @@
 		9A12A7F71D3DF7BD00B0E60E /* VCMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapViewDelegate.swift; sourceTree = "<group>"; };
 		9A65FB1E1D43F82200456AD4 /* VCTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCTracking.swift; sourceTree = "<group>"; };
 		9A65FB201D43F92C00456AD4 /* TrackingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingTableViewCell.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		9AF311B01D597768002F5369 /* Aleo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aleo-Regular.otf"; path = "../../../../../Downloads/aleo/Aleo-Regular.otf"; sourceTree = "<group>"; };
-=======
-		9AF311B21D5978F7002F5369 /* Aleo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aleo-Regular.otf"; path = "../../../../../Downloads/aleo/Aleo-Regular.otf"; sourceTree = "<group>"; };
->>>>>>> 5e9e34d4c6c84f23019683b816ce3fbc0713a674
 		C0E683846B057BFD9AD27C12 /* Pods-pokemonGoAssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonGoAssistantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pokemonGoAssistantTests/Pods-pokemonGoAssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4239B32FD6596FC8A916D02 /* Pods-pokemonGoAssistantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonGoAssistantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pokemonGoAssistantTests/Pods-pokemonGoAssistantTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD6E10469C3CF7B8AFA8DB2E /* Pods-pokemonGoAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonGoAssistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-pokemonGoAssistant/Pods-pokemonGoAssistant.release.xcconfig"; sourceTree = "<group>"; };
