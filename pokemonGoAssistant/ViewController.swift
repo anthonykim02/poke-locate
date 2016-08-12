@@ -49,6 +49,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     var userLon = 0.0
     var numberUpdates = 0;
     
+    var canVote = 0 //whether or not buttons are enabled
+    
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         //self.mapView.removeFromSuperview()
@@ -132,7 +134,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         distance.text = "0.5 miles away"
         location.text = "at Brower Court, San Ramon"
         user.text = "Submitted by AntMan623"
-        userRate.text = "User's Current Rating: +3 -1"
+        userRate.text = "User's Current Rating: +0 -0"
         postRate.text = "Current Rating: 80%"
         
         let buttonSize = CGSize(width: mapWidth / 7, height: mapWidth / 7)
@@ -315,159 +317,167 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        selectedPokemon = view.annotation!.title!!.lowercaseString
-        pokemonImage.image = UIImage(named: selectedPokemon)
-        popOut = true
-        
-        let cpa = view.annotation as? CustomPointAnnotation
-        let currentTime = Float(NSDate().timeIntervalSince1970)
-        let elapsedTime = (currentTime - cpa!.timePosted)
-        var duration = Int(elapsedTime)
-        var timeMessage = ""
-        if duration < 60 {
-            timeMessage = String(duration) + " second(s) ago"
-        }
-        else if duration >= 86400 {
-            duration = Int(duration / 86400)
-            timeMessage = String(duration) + " day(s) ago"
-        }
-        else if duration >= 3600 {
-            duration = Int(duration / 3600)
-            timeMessage = String(duration) + " hour(s) ago"
-        }
-        else {
-            duration = Int(duration / 60)
-            timeMessage = String(duration) + " minute(s) ago"
-        }
-        
-        time.text = timeMessage
-
-        let id = cpa!.pinID
-        let dictionary:NSMutableDictionary = NSMutableDictionary()
-        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/get", parameters: ["id" : id, "user_id" : getUserID()]).validate()
-            .responseJSON{ (_, _, response) in
-                if let json = response.value {
-                    let data = JSON(json)
-                    print("alamofire body completed")
-                    if data["success"] == 0 {
-                        dictionary.setObject(0, forKey: "success")
-                        dictionary.setObject(data["report"]["upvote"].intValue, forKey: "upvote")
-                        dictionary.setObject(data["report"]["downvote"].intValue, forKey: "downvote")
-                        dictionary.setObject(data["report"]["user"]["username"].stringValue, forKey: "username")
+        if popOut == false {
+            selectedPokemon = view.annotation!.title!!.lowercaseString
+            pokemonImage.image = UIImage(named: selectedPokemon)
+            
+            let cpa = view.annotation as? CustomPointAnnotation
+            let currentTime = Float(NSDate().timeIntervalSince1970)
+            let elapsedTime = (currentTime - cpa!.timePosted)
+            var duration = Int(elapsedTime)
+            var timeMessage = ""
+            if duration < 60 {
+                timeMessage = String(duration) + " second(s) ago"
+            }
+            else if duration >= 86400 {
+                duration = Int(duration / 86400)
+                timeMessage = String(duration) + " day(s) ago"
+            }
+            else if duration >= 3600 {
+                duration = Int(duration / 3600)
+                timeMessage = String(duration) + " hour(s) ago"
+            }
+            else {
+                duration = Int(duration / 60)
+                timeMessage = String(duration) + " minute(s) ago"
+            }
+            
+            time.text = timeMessage
+            
+            let id = cpa!.pinID
+            let dictionary:NSMutableDictionary = NSMutableDictionary()
+            Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/get", parameters: ["id" : id, "user_id" : getUserID()]).validate()
+                .responseJSON{ (_, _, response) in
+                    if let json = response.value {
+                        let data = JSON(json)
+                        print("alamofire body completed")
+                        if data["success"] == 0 {
+                            dictionary.setObject(0, forKey: "success")
+                            dictionary.setObject(data["report"]["upvote"].intValue, forKey: "upvote")
+                            dictionary.setObject(data["report"]["downvote"].intValue, forKey: "downvote")
+                            dictionary.setObject(data["report"]["user"]["username"].stringValue, forKey: "username")
+                            dictionary.setObject(data["report"]["voted"].intValue, forKey: "voted")
+                            dictionary.setObject(data["report"]["user"]["rating"].intValue, forKey: "rating")
+                        } else {
+                            dictionary.setValue(1, forKey: "success")
+                        }
                     } else {
                         dictionary.setValue(1, forKey: "success")
                     }
-                } else {
-                    dictionary.setValue(1, forKey: "success")
-                }
-                let success = dictionary["success"] as! Int
-                if success == 0 {
-                    let username = dictionary["username"] as! String
-                    let upvote = dictionary["upvote"] as! Int
-                    let downvote = dictionary["downvote"] as! Int
-                    if username != "" {
-                        self.user.text = "Submitted by " + username
-                    } else {
-                        self.user.text = "Submitted by Unknown"
+                    let success = dictionary["success"] as! Int
+                    if success == 0 {
+                        let username = dictionary["username"] as! String
+                        let upvote = dictionary["upvote"] as! Int
+                        let downvote = dictionary["downvote"] as! Int
+                        self.canVote = dictionary["voted"] as! Int
+                        let userRating = dictionary["rating"] as! Int
+                        if username != "" {
+                            self.user.text = "Submitted by " + username
+                        } else {
+                            self.user.text = "Submitted by Unknown"
+                        }
+                        self.postRate.text = "Current Rating: +" + String(upvote) + " -" + String(downvote)
+                        self.userRate.text = "User's Current Rating: " + String(userRating)
                     }
-                    self.postRate.text = "Current Rating: +" + String(upvote) + " -" + String(downvote)
-                }
-        }
-        
-        let userLocation = CLLocation(latitude: userLat, longitude: userLon)
-        let aLocation = CLLocation(latitude: cpa!.latitude, longitude: cpa!.longitude)
-        cpa!.distance = Double(round(10 * (userLocation.distanceFromLocation(aLocation) * 0.000621371))/10)
-        let text = String(format: "%.1f", arguments:[cpa!.distance])
-        distance.text = text + " miles away"
-        
-        if cpa!.address != nil {
-            location.text = "at " + cpa!.address
-        }
-        else {
-            location.text = ""
-        }
-
-        
-        let xCoord = pop.frame.origin.x
-        let yCoord = pop.frame.maxY
-        let aHeight = pop.frame.size.height
-        let aWidth = pop.frame.size.width
-        
-        let buttonSize = CGSize(width: mapWidth / 7, height: mapWidth / 7)
-        likeButton.view = view
-        dislikeButton.view = view
-        
-        if cpa!.like == true {
-            likeButton.setImage(UIImage(named: "Thumbs Up highlight"), forState: UIControlState.Normal)
-        }
-        else {
-            likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
-        }
-        
-        if cpa!.dislike == true {
-            dislikeButton.setImage(UIImage(named: "Thumbs Down highlight"), forState: UIControlState.Normal)
-        }
-        else {
-            dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
-        }
-        
-        UIView.animateWithDuration(0.4, animations: {
-            self.pop.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
-            self.shadow.alpha = 0.5
-        })
-        UIButton.animateWithDuration(0.4, animations: {
-            self.likeButton.frame = CGRect(x: self.mapWidth * 0.65, y: self.popUpHeight - (buttonSize.width / 2), width: buttonSize.width, height: buttonSize.height)
-            self.dislikeButton.frame = CGRect(x: self.likeButton.frame.maxX, y: self.popUpHeight - (buttonSize.width / 2), width: buttonSize.width, height: buttonSize.height)
+                    
+                    let xCoord = self.pop.frame.origin.x
+                    let yCoord = self.pop.frame.maxY
+                    let aHeight = self.pop.frame.size.height
+                    let aWidth = self.pop.frame.size.width
+                    
+                    let buttonSize = CGSize(width: self.mapWidth / 7, height: self.mapWidth / 7)
+                    self.likeButton.view = view
+                    self.dislikeButton.view = view
+                    
+                    if cpa!.like == true || self.canVote == 1 {
+                        self.likeButton.setImage(UIImage(named: "Thumbs Up highlight"), forState: UIControlState.Normal)
+                    }
+                    else {
+                        self.likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
+                    }
+                    
+                    if cpa!.dislike == true || self.canVote == 2 {
+                        self.dislikeButton.setImage(UIImage(named: "Thumbs Down highlight"), forState: UIControlState.Normal)
+                    }
+                    else {
+                        self.dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
+                    }
+                    
+                    UIView.animateWithDuration(0.28, animations: {
+                        self.pop.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
+                        self.shadow.alpha = 0.5
+                    })
+                    UIButton.animateWithDuration(0.28, animations: {
+                        self.likeButton.frame = CGRect(x: self.mapWidth * 0.65, y: self.popUpHeight - (buttonSize.width / 2), width: buttonSize.width, height: buttonSize.height)
+                        self.dislikeButton.frame = CGRect(x: self.likeButton.frame.maxX, y: self.popUpHeight - (buttonSize.width / 2), width: buttonSize.width, height: buttonSize.height)
+                        
+                    })
+            }
             
-        })
-        
-        
-        
-        
+            let userLocation = CLLocation(latitude: userLat, longitude: userLon)
+            let aLocation = CLLocation(latitude: cpa!.latitude, longitude: cpa!.longitude)
+            cpa!.distance = Double(round(10 * (userLocation.distanceFromLocation(aLocation) * 0.000621371))/10)
+            let text = String(format: "%.1f", arguments:[cpa!.distance])
+            distance.text = text + " miles away"
+            
+            if cpa!.address != nil {
+                location.text = "at " + cpa!.address
+            }
+            else {
+                location.text = ""
+            }
+        }
+        popOut = true
     }
     
     func likeAction(sender: CustomButton!) {
         let cpa = sender.view.annotation as? CustomPointAnnotation
         let id = cpa!.pinID
-        if sender == likeButton {
-            sender.setImage(UIImage(named: "Thumbs Up highlight"), forState: UIControlState.Normal)
-        }
-        else {
-            sender.setImage(UIImage(named: "Thumbs Down highlight"), forState: UIControlState.Normal)
-        }
-        
-        
-        if cpa!.like == true && sender == likeButton {
-            likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
-            cpa!.like = false
-            // remove like
-        }
-        else if cpa!.dislike == true && sender == dislikeButton {
-            dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
-            cpa!.dislike = false
-            // remove dislike
-        }
-        else {
-            if cpa!.like == true && sender == dislikeButton {
-                likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
-                cpa!.like = false
-            }
-            else if cpa!.dislike == true && sender == likeButton {
-                dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
-                cpa!.dislike = false
-            }
-            
-            if sender == dislikeButton {
-                cpa!.dislike = true
-                // add dislike
-                downvotePost(id)
-            }
-            else if sender == likeButton {
+        if canVote == 0 {
+            if sender == likeButton {
+                sender.setImage(UIImage(named: "Thumbs Up highlight"), forState: UIControlState.Normal)
                 cpa!.like = true
-                // add like
                 upvotePost(id)
             }
+            else {
+                sender.setImage(UIImage(named: "Thumbs Down highlight"), forState: UIControlState.Normal)
+                cpa!.dislike = true
+                downvotePost(id)
+            }
         }
+        print(canVote)
+        
+//        if cpa!.like == true && sender == likeButton {
+//            likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
+//            cpa!.like = false
+//            // remove like
+//        }
+//        else if cpa!.dislike == true && sender == dislikeButton {
+//            dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
+//            cpa!.dislike = false
+//            // remove dislike
+//        }
+//        else {
+//            if cpa!.like == true && sender == dislikeButton {
+//                likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
+//                cpa!.like = false
+//            }
+//            else if cpa!.dislike == true && sender == likeButton {
+//                dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
+//                cpa!.dislike = false
+//            }
+//            
+//            if sender == dislikeButton {
+//                cpa!.dislike = true
+//                // add dislike
+//                downvotePost(id)
+//            }
+//            else if sender == likeButton {
+//                cpa!.like = true
+//                // add like
+//                upvotePost(id)
+//            }
+//        }
         
         
     }
@@ -540,13 +550,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             
             let buttonSize = CGSize(width: mapWidth / 7, height: mapWidth / 7)
             
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animateWithDuration(0.28, animations: {
                 self.pop.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
                 self.shadow.alpha = 0
             })
 //            likeButton.hidden = true
 //            dislikeButton.hidden = true
-            UIButton.animateWithDuration(0.5, animations: {
+            UIButton.animateWithDuration(0.28, animations: {
                 self.likeButton.frame = CGRect(x: self.mapWidth * 0.65 + (buttonSize.width / 2), y: self.popUpHeight, width: 0, height: 0)
                 self.dislikeButton.frame = CGRect(x: self.likeButton.frame.maxX + (buttonSize.width / 2), y: self.popUpHeight, width: 0, height: 0)
                 
