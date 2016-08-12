@@ -32,7 +32,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     let refresh = UIButton()
     let reportButton = UIButton()
     let trackButton = UIButton()
-    let logoutButton = UIButton()
     
     var mapHeight:CGFloat = 0.0
     var mapWidth:CGFloat = 0.0
@@ -76,7 +75,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
         self.mapView.mapType = MKMapType.Standard
-        self.mapView.zoomEnabled = false
+        self.mapView.zoomEnabled = true
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("removePopUp:"))
         view.addGestureRecognizer(tap)
         
@@ -151,17 +150,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         reportButton.frame = CGRect(x: (mapWidth / 2) - (reportSize.width / 2), y: mapHeight * 0.825, width: reportSize.width, height: reportSize.height)
         reportButton.addTarget(self, action: Selector("reportAction:"), forControlEvents: .TouchUpInside)
         
-        let refreshSize = CGSize(width: mapWidth * 0.25, height: mapHeight / 20)
-        refresh.setImage(UIImage(named: "Refresh Button Rounded"), forState: UIControlState.Normal)
-        refresh.frame = CGRect(x: (mapWidth / 2) - (refreshSize.width / 2), y: refreshSize.height * 1.5, width: refreshSize.width, height: refreshSize.height)
+        let refreshSize = CGSize(width: mapWidth * 0.1, height: mapWidth * 0.1)
+        refresh.setImage(UIImage(named: "Refresh Button"), forState: UIControlState.Normal)
+        refresh.frame = CGRect(x: mapWidth / 10, y: 30, width: refreshSize.width + 5, height: refreshSize.height)
         refresh.addTarget(self, action: Selector("refreshAction:"), forControlEvents: .TouchUpInside)
         
-        trackButton.setImage(UIImage(named: "Refresh Button Rounded"), forState: UIControlState.Normal)
-        trackButton.frame = CGRect(x: (mapWidth + refresh.frame.maxX) / 2 - (refreshSize.width / 2), y: refresh.frame.minY, width: refreshSize.width, height: refreshSize.height)
+        trackButton.setImage(UIImage(named: "Center Button"), forState: UIControlState.Normal)
+        trackButton.frame = CGRect(x: (mapWidth * 9 / 10) - refreshSize.width, y: 30, width: refreshSize.width, height: refreshSize.height)
         trackButton.addTarget(self, action: Selector("trackAction:"), forControlEvents: .TouchUpInside)
         
-        logoutButton.setImage(UIImage(named: "Log Out Button Rounded"), forState: UIControlState.Normal)
-        logoutButton.frame = CGRect(x: (refresh.frame.minX / 2) - (refreshSize.width / 2), y: refresh.frame.minY, width: refreshSize.width, height: refreshSize.height)
+        /*logoutButton.setImage(UIImage(named: "Log Out Button Rounded"), forState: UIControlState.Normal)
+        logoutButton.frame = CGRect(x: (refresh.frame.minX / 2) - (refreshSize.width / 2), y: refresh.frame.minY, width: refreshSize.width, height: refreshSize.height)*/
         
         pop.addSubview(pokemonImage)
         pop.addSubview(time)
@@ -177,7 +176,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         self.view.addSubview(reportButton)
         self.view.addSubview(refresh)
         self.view.addSubview(trackButton)
-        self.view.addSubview(logoutButton)
         self.view.bringSubviewToFront(shadow)
         self.view.bringSubviewToFront(pop)
         self.view.bringSubviewToFront(likeButton)
@@ -501,30 +499,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                 }
         }
     }
-    
-//    func getReportData(id: Int) -> NSDictionary {
-//        let dictionary:NSDictionary = NSDictionary()
-//        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/get", parameters: ["id" : id]).validate()
-//            .responseJSON{ (_, _, response) in
-//                if let json = response.value {
-//                    let data = JSON(json)
-//                    print("alamofire body completed")
-//                    if data["success"] == 0 {
-//                        dictionary.setValue(0, forKey: "success")
-//                        dictionary.setValue(data["report"]["upvote"].intValue, forKey: "upvote")
-//                        dictionary.setValue(data["report"]["downvote"].intValue, forKey: "downvote")
-//                        dictionary.setValue(data["report"]["user"]["username"].stringValue, forKey: "username")
-//                    } else {
-//                        dictionary.setValue(1, forKey: "success")
-//                    }
-//                } else {
-//                    dictionary.setValue(1, forKey: "success")
-//                }
-//                
-//        }
-//        
-//        return dictionary
-//    }
     
     func upvotePost(id: Int) -> Bool {
         var succesful:Bool = false
