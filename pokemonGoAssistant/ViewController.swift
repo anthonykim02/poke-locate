@@ -347,7 +347,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         let id = cpa!.pinID
         let dictionary:NSMutableDictionary = NSMutableDictionary()
-        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/get", parameters: ["id" : id]).validate()
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/get", parameters: ["id" : id, "user_id" : getUserID()]).validate()
             .responseJSON{ (_, _, response) in
                 if let json = response.value {
                     let data = JSON(json)
@@ -529,7 +529,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     func upvotePost(id: Int) -> Bool {
         var succesful:Bool = false
-        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/upvote", parameters: ["id" : id]).validate()
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/upvote", parameters: ["id" : id, "user_id" : getUserID()]).validate()
             .responseJSON{ (_, _, response) in
                 if let json = response.value {
                     let data = JSON(json)
@@ -543,7 +543,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     func downvotePost(id: Int) -> Bool {
         var succesful:Bool = false
-        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/downvote", parameters: ["id" : id]).validate()
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/downvote", parameters: ["id" : id, "user_id": getUserID()]).validate()
             .responseJSON{ (_, _, response) in
                 if let json = response.value {
                     let data = JSON(json)
@@ -607,6 +607,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let center = CLLocationCoordinate2D(latitude: location!.latitude, longitude: location!.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: self.mapView.region.span.latitudeDelta, longitudeDelta: self.mapView.region.span.longitudeDelta))
         self.mapView.setRegion(region, animated: true)
+    }
+    
+    func getUserID() -> String {
+        let defaults = NSUserDefaults()
+        return defaults.stringForKey("user_id")!
     }
     
 }
