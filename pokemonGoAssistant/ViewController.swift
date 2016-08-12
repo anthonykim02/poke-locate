@@ -111,7 +111,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         location.frame = CGRect(x: (mapWidth / 2) - (labelSize.width / 2), y: distance.frame.maxY, width: labelSize.width, height: labelSize.height)
         userRate.frame = CGRect(x: mapWidth / 30, y: popUpHeight - (mapHeight / 20), width: labelSize.width, height: mapHeight / 40)
         user.frame = CGRect(x: mapWidth / 30, y: userRate.frame.minY - (mapHeight / 40), width: labelSize.width, height: mapHeight / 40)
-        postRate.frame = CGRect(x: mapWidth * 0.65, y: user.frame.minY, width: labelSize.width, height: mapHeight / 40)
+        postRate.frame = CGRect(x: mapWidth * 0.6, y: user.frame.minY, width: labelSize.width, height: mapHeight / 40)
         
         distance.textAlignment = NSTextAlignment.Center
         location.textAlignment = NSTextAlignment.Center
@@ -242,7 +242,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         refreshFunction()
     }
     
-    func addPokemon(latitude: Double, longitude: Double, index: Int, timePosted: Float) {
+    func addPokemon(latitude: Double, longitude: Double, index: Int, timePosted: Float, postID: Int) {
         let pokemonName = nameData[index]
         let pokemon = CustomPointAnnotation()
         pokemon.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
@@ -252,6 +252,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         pokemon.title = pokemonName.capitalizedString
         pokemon.like = false
         pokemon.dislike = false
+        pokemon.pinID = postID
         
         let date = NSDate(timeIntervalSince1970: NSTimeInterval(timePosted))
         
@@ -343,6 +344,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         time.text = timeMessage
         
+        let id = cpa!.pinID
+        let dictionary:NSMutableDictionary = NSMutableDictionary()
+        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/get", parameters: ["id" : id]).validate()
+            .responseJSON{ (_, _, response) in
+                if let json = response.value {
+                    let data = JSON(json)
+                    print("alamofire body completed")
+                    if data["success"] == 0 {
+                        dictionary.setObject(0, forKey: "success")
+                        dictionary.setObject(data["report"]["upvote"].intValue, forKey: "upvote")
+                        dictionary.setObject(data["report"]["downvote"].intValue, forKey: "downvote")
+                        dictionary.setObject(data["report"]["user"]["username"].stringValue, forKey: "username")
+                    } else {
+                        dictionary.setValue(1, forKey: "success")
+                    }
+                } else {
+                    dictionary.setValue(1, forKey: "success")
+                }
+                let success = dictionary["success"] as! Int
+                if success == 0 {
+                    let username = dictionary["username"] as! String
+                    let upvote = dictionary["upvote"] as! Int
+                    let downvote = dictionary["downvote"] as! Int
+                    if username != "" {
+                        self.user.text = "Submitted by " + username
+                    } else {
+                        self.user.text = "Submitted by Unknown"
+                    }
+                    self.postRate.text = "Current Rating: +" + String(upvote) + " -" + String(downvote)
+                }
+        }
         
         let userLocation = CLLocation(latitude: userLat, longitude: userLon)
         let aLocation = CLLocation(latitude: cpa!.latitude, longitude: cpa!.longitude)
@@ -356,7 +388,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         else {
             location.text = ""
         }
-        
+
         
         let xCoord = pop.frame.origin.x
         let yCoord = pop.frame.maxY
@@ -398,6 +430,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     func likeAction(sender: CustomButton!) {
         let cpa = sender.view.annotation as? CustomPointAnnotation
+        let id = cpa!.pinID
         if sender == likeButton {
             sender.setImage(UIImage(named: "Thumbs Up highlight"), forState: UIControlState.Normal)
         }
@@ -409,10 +442,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         if cpa!.like == true && sender == likeButton {
             likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
             cpa!.like = false
+            // remove like
         }
         else if cpa!.dislike == true && sender == dislikeButton {
             dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
             cpa!.dislike = false
+            // remove dislike
         }
         else {
             if cpa!.like == true && sender == dislikeButton {
@@ -426,9 +461,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             
             if sender == dislikeButton {
                 cpa!.dislike = true
+                // add dislike
+                downvotePost(id)
             }
             else if sender == likeButton {
                 cpa!.like = true
+                // add like
+                upvotePost(id)
             }
         }
         
@@ -453,7 +492,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                             let longitude = report["longitude"].doubleValue
                             let pokemon = report["pokemon"].intValue
                             let time = report["time"].floatValue
-                            self.addPokemon(latitude, longitude: longitude, index: pokemon, timePosted: time)
+                            let id = report["id"].intValue
+                            self.addPokemon(latitude, longitude: longitude, index: pokemon, timePosted: time, postID: id)
                         }
                     } else {
                         // error message
@@ -462,26 +502,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         }
     }
     
-    func getReportData(id: Int) -> NSDictionary {
-        let dictionary:NSDictionary = NSDictionary()
-        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/get", parameters: ["id" : id]).validate()
-            .responseJSON{ (_, _, response) in
-                if let json = response.value {
-                    let data = JSON(json)
-                    
-                    if data["success"] == 0 {
-                        dictionary.setValue(0, forKey: "success")
-                        dictionary.setValue(data["report"]["upvote"].intValue, forKey: "upvote")
-                        dictionary.setValue(data["report"]["downvote"].intValue, forKey: "downvote")
-                    } else {
-                        dictionary.setValue(1, forKey: "success")
-                    }
-                } else {
-                    dictionary.setValue(1, forKey: "success")
-                }
-        }
-        return dictionary
-    }
+//    func getReportData(id: Int) -> NSDictionary {
+//        let dictionary:NSDictionary = NSDictionary()
+//        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/get", parameters: ["id" : id]).validate()
+//            .responseJSON{ (_, _, response) in
+//                if let json = response.value {
+//                    let data = JSON(json)
+//                    print("alamofire body completed")
+//                    if data["success"] == 0 {
+//                        dictionary.setValue(0, forKey: "success")
+//                        dictionary.setValue(data["report"]["upvote"].intValue, forKey: "upvote")
+//                        dictionary.setValue(data["report"]["downvote"].intValue, forKey: "downvote")
+//                        dictionary.setValue(data["report"]["user"]["username"].stringValue, forKey: "username")
+//                    } else {
+//                        dictionary.setValue(1, forKey: "success")
+//                    }
+//                } else {
+//                    dictionary.setValue(1, forKey: "success")
+//                }
+//                
+//        }
+//        
+//        return dictionary
+//    }
     
     func upvotePost(id: Int) -> Bool {
         var succesful:Bool = false
