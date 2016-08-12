@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 
 class CustomPointAnnotation: MKPointAnnotation {
+    var pinID:Int!
     var pinCustomImageName:String!
     var latitude:Double!
     var longitude:Double!
