@@ -52,12 +52,12 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
         
         let scrollSize = CGSize(width: screenWidth * 0.57895, height: screenHeight * 0.2671)
         pokeScroll.frame = CGRect(x: screenWidth * 0.2825, y: screenHeight * 0.16471, width: scrollSize.width, height: scrollSize.height)
-        searchBar.frame = CGRect(x: screenWidth * 0.2825, y: screenHeight * 0.168, width: scrollSize.width, height: scrollSize.height / 4)
+        searchBar.frame = CGRect(x: screenWidth * 0.2825, y: screenHeight * 0.15, width: scrollSize.width, height: scrollSize.height / 4)
         searchBar.layer.cornerRadius = 4.0
         searchBar.clipsToBounds = true
         
         let imageSize = CGSize(width: screenWidth * 0.522, height: screenHeight * 0.293)
-        pokeImage.frame = CGRect(x: screenWidth * 0.274, y: screenHeight * 0.5196, width: imageSize.width, height: imageSize.height)
+        pokeImage.frame = CGRect(x: screenWidth * 0.28, y: screenHeight * 0.51, width: imageSize.width, height: imageSize.height)
         
         let buttonSize = CGSize(width: screenWidth * 0.75, height: screenHeight / 10)
         reportButton.setImage(UIImage(named: "Updated report button"), forState: UIControlState.Normal)
