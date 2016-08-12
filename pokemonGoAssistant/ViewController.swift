@@ -133,7 +133,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         distance.text = "0.5 miles away"
         location.text = "at Brower Court, San Ramon"
         user.text = "Submitted by AntMan623"
-        userRate.text = "User's Current Rating: 65%"
+        userRate.text = "User's Current Rating: +3 -1"
         postRate.text = "Current Rating: 80%"
         
         let buttonSize = CGSize(width: mapWidth / 7, height: mapWidth / 7)
@@ -262,7 +262,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let dateString = dayTimePeriodFormatter.stringFromDate(date)
         
         pokemon.subtitle = "Last Seen " + dateString
-        
         let userLocation = CLLocation(latitude: userLat, longitude: userLon)
         let aLocation = CLLocation(latitude: latitude, longitude: longitude)
         pokemon.distance = Double(round(10 * (userLocation.distanceFromLocation(aLocation) * 0.000621371))/10)
@@ -344,7 +343,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         }
         
         time.text = timeMessage
-        
+
         let id = cpa!.pinID
         let dictionary:NSMutableDictionary = NSMutableDictionary()
         Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/get", parameters: ["id" : id]).validate()
