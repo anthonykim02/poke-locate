@@ -82,7 +82,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         mapHeight = self.view.frame.size.height
         mapWidth = self.view.frame.size.width
-        
         popUpHeight = mapHeight * 0.3
         
         // y starts above the screen for animation
@@ -216,8 +215,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 //    }
     
     func trackAction(sender: UIButton!) {
-        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("VCTracking")
-        self.showViewController(vc as! UIViewController, sender: vc)
+        centerMap()
+        /*let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("VCTracking")
+        self.showViewController(vc as! UIViewController, sender: vc)*/
     }
     
 //    @IBAction func reported(sender: AnyObject) {
@@ -556,6 +556,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                 print("there was a network error while sending location to server")
             }
         }
+    }
+    
+    func centerMap() {
+        let location = locationManager.location?.coordinate
+        let center = CLLocationCoordinate2D(latitude: location!.latitude, longitude: location!.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: self.mapView.region.span.latitudeDelta, longitudeDelta: self.mapView.region.span.longitudeDelta))
+        self.mapView.setRegion(region, animated: true)
     }
     
 }
