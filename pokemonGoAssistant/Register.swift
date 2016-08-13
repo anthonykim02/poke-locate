@@ -47,6 +47,29 @@ class Register: UIViewController, UITextFieldDelegate {
     let zapdos = UIImageView()
     let articuno = UIImageView()
     
+    // instruction popups
+    let shadow = UIView()
+    
+    let clickAnnotation = UIView()
+    let ratePosts = UIView()
+    let reportPokemon = UIView()
+    
+    let mapImage1 = UIImageView()
+    let mapImage2 = UIImageView()
+    let reportImage = UIImageView()
+    
+    let annotationText = UILabel()
+    let rateText = UILabel()
+    let reportText = UILabel()
+    
+    let annotationTitle = UILabel()
+    let rateTitle = UILabel()
+    let reportTitle = UILabel()
+    
+    let annotationNext = UIButton()
+    let rateNext = UIButton()
+    let reportNext = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -184,7 +207,155 @@ class Register: UIViewController, UITextFieldDelegate {
         valor.addTarget(self, action: Selector("valorAction:"),forControlEvents: .TouchUpInside)
         mystic.addTarget(self, action: Selector("mysticAction:"),forControlEvents: .TouchUpInside)
         
+        // instructions pages
+        shadow.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+        shadow.backgroundColor = UIColor.blackColor()
+        shadow.alpha = 0
         
+        let introSize = CGSize(width: screenWidth * 0.85, height: screenHeight * 0.75)
+        
+        clickAnnotation.frame = CGRect(x: screenWidth * 1.5, y: (screenHeight / 2) - (introSize.height / 2), width: introSize.width, height: introSize.height)
+        clickAnnotation.backgroundColor = UIColor().HexToColor("#aaff80", alpha: 1.0)
+        clickAnnotation.layer.cornerRadius = 10.0
+        clickAnnotation.layer.borderColor = UIColor.grayColor().CGColor
+        clickAnnotation.layer.borderWidth = 0.5
+        clickAnnotation.layer.shadowColor = UIColor.blackColor().CGColor
+        clickAnnotation.layer.shadowOffset = CGSize(width: 0, height: 3)
+        clickAnnotation.layer.shadowOpacity = 0.4
+        clickAnnotation.layer.shadowRadius = 4
+        
+        ratePosts.frame = CGRect(x: screenWidth * 1.5, y: (screenHeight / 2) - (introSize.height / 2), width: introSize.width, height: introSize.height)
+        ratePosts.backgroundColor = UIColor().HexToColor("#ffc266", alpha: 1.0)
+        ratePosts.layer.cornerRadius = 10.0
+        ratePosts.layer.borderColor = UIColor.grayColor().CGColor
+        ratePosts.layer.borderWidth = 0.5
+        ratePosts.layer.shadowColor = UIColor.blackColor().CGColor
+        ratePosts.layer.shadowOffset = CGSize(width: 0, height: 3)
+        ratePosts.layer.shadowOpacity = 0.4
+        ratePosts.layer.shadowRadius = 4
+        
+        reportPokemon.frame = CGRect(x: screenWidth * 1.5, y: (screenHeight / 2) - (introSize.height / 2), width: introSize.width, height: introSize.height)
+        reportPokemon.backgroundColor = UIColor().HexToColor("#b3f0ff", alpha: 1.0)
+        reportPokemon.layer.cornerRadius = 10.0
+        reportPokemon.layer.borderColor = UIColor.grayColor().CGColor
+        reportPokemon.layer.borderWidth = 0.5
+        reportPokemon.layer.shadowColor = UIColor.blackColor().CGColor
+        reportPokemon.layer.shadowOffset = CGSize(width: 0, height: 3)
+        reportPokemon.layer.shadowOpacity = 0.4
+        reportPokemon.layer.shadowRadius = 4
+        
+        
+//        ratePosts.frame = CGRect(x: (screenWidth / 2) - (introSize.width / 2), y: (screenHeight / 2) - (introSize.height / 2), width: introSize.width, height: introSize.height)
+//        reportPokemon.frame = CGRect(x: (screenWidth / 2) - (introSize.width / 2), y: (screenHeight / 2) - (introSize.height / 2), width: introSize.width, height: introSize.height)
+        
+//        let mapImage1 = UIImageView()
+//        let mapImage2 = UIImageView()
+//        let reportImage = UIImageView()
+//        
+//        let annotationText = UILabel()
+//        let rateText = UILabel()
+//        let reportText = UILabel()
+//        
+//        let annotationTitle = UILabel()
+//        let rateTitle = UILabel()
+//        let reportTitle = UILabel()
+//        
+//        let annotationNext = UIButton()
+//        let rateNext = UIButton()
+//        let reportNext = UIButton()
+        
+        let imageSize2 = CGSize(width: introSize.width * 0.6, height: introSize.height * 0.7)
+        
+        mapImage1.image = UIImage(named: "instruction1")
+        mapImage1.frame = CGRect(x: screenWidth * 0.025, y: introSize.height * 0.15, width: imageSize2.width, height: imageSize2.height)
+        mapImage1.layer.masksToBounds = true
+        mapImage1.layer.cornerRadius = 5.0
+        
+        mapImage2.image = UIImage(named: "instruction1")
+        mapImage2.frame = CGRect(x: screenWidth * 0.025, y: introSize.height * 0.15, width: imageSize2.width, height: imageSize2.height)
+        mapImage2.layer.masksToBounds = true
+        mapImage2.layer.cornerRadius = 5.0
+        
+        reportImage.image = UIImage(named: "instruction2")
+        reportImage.frame = CGRect(x: screenWidth * 0.025, y: introSize.height * 0.15, width: imageSize2.width, height: imageSize2.height)
+        reportImage.layer.masksToBounds = true
+        reportImage.layer.cornerRadius = 5.0
+        
+        let labelSize2 = CGSize(width: introSize.width * 0.325, height: introSize.height * 0.7)
+        
+        annotationText.text = "Clicking on a Pokémon displays information such as Distance, Location, Post Rating, and User Rating."
+        annotationText.numberOfLines = 15
+        annotationText.font = UIFont(name: "Aleo-Regular", size: screenHeight / 40)
+        annotationText.frame = CGRect(x: screenWidth * 0.05 + imageSize2.width, y: introSize.height * 0.15, width: labelSize2.width, height: labelSize2.height)
+        
+        rateText.text = "Upvote or Downvote the post depending on whether the Pokémon is still in the area."
+        rateText.numberOfLines = 15
+        rateText.font = UIFont(name: "Aleo-Regular", size: screenHeight / 40)
+        rateText.frame = CGRect(x: screenWidth * 0.05 + imageSize2.width, y: introSize.height * 0.15, width: labelSize2.width, height: labelSize2.height)
+        
+        reportText.text = "Use the Picker to Select and Report the Pokémon you find in Pokémon Go."
+        reportText.numberOfLines = 15
+        reportText.font = UIFont(name: "Aleo-Regular", size: screenHeight / 40)
+        reportText.frame = CGRect(x: screenWidth * 0.05 + imageSize2.width, y: introSize.height * 0.15, width: labelSize2.width, height: labelSize2.height)
+        
+        let titleSize = CGSize(width: introSize.width * 0.75, height: introSize.height * 0.075)
+        
+        annotationTitle.frame = CGRect(x: (introSize.width / 2) - (titleSize.width / 2), y: introSize.height * 0.0375, width: titleSize.width, height: titleSize.height)
+        annotationTitle.text = "Identifying Pokémon"
+        annotationTitle.textAlignment = NSTextAlignment.Center
+        annotationTitle.font = UIFont(name: "Aleo-Regular", size: screenHeight / 30)
+        
+        rateTitle.frame = CGRect(x: (introSize.width / 2) - (titleSize.width / 2), y: introSize.height * 0.0375, width: titleSize.width, height: titleSize.height)
+        rateTitle.text = "Rating Posts"
+        rateTitle.textAlignment = NSTextAlignment.Center
+        rateTitle.font = UIFont(name: "Aleo-Regular", size: screenHeight / 30)
+        
+        reportTitle.frame = CGRect(x: (introSize.width / 2) - (titleSize.width / 2), y: introSize.height * 0.0375, width: titleSize.width, height: titleSize.height)
+        reportTitle.text = "Reporting Pokémon"
+        reportTitle.textAlignment = NSTextAlignment.Center
+        reportTitle.font = UIFont(name: "Aleo-Regular", size: screenHeight / 30)
+        
+        let buttonSize2 = CGSize(width: introSize.width * 0.33, height: introSize.height * 0.075)
+        
+        annotationNext.frame = CGRect(x: (introSize.width / 2) - (buttonSize2.width / 2), y: introSize.height * 0.9625 - (buttonSize2.height), width: buttonSize2.width, height: buttonSize2.height)
+        annotationNext.setTitle("NEXT", forState: UIControlState.Normal)
+        annotationNext.titleLabel!.font = UIFont(name:"Aleo-Regular", size: screenHeight / 30)
+        annotationNext.titleLabel!.textColor = UIColor.blackColor()
+        annotationNext.layer.cornerRadius = 7.0
+        annotationNext.backgroundColor = UIColor().HexToColor("#33cc33", alpha: 1.0)
+        annotationNext.addTarget(self, action: Selector("nextAction:"), forControlEvents: .TouchUpInside)
+        
+        rateNext.frame = CGRect(x: (introSize.width / 2) - (buttonSize2.width / 2), y: introSize.height * 0.9625 - (buttonSize2.height), width: buttonSize2.width, height: buttonSize2.height)
+        rateNext.setTitle("NEXT", forState: UIControlState.Normal)
+        rateNext.titleLabel!.font = UIFont(name:"Aleo-Regular", size: screenHeight / 30)
+        rateNext.titleLabel!.textColor = UIColor.blackColor()
+        rateNext.layer.cornerRadius = 7.0
+        rateNext.backgroundColor = UIColor().HexToColor("#ff751a", alpha: 1.0)
+        rateNext.addTarget(self, action: Selector("nextAction:"), forControlEvents: .TouchUpInside)
+        
+        reportNext.frame = CGRect(x: (introSize.width / 2) - (buttonSize2.width / 2), y: introSize.height * 0.9625 - (buttonSize2.height), width: buttonSize2.width, height: buttonSize2.height)
+        reportNext.setTitle("DONE", forState: UIControlState.Normal)
+        reportNext.titleLabel!.font = UIFont(name:"Aleo-Regular", size: screenHeight / 30)
+        reportNext.titleLabel!.textColor = UIColor.blackColor()
+        reportNext.layer.cornerRadius = 7.0
+        reportNext.backgroundColor = UIColor().HexToColor("#1a8cff", alpha: 1.0)
+        reportNext.addTarget(self, action: Selector("nextAction:"), forControlEvents: .TouchUpInside)
+        
+        clickAnnotation.addSubview(mapImage1)
+        clickAnnotation.addSubview(annotationText)
+        clickAnnotation.addSubview(annotationTitle)
+        clickAnnotation.addSubview(annotationNext)
+        
+        ratePosts.addSubview(mapImage2)
+        ratePosts.addSubview(rateText)
+        ratePosts.addSubview(rateTitle)
+        ratePosts.addSubview(rateNext)
+        
+        reportPokemon.addSubview(reportImage)
+        reportPokemon.addSubview(reportText)
+        reportPokemon.addSubview(reportTitle)
+        reportPokemon.addSubview(reportNext)
+       
         self.view.addSubview(registerTitle)
         self.view.addSubview(name)
         self.view.addSubview(nameLine)
@@ -204,6 +375,11 @@ class Register: UIViewController, UITextFieldDelegate {
         self.view.addSubview(articuno)
         self.view.addSubview(zapdos)
         self.view.addSubview(moltres)
+        
+        self.view.addSubview(shadow)
+        self.view.addSubview(clickAnnotation)
+        self.view.addSubview(ratePosts)
+        self.view.addSubview(reportPokemon)
         
     }
     
@@ -241,6 +417,33 @@ class Register: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func nextAction(sender: UIButton!) {
+        if sender == annotationNext {
+            let aHeight = self.ratePosts.frame.size.height
+            let aWidth = self.ratePosts.frame.size.width
+            let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
+            let yCoord = self.ratePosts.frame.origin.y
+            
+            UIView.animateWithDuration(0.33, animations: {
+                self.clickAnnotation.frame = CGRectMake(0 - self.view.frame.size.width, yCoord, aWidth, aHeight)
+                self.ratePosts.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
+            })
+        } else if sender == rateNext {
+            let aHeight = self.reportPokemon.frame.size.height
+            let aWidth = self.reportPokemon.frame.size.width
+            let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
+            let yCoord = self.reportPokemon.frame.origin.y
+            
+            UIView.animateWithDuration(0.33, animations: {
+                self.ratePosts.frame = CGRectMake(0 - self.view.frame.size.width, yCoord, aWidth, aHeight)
+                self.reportPokemon.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
+            })
+        } else {
+            let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
+            self.showViewController(vc as! UIViewController, sender: vc)
+        }
+    }
+    
     func instinctAction(sender: UIButton!) {
         zapdos.hidden = false
         articuno.hidden = true
@@ -249,7 +452,6 @@ class Register: UIViewController, UITextFieldDelegate {
         instinct.setImage(UIImage(named: "INSTINCT BLURRED"), forState: UIControlState.Normal)
         valor.setImage(UIImage(named: "VALOR Button"), forState: UIControlState.Normal)
         mystic.setImage(UIImage(named: "MYSTIC Button"), forState: UIControlState.Normal)
-
         
     }
     

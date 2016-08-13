@@ -87,7 +87,7 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
                     UIView.animateWithDuration(0.28, animations: {
                         self.error.hidden = false
                         self.error.frame = CGRectMake(0, 0, self.error.frame.width, self.error.frame.height)
-                        self.error.label.text = "Failed to report pokemon."
+                        self.error.label.text = "Failed to report Pokémon."
                         let delay = 2.0 * Double(NSEC_PER_SEC)
                         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
                         dispatch_after(time, dispatch_get_main_queue()) {
@@ -104,7 +104,7 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
                 UIView.animateWithDuration(0.28, animations: {
                     self.error.hidden = false
                     self.error.frame = CGRectMake(0, 0, self.error.frame.width, self.error.frame.height)
-                    self.error.label.text = "Failed to report pokemon."
+                    self.error.label.text = "Failed to report Pokémon."
                     let delay = 2.0 * Double(NSEC_PER_SEC)
                     let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
                     dispatch_after(time, dispatch_get_main_queue()) {
@@ -161,6 +161,10 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
             
         }
     }
+    
+//    func serverError() {
+//        
+//    }
     
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
