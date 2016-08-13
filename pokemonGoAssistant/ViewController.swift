@@ -32,6 +32,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     let refresh = UIButton()
     let reportButton = UIButton()
     let trackButton = UIButton()
+    var error = Error()
     
     var mapHeight:CGFloat = 0.0
     var mapWidth:CGFloat = 0.0
@@ -73,8 +74,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         self.locationManager.requestAlwaysAuthorization()
-        //self.locationManager.startUpdatingLocation()
-        self.locationManager.startMonitoringSignificantLocationChanges()
+        self.locationManager.startUpdatingLocation()
+        self.locationManager.distanceFilter = 10
+        //self.locationManager.startMonitoringSignificantLocationChanges()
         if #available(iOS 9.0, *) {
             self.locationManager.allowsBackgroundLocationUpdates = true
         } else {
@@ -170,6 +172,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         /*logoutButton.setImage(UIImage(named: "Log Out Button Rounded"), forState: UIControlState.Normal)
         logoutButton.frame = CGRect(x: (refresh.frame.minX / 2) - (refreshSize.width / 2), y: refresh.frame.minY, width: refreshSize.width, height: refreshSize.height)*/
         
+        //ERROR SUBVIEW
+        let errorRect = CGRect(x: 0, y: -1 * mapHeight / 10, width: mapWidth, height: mapHeight / 10)
+        self.error = Error(frame: errorRect)
+        self.error.hidden = true
         pop.addSubview(pokemonImage)
         pop.addSubview(time)
         pop.addSubview(distance)
@@ -177,6 +183,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         pop.addSubview(user)
         pop.addSubview(userRate)
         pop.addSubview(postRate)
+        
         self.view.addSubview(pop)
         self.view.addSubview(shadow)
         self.view.addSubview(likeButton)
@@ -188,6 +195,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         self.view.bringSubviewToFront(pop)
         self.view.bringSubviewToFront(likeButton)
         self.view.bringSubviewToFront(dislikeButton)
+        self.view.addSubview(self.error)
+        //self.error.bringSubviewToFront(self.view)
     }
     
     override func didReceiveMemoryWarning() {
@@ -209,10 +218,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         userLat = locValue.latitude
         userLon = locValue.longitude
         sendLocationToServer(manager.location!)
+        UIView.animateWithDuration(0.28, animations: {
+            self.error.frame = CGRectMake(0, -1 * self.mapView.frame.height / 10, self.error.frame.width, self.error.frame.height)
+        })
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Location Error: " + error.localizedDescription)
+        UIView.animateWithDuration(0.28, animations: {
+            self.error.frame = CGRectMake(0, 0, self.error.frame.width, self.error.frame.height)
+            self.error.label.text = "GPS Location Not Found"
+        })
     }
     
 //    @IBAction func tracked(sender: AnyObject) {
@@ -235,8 +251,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     func reportAction(sender: UIButton!) {
         let vc = storyboard!.instantiateViewControllerWithIdentifier("Report") as! Report
-        vc.latitude = userLat
-        vc.longitude = userLon
+        vc.latitude = (locationManager.location?.coordinate.latitude)!
+        print("View Controller Latitude set to: " + vc.latitude.description)
+        vc.longitude = (locationManager.location?.coordinate.latitude)!
+        print("View Controller Longitude set to: " + vc.longitude
+            .description)
         self.showViewController(vc, sender: vc)
     }
     
@@ -249,6 +268,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     func addPokemon(latitude: Double, longitude: Double, index: Int, timePosted: Float, postID: Int) {
+        print("Report latitude: " + latitude.description)
+        print("Report longitude: " + longitude.description)
         let pokemonName = nameData[index]
         let pokemon = CustomPointAnnotation()
         pokemon.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
@@ -447,51 +468,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let id = cpa!.pinID
         if canVote == 0 {
             if sender == likeButton {
-                sender.setImage(UIImage(named: "Thumbs Up highlight"), forState: UIControlState.Normal)
-                cpa!.like = true
-                upvotePost(id)
+                upvotePost(id, sender: sender, cpa: cpa!)
             }
             else {
-                sender.setImage(UIImage(named: "Thumbs Down highlight"), forState: UIControlState.Normal)
-                cpa!.dislike = true
-                downvotePost(id)
+                downvotePost(id, sender: sender, cpa: cpa!)
             }
         }
         print(canVote)
-        
-//        if cpa!.like == true && sender == likeButton {
-//            likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
-//            cpa!.like = false
-//            // remove like
-//        }
-//        else if cpa!.dislike == true && sender == dislikeButton {
-//            dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
-//            cpa!.dislike = false
-//            // remove dislike
-//        }
-//        else {
-//            if cpa!.like == true && sender == dislikeButton {
-//                likeButton.setImage(UIImage(named: "Thumbs Up"), forState: UIControlState.Normal)
-//                cpa!.like = false
-//            }
-//            else if cpa!.dislike == true && sender == likeButton {
-//                dislikeButton.setImage(UIImage(named: "Thumbs Down"), forState: UIControlState.Normal)
-//                cpa!.dislike = false
-//            }
-//            
-//            if sender == dislikeButton {
-//                cpa!.dislike = true
-//                // add dislike
-//                downvotePost(id)
-//            }
-//            else if sender == likeButton {
-//                cpa!.like = true
-//                // add like
-//                upvotePost(id)
-//            }
-//        }
-        
-        
     }
     
     func refreshFunction() {
@@ -516,13 +499,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                             self.addPokemon(latitude, longitude: longitude, index: pokemon, timePosted: time, postID: id)
                         }
                     } else {
-                        // error message
+                        UIView.animateWithDuration(0.28, animations: {
+                            self.error.hidden = false
+                            self.error.frame = CGRectMake(0, 0, self.error.frame.width, self.error.frame.height)
+                            self.error.label.text = "Failed to refresh."
+                            let delay = 2.5 * Double(NSEC_PER_SEC)
+                            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                            dispatch_after(time, dispatch_get_main_queue()) {
+                                UIView.animateWithDuration(0.28, animations: {
+                                    self.error.frame = CGRectMake(0, -1 * self.error.frame.height, self.error.frame.width, self.error.frame.height)
+                                })
+                            }
+                        })
                     }
+                } else {
+                    UIView.animateWithDuration(0.28, animations: {
+                        self.error.hidden = false
+                        self.error.frame = CGRectMake(0, 0, self.error.frame.width, self.error.frame.height)
+                        self.error.label.text = "Failed to refresh."
+                        let delay = 2.5 * Double(NSEC_PER_SEC)
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        dispatch_after(time, dispatch_get_main_queue()) {
+                            UIView.animateWithDuration(0.28, animations: {
+                                self.error.frame = CGRectMake(0, -1 * self.error.frame.height, self.error.frame.width, self.error.frame.height)
+                            })
+                        }
+                    })
                 }
         }
     }
     
-    func upvotePost(id: Int) -> Bool {
+    func upvotePost(id: Int, sender: UIButton, cpa: CustomPointAnnotation) -> Bool {
         var succesful:Bool = false
         Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/upvote", parameters: ["id" : id, "user_id" : getUserID()]).validate()
             .responseJSON{ (_, _, response) in
@@ -530,13 +537,41 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                     let data = JSON(json)
                     if data["success"] == 0 {
                         succesful = true
+                        sender.setImage(UIImage(named: "Thumbs Up highlight"), forState: UIControlState.Normal)
+                        cpa.like = true
+                    } else {
+                        UIView.animateWithDuration(0.28, animations: {
+                            self.error.hidden = false
+                            self.error.frame = CGRectMake(0, 0, self.error.frame.width, self.error.frame.height)
+                            self.error.label.text = "Failed to upvote post."
+                            let delay = 2.5 * Double(NSEC_PER_SEC)
+                            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                            dispatch_after(time, dispatch_get_main_queue()) {
+                                UIView.animateWithDuration(0.28, animations: {
+                                    self.error.frame = CGRectMake(0, -1 * self.error.frame.height, self.error.frame.width, self.error.frame.height)
+                                })
+                            }
+                        })
                     }
+                } else {
+                    UIView.animateWithDuration(0.28, animations: {
+                        self.error.hidden = false
+                        self.error.frame = CGRectMake(0, 0, self.error.frame.width, self.error.frame.height)
+                        self.error.label.text = "Failed to upvote post."
+                        let delay = 2.5 * Double(NSEC_PER_SEC)
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        dispatch_after(time, dispatch_get_main_queue()) {
+                            UIView.animateWithDuration(0.28, animations: {
+                                self.error.frame = CGRectMake(0, -1 * self.error.frame.height, self.error.frame.width, self.error.frame.height)
+                            })
+                        }
+                    })
                 }
         }
         return succesful
     }
     
-    func downvotePost(id: Int) -> Bool {
+    func downvotePost(id: Int, sender: UIButton, cpa: CustomPointAnnotation) -> Bool {
         var succesful:Bool = false
         Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/downvote", parameters: ["id" : id, "user_id": getUserID()]).validate()
             .responseJSON{ (_, _, response) in
@@ -544,7 +579,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                     let data = JSON(json)
                     if data["success"] == 0 {
                         succesful = true
+                        sender.setImage(UIImage(named: "Thumbs Down highlight"), forState: UIControlState.Normal)
+                        cpa.dislike = true
+                    } else {
+                        UIView.animateWithDuration(0.28, animations: {
+                            self.error.hidden = false
+                            self.error.frame = CGRectMake(0, 0, self.error.frame.width, self.error.frame.height)
+                            self.error.label.text = "Failed to downvote post."
+                            let delay = 2.5 * Double(NSEC_PER_SEC)
+                            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                            dispatch_after(time, dispatch_get_main_queue()) {
+                                UIView.animateWithDuration(0.28, animations: {
+                                    self.error.frame = CGRectMake(0, -1 * self.error.frame.height, self.error.frame.width, self.error.frame.height)
+                                })
+                            }
+                        })
                     }
+                } else {
+                    UIView.animateWithDuration(0.28, animations: {
+                        self.error.hidden = false
+                        self.error.frame = CGRectMake(0, 0, self.error.frame.width, self.error.frame.height)
+                        self.error.label.text = "Failed to downvote post."
+                        let delay = 2.5 * Double(NSEC_PER_SEC)
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        dispatch_after(time, dispatch_get_main_queue()) {
+                            UIView.animateWithDuration(0.28, animations: {
+                                self.error.frame = CGRectMake(0, -1 * self.error.frame.height, self.error.frame.width, self.error.frame.height)
+                            })
+                        }
+                    })
                 }
         }
         return succesful

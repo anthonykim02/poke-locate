@@ -206,74 +206,38 @@ class Register: UIViewController, UITextFieldDelegate {
         self.view.addSubview(moltres)
         
     }
-//    
-//    @IBAction func instinctAction(sender: AnyObject) {
-//        instinctButton.layer.shadowColor = UIColor.yellowColor().CGColor
-//        instinctButton.layer.borderColor = UIColor.yellowColor().CGColor
-//        valorButton.layer.shadowColor = UIColor.blackColor().CGColor
-//        valorButton.layer.borderColor = UIColor.clearColor().CGColor
-//        mysticButton.layer.shadowColor = UIColor.blackColor().CGColor
-//        mysticButton.layer.borderColor = UIColor.clearColor().CGColor
-//    }
-//   
-//    @IBAction func valorAction(sender: AnyObject) {
-//        valorButton.layer.shadowColor = UIColor.redColor().CGColor
-//        valorButton.layer.borderColor = UIColor.redColor().CGColor
-//        instinctButton.layer.shadowColor = UIColor.blackColor().CGColor
-//        instinctButton.layer.borderColor = UIColor.clearColor().CGColor
-//        mysticButton.layer.shadowColor = UIColor.blackColor().CGColor
-//        mysticButton.layer.borderColor = UIColor.clearColor().CGColor
-//        
-//    }
-//   
-//    @IBAction func mysticAction(sender: AnyObject) {
-//        mysticButton.layer.shadowColor = UIColor.blueColor().CGColor
-//        mysticButton.layer.borderColor = UIColor.blueColor().CGColor
-//        valorButton.layer.shadowColor = UIColor.blackColor().CGColor
-//        valorButton.layer.borderColor = UIColor.clearColor().CGColor
-//        instinctButton.layer.shadowColor = UIColor.blackColor().CGColor
-//        instinctButton.layer.borderColor = UIColor.clearColor().CGColor
-//    }
-//    @IBAction func registerAction(sender: AnyObject) {
-//        
-//        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/users/add", parameters: ["name": nameField.text!, "username" : usernameField.text!, "password" : passwordField.text!, "team" : 1, "phone" : numberField.text!]).validate()
-//            .responseJSON { (_, _, response) in
-//                if let json = response.value {
-//                    var json = JSON(response.value!)
-//                    var success = json["success"].stringValue
-//                    if success == "0" {
-//                        
-//                        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
-//                        self.showViewController(vc as! UIViewController, sender: vc)
-//                    } else {
-//                        self.errorMessage.text = "Account information already exists."
-//                        self.errorMessage.hidden = false
-//                    }
-//                } else {
-//                    self.errorMessage.text = "Connection Error: Server not found"
-//                    self.errorMessage.hidden = false
-//                }
-//        }
-//    }
     
     func regAction(sender: UIButton!) {
-        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/users/add", parameters: ["name": name.text!, "username" : username.text!, "password" : password.text!, "team" : 1, "phone" : phone.text!]).validate()
-            .responseJSON { (_, _, response) in
-                if let json = response.value {
-                    var json = JSON(response.value!)
-                    var success = json["success"].stringValue
-                    if success == "0" {
-                        
-                        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
-                        self.showViewController(vc as! UIViewController, sender: vc)
+        if (username.text!.characters.count < 10 && username.text!.characters.count > 0 && password.text!.characters.count > 0) {
+            Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/users/add", parameters: ["name": name.text!, "username" : username.text!, "password" : password.text!, "team" : 1, "phone" : phone.text!]).validate()
+                .responseJSON { (_, _, response) in
+                    if let json = response.value {
+                        var json = JSON(response.value!)
+                        var success = json["success"].stringValue
+                        if success == "0" {
+                            
+                            let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
+                            self.showViewController(vc as! UIViewController, sender: vc)
+                        } else {
+                            self.errorMsg.text = "Account information already exists."
+                            self.errorMsg.hidden = false
+                        }
                     } else {
-                        self.errorMsg.text = "Account information already exists."
+                        self.errorMsg.text = "Connection Error: Server not found"
                         self.errorMsg.hidden = false
                     }
-                } else {
-                    self.errorMsg.text = "Connection Error: Server not found"
-                    self.errorMsg.hidden = false
-                }
+            }
+        } else {
+            var errorText = "Error"
+            if (username.text!.characters.count > 10) {
+                errorText = "Username must be less than 10 characters."
+            } else if (username.text!.characters.count == 0) {
+                errorText = "Make sure to include a username."
+            } else if (password.text!.characters.count == 0) {
+                errorText = "Make sure to include a password."
+            }
+            self.errorMsg.text = errorText
+            self.errorMsg.hidden = false
         }
     }
     
