@@ -574,6 +574,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             })
             popOut = false
             
+            
         }
         
     }
