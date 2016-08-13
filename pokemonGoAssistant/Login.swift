@@ -24,6 +24,8 @@ class Login: UIViewController, UITextFieldDelegate {
     let login = UIButton()
     let errorMsg = UILabel()
     
+    var deletedPlaceholder = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,10 +58,13 @@ class Login: UIViewController, UITextFieldDelegate {
                                                                attributes:[NSForegroundColorAttributeName: labelColor])
         userField.font = UIFont(name: "Aleo-Regular", size: screenHeight / 25)
         userField.textColor = labelColor
+        userField.tintColor = labelColor
+        
         passField.attributedPlaceholder = NSAttributedString(string:"PASSWORD",
                                                               attributes:[NSForegroundColorAttributeName: labelColor])
         passField.font = UIFont(name: "Aleo-Regular", size: screenHeight / 25)
         passField.textColor = labelColor
+        passField.tintColor = labelColor
         
         let lineSize = CGSize(width: screenWidth * 0.75, height: screenHeight / 300)
         userLine.image = UIImage(named: "Line")
@@ -169,6 +174,17 @@ class Login: UIViewController, UITextFieldDelegate {
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        deletedPlaceholder = textField.placeholder!
+        textField.placeholder = nil
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        let labelColor = UIColor().HexToColor("#f8f3eb", alpha: 1.0)
+        textField.attributedPlaceholder = NSAttributedString(string: deletedPlaceholder, attributes: [NSForegroundColorAttributeName: labelColor])
+        
     }
 }
 
