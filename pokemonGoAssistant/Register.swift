@@ -47,28 +47,35 @@ class Register: UIViewController, UITextFieldDelegate {
     let zapdos = UIImageView()
     let articuno = UIImageView()
     
+    var deletedPlaceholder = ""
+    
     // instruction popups
     let shadow = UIView()
     
     let clickAnnotation = UIView()
     let ratePosts = UIView()
     let reportPokemon = UIView()
+    let allowLocation = UIView()
     
     let mapImage1 = UIImageView()
     let mapImage2 = UIImageView()
     let reportImage = UIImageView()
+    let allowImage = UIImageView()
     
     let annotationText = UILabel()
     let rateText = UILabel()
     let reportText = UILabel()
+    let allowText = UILabel()
     
     let annotationTitle = UILabel()
     let rateTitle = UILabel()
     let reportTitle = UILabel()
+    let allowTitle = UILabel()
     
     let annotationNext = UIButton()
     let rateNext = UIButton()
     let reportNext = UIButton()
+    let allowNext = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,18 +138,22 @@ class Register: UIViewController, UITextFieldDelegate {
         name.attributedPlaceholder = NSAttributedString(string:"NAME", attributes: [NSForegroundColorAttributeName: labelColor])
         name.font = UIFont(name: "Aleo-Regular", size: screenHeight / 25)
         name.textColor = labelColor
+        name.tintColor = labelColor
         
         phone.attributedPlaceholder = NSAttributedString(string:"PHONE", attributes: [NSForegroundColorAttributeName: labelColor])
         phone.font = UIFont(name: "Aleo-Regular", size: screenHeight / 25)
         phone.textColor = labelColor
+        phone.tintColor = labelColor
         
         username.attributedPlaceholder = NSAttributedString(string:"USERNAME", attributes: [NSForegroundColorAttributeName: labelColor])
         username.font = UIFont(name: "Aleo-Regular", size: screenHeight / 25)
         username.textColor = labelColor
+        username.tintColor = labelColor
         
         password.attributedPlaceholder = NSAttributedString(string:"PASSWORD", attributes: [NSForegroundColorAttributeName: labelColor])
         password.font = UIFont(name: "Aleo-Regular", size: screenHeight / 25)
         password.textColor = labelColor
+        password.tintColor = labelColor
 
         
         nameLine.image = UIImage(named: "Line")
@@ -208,11 +219,22 @@ class Register: UIViewController, UITextFieldDelegate {
         mystic.addTarget(self, action: Selector("mysticAction:"),forControlEvents: .TouchUpInside)
         
         // instructions pages
+        
         shadow.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         shadow.backgroundColor = UIColor.blackColor()
         shadow.alpha = 0
         
         let introSize = CGSize(width: screenWidth * 0.85, height: screenHeight * 0.75)
+        
+        allowLocation.frame = CGRect(x: screenWidth * 1.5, y: (screenHeight / 2) - (introSize.height / 2), width: introSize.width, height: introSize.height)
+        allowLocation.backgroundColor = UIColor().HexToColor("#ffff1a", alpha: 1.0)
+        allowLocation.layer.cornerRadius = 10.0
+        allowLocation.layer.borderColor = UIColor.grayColor().CGColor
+        allowLocation.layer.borderWidth = 0.5
+        allowLocation.layer.shadowColor = UIColor.blackColor().CGColor
+        allowLocation.layer.shadowOffset = CGSize(width: 0, height: 3)
+        allowLocation.layer.shadowOpacity = 0.4
+        allowLocation.layer.shadowRadius = 4
         
         clickAnnotation.frame = CGRect(x: screenWidth * 1.5, y: (screenHeight / 2) - (introSize.height / 2), width: introSize.width, height: introSize.height)
         clickAnnotation.backgroundColor = UIColor().HexToColor("#aaff80", alpha: 1.0)
@@ -266,6 +288,11 @@ class Register: UIViewController, UITextFieldDelegate {
         
         let imageSize2 = CGSize(width: introSize.width * 0.6, height: introSize.height * 0.7)
         
+        allowImage.image = UIImage(named: "allowLocation")
+        allowImage.frame = CGRect(x: screenWidth * 0.025, y: introSize.height * 0.15, width: imageSize2.width, height: imageSize2.height)
+        allowImage.layer.masksToBounds = true
+        allowImage.layer.cornerRadius = 5.0
+        
         mapImage1.image = UIImage(named: "instruction1")
         mapImage1.frame = CGRect(x: screenWidth * 0.025, y: introSize.height * 0.15, width: imageSize2.width, height: imageSize2.height)
         mapImage1.layer.masksToBounds = true
@@ -283,12 +310,17 @@ class Register: UIViewController, UITextFieldDelegate {
         
         let labelSize2 = CGSize(width: introSize.width * 0.325, height: introSize.height * 0.7)
         
+        allowText.text = "To access the data on this application you MUST enable location services. Also enable notifications to be notified when Pokémon are found near you!"
+        allowText.numberOfLines = 15
+        allowText.font = UIFont(name: "Aleo-Regular", size: screenHeight / 40)
+        allowText.frame = CGRect(x: screenWidth * 0.05 + imageSize2.width, y: introSize.height * 0.15, width: labelSize2.width, height: labelSize2.height)
+        
         annotationText.text = "Clicking on a Pokémon displays information such as Distance, Location, Post Rating, and User Rating."
         annotationText.numberOfLines = 15
         annotationText.font = UIFont(name: "Aleo-Regular", size: screenHeight / 40)
         annotationText.frame = CGRect(x: screenWidth * 0.05 + imageSize2.width, y: introSize.height * 0.15, width: labelSize2.width, height: labelSize2.height)
         
-        rateText.text = "Upvote or Downvote the post depending on whether the Pokémon is still in the area."
+        rateText.text = "Upvote or Downvote the post depending on whether the Pokémon is still in the area. Be careful, you can't change your vote!"
         rateText.numberOfLines = 15
         rateText.font = UIFont(name: "Aleo-Regular", size: screenHeight / 40)
         rateText.frame = CGRect(x: screenWidth * 0.05 + imageSize2.width, y: introSize.height * 0.15, width: labelSize2.width, height: labelSize2.height)
@@ -300,8 +332,12 @@ class Register: UIViewController, UITextFieldDelegate {
         
         let titleSize = CGSize(width: introSize.width * 0.75, height: introSize.height * 0.075)
         
+        allowTitle.frame = CGRect(x: (introSize.width / 2) - (titleSize.width / 2), y: introSize.height * 0.0375, width: titleSize.width, height: titleSize.height)
+        allowTitle.text = "Enable Location"
+        allowTitle.textAlignment = NSTextAlignment.Center
+        allowTitle.font = UIFont(name: "Aleo-Regular", size: screenHeight / 30)
+        
         annotationTitle.frame = CGRect(x: (introSize.width / 2) - (titleSize.width / 2), y: introSize.height * 0.0375, width: titleSize.width, height: titleSize.height)
-
         annotationTitle.text = "Identifying Pokémon"
         annotationTitle.textAlignment = NSTextAlignment.Center
         annotationTitle.font = UIFont(name: "Aleo-Regular", size: screenHeight / 30)
@@ -318,6 +354,14 @@ class Register: UIViewController, UITextFieldDelegate {
         reportTitle.font = UIFont(name: "Aleo-Regular", size: screenHeight / 30)
         
         let buttonSize2 = CGSize(width: introSize.width * 0.33, height: introSize.height * 0.075)
+        
+        allowNext.frame = CGRect(x: (introSize.width / 2) - (buttonSize2.width / 2), y: introSize.height * 0.9625 - (buttonSize2.height), width: buttonSize2.width, height: buttonSize2.height)
+        allowNext.setTitle("NEXT", forState: UIControlState.Normal)
+        allowNext.titleLabel!.font = UIFont(name:"Aleo-Regular", size: screenHeight / 30)
+        allowNext.titleLabel!.textColor = UIColor.blackColor()
+        allowNext.layer.cornerRadius = 7.0
+        allowNext.backgroundColor = UIColor().HexToColor("#ff0000", alpha: 1.0)
+        allowNext.addTarget(self, action: Selector("nextAction:"), forControlEvents: .TouchUpInside)
         
         annotationNext.frame = CGRect(x: (introSize.width / 2) - (buttonSize2.width / 2), y: introSize.height * 0.9625 - (buttonSize2.height), width: buttonSize2.width, height: buttonSize2.height)
         annotationNext.setTitle("NEXT", forState: UIControlState.Normal)
@@ -342,6 +386,11 @@ class Register: UIViewController, UITextFieldDelegate {
         reportNext.layer.cornerRadius = 7.0
         reportNext.backgroundColor = UIColor().HexToColor("#1a8cff", alpha: 1.0)
         reportNext.addTarget(self, action: Selector("nextAction:"), forControlEvents: .TouchUpInside)
+        
+        allowLocation.addSubview(allowImage)
+        allowLocation.addSubview(allowText)
+        allowLocation.addSubview(allowTitle)
+        allowLocation.addSubview(allowNext)
         
         clickAnnotation.addSubview(mapImage1)
         clickAnnotation.addSubview(annotationText)
@@ -379,6 +428,7 @@ class Register: UIViewController, UITextFieldDelegate {
         self.view.addSubview(moltres)
         
         self.view.addSubview(shadow)
+        self.view.addSubview(allowLocation)
         self.view.addSubview(clickAnnotation)
         self.view.addSubview(ratePosts)
         self.view.addSubview(reportPokemon)
@@ -393,15 +443,19 @@ class Register: UIViewController, UITextFieldDelegate {
                         var json = JSON(response.value!)
                         var success = json["success"].stringValue
                         if success == "0" {
+                            let defaults = NSUserDefaults()
+                            defaults.setObject(json["user"]["id"].stringValue, forKey: "user_id")
+                            
                             let aHeight = self.clickAnnotation.frame.size.height
                             let aWidth = self.clickAnnotation.frame.size.width
                             let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
                             let yCoord = self.clickAnnotation.frame.origin.y
                             
                             UIView.animateWithDuration(0.33, animations: {
-                                self.clickAnnotation.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
+                                self.allowLocation.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
                                 self.shadow.alpha = 0.5
                             })
+                            
                         } else {
                             self.errorMsg.text = "Account information already exists."
                             self.errorMsg.hidden = false
@@ -426,7 +480,17 @@ class Register: UIViewController, UITextFieldDelegate {
     }
     
     func nextAction(sender: UIButton!) {
-        if sender == annotationNext {
+        if sender == allowNext {
+            let aHeight = self.clickAnnotation.frame.size.height
+            let aWidth = self.clickAnnotation.frame.size.width
+            let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
+            let yCoord = self.clickAnnotation.frame.origin.y
+            
+            UIView.animateWithDuration(0.33, animations: {
+                self.allowLocation.frame = CGRectMake(0 - self.view.frame.size.width, yCoord, aWidth, aHeight)
+                self.clickAnnotation.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
+            })
+        } else if sender == annotationNext {
             let aHeight = self.ratePosts.frame.size.height
             let aWidth = self.ratePosts.frame.size.width
             let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
@@ -448,33 +512,9 @@ class Register: UIViewController, UITextFieldDelegate {
             })
         } else {
             let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
-            self.showViewController(vc as! UIViewController, sender: vc)
-        }
-    }
-    
-    func nextAction(sender: UIButton!) {
-        if sender == annotationNext {
-            let aHeight = self.ratePosts.frame.size.height
-            let aWidth = self.ratePosts.frame.size.width
-            let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
-            let yCoord = self.ratePosts.frame.origin.y
-            
-            UIView.animateWithDuration(0.33, animations: {
-                self.clickAnnotation.frame = CGRectMake(0 - self.view.frame.size.width, yCoord, aWidth, aHeight)
-                self.ratePosts.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
-            })
-        } else if sender == rateNext {
-            let aHeight = self.reportPokemon.frame.size.height
-            let aWidth = self.reportPokemon.frame.size.width
-            let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
-            let yCoord = self.reportPokemon.frame.origin.y
-            
-            UIView.animateWithDuration(0.33, animations: {
-                self.ratePosts.frame = CGRectMake(0 - self.view.frame.size.width, yCoord, aWidth, aHeight)
-                self.reportPokemon.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
-            })
-        } else {
-            let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
+            let settings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
+            UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+            UIApplication.sharedApplication().registerForRemoteNotifications()
             self.showViewController(vc as! UIViewController, sender: vc)
         }
     }
@@ -519,6 +559,18 @@ class Register: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return false
     }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        deletedPlaceholder = textField.placeholder!
+        textField.placeholder = nil
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        let labelColor = UIColor().HexToColor("#f8f3eb", alpha: 1.0)
+        textField.attributedPlaceholder = NSAttributedString(string: deletedPlaceholder, attributes: [NSForegroundColorAttributeName: labelColor])
+        
+    }
+    
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)

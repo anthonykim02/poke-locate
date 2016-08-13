@@ -69,6 +69,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         nameData = orderData.sort()
         print(nameData)
         print("Map Controller View loaded.")
+        
         self.userLat = 0.0
         self.userLon = 0.0
         self.locationManager.delegate = self
@@ -76,19 +77,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.startUpdatingLocation()
         self.locationManager.distanceFilter = 10
+        
         //self.locationManager.startMonitoringSignificantLocationChanges()
         if #available(iOS 9.0, *) {
             self.locationManager.allowsBackgroundLocationUpdates = true
         } else {
             
         }
+        
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
         self.mapView.mapType = MKMapType.Standard
         self.mapView.zoomEnabled = true
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("removePopUp:"))
         view.addGestureRecognizer(tap)
-        
         mapHeight = self.view.frame.size.height
         mapWidth = self.view.frame.size.width
         popUpHeight = mapHeight * 0.3
@@ -183,7 +185,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         pop.addSubview(user)
         pop.addSubview(userRate)
         pop.addSubview(postRate)
-        
         self.view.addSubview(pop)
         self.view.addSubview(shadow)
         self.view.addSubview(likeButton)
@@ -205,8 +206,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         if numberUpdates == 0 {
             let center = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
@@ -217,7 +218,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         numberUpdates = numberUpdates + 1
         userLat = locValue.latitude
         userLon = locValue.longitude
-        sendLocationToServer(manager.location!)
+        if manager.location != nil {
+            sendLocationToServer(manager.location!)
+        }
         UIView.animateWithDuration(0.28, animations: {
             self.error.frame = CGRectMake(0, -1 * self.mapView.frame.height / 10, self.error.frame.width, self.error.frame.height)
         })
@@ -253,7 +256,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let vc = storyboard!.instantiateViewControllerWithIdentifier("Report") as! Report
         vc.latitude = (locationManager.location?.coordinate.latitude)!
         print("View Controller Latitude set to: " + vc.latitude.description)
-        vc.longitude = (locationManager.location?.coordinate.latitude)!
+        vc.longitude = (locationManager.location?.coordinate.longitude)!
         print("View Controller Longitude set to: " + vc.longitude
             .description)
         self.showViewController(vc, sender: vc)

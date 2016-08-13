@@ -15,7 +15,6 @@
 		9245B4F41D39F3BA00996B5D /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B4F31D39F3BA00996B5D /* Report.swift */; };
 		9245B5001D3A6F2400996B5D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B4FF1D3A6F2400996B5D /* Login.swift */; };
 		9245B5021D3A745B00996B5D /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B5011D3A745B00996B5D /* Register.swift */; };
-		9265AF0E1D5DAC2F00F94E94 /* Aleo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9265AF0D1D5DAC2100F94E94 /* Aleo-Regular.otf */; };
 		92DE18D41D39DA1900E8C45A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE18D31D39DA1900E8C45A /* AppDelegate.swift */; };
 		92DE18D61D39DA1900E8C45A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE18D51D39DA1900E8C45A /* ViewController.swift */; };
 		92DE18D91D39DA1900E8C45A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DE18D71D39DA1900E8C45A /* Main.storyboard */; };
@@ -23,6 +22,7 @@
 		92DE18DE1D39DA1900E8C45A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DE18DC1D39DA1900E8C45A /* LaunchScreen.xib */; };
 		92DE18EA1D39DA1900E8C45A /* pokemonGoAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE18E91D39DA1900E8C45A /* pokemonGoAssistantTests.swift */; };
 		92F1A7B01D3EFDDD001E4E14 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F1A7AF1D3EFDDD001E4E14 /* CustomPointAnnotation.swift */; };
+		92FF16DC1D5EC40300DAAFFB /* Aleo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92FF16DB1D5EC3E000DAAFFB /* Aleo-Regular.otf */; };
 		9A12A7F81D3DF7BD00B0E60E /* VCMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12A7F71D3DF7BD00B0E60E /* VCMapViewDelegate.swift */; };
 		9A65FB1F1D43F82200456AD4 /* VCTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A65FB1E1D43F82200456AD4 /* VCTracking.swift */; };
 		9A65FB211D43F92C00456AD4 /* TrackingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A65FB201D43F92C00456AD4 /* TrackingTableViewCell.swift */; };
@@ -49,8 +49,7 @@
 		9245B4F31D39F3BA00996B5D /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		9245B4FF1D3A6F2400996B5D /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		9245B5011D3A745B00996B5D /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
-		9265AF0D1D5DAC2100F94E94 /* Aleo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aleo-Regular.otf"; path = "../../../Downloads/Aleo_font_v1.2.2/Desktop OTF/Aleo-Regular.otf"; sourceTree = "<group>"; };
-		92DE18CE1D39DA1900E8C45A /* pokemonGoAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemonGoAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92DE18CE1D39DA1900E8C45A /* PokéLocate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PokéLocate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DE18D21D39DA1900E8C45A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DE18D31D39DA1900E8C45A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92DE18D51D39DA1900E8C45A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		92DE18E81D39DA1900E8C45A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DE18E91D39DA1900E8C45A /* pokemonGoAssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokemonGoAssistantTests.swift; sourceTree = "<group>"; };
 		92F1A7AF1D3EFDDD001E4E14 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
+		92FF16DB1D5EC3E000DAAFFB /* Aleo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aleo-Regular.otf"; path = "../../../../Downloads/Aleo_font_v1.2.2/Desktop OTF/Aleo-Regular.otf"; sourceTree = "<group>"; };
 		9A12A7F71D3DF7BD00B0E60E /* VCMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapViewDelegate.swift; sourceTree = "<group>"; };
 		9A65FB1E1D43F82200456AD4 /* VCTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCTracking.swift; sourceTree = "<group>"; };
 		9A65FB201D43F92C00456AD4 /* TrackingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingTableViewCell.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		92DE18CF1D39DA1900E8C45A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92DE18CE1D39DA1900E8C45A /* pokemonGoAssistant.app */,
+				92DE18CE1D39DA1900E8C45A /* PokéLocate.app */,
 				92DE18E31D39DA1900E8C45A /* pokemonGoAssistantTests.xctest */,
 			);
 			name = Products;
@@ -147,6 +147,7 @@
 				9245B5011D3A745B00996B5D /* Register.swift */,
 				9245B4FF1D3A6F2400996B5D /* Login.swift */,
 				9245B4F31D39F3BA00996B5D /* Report.swift */,
+				92FF16DB1D5EC3E000DAAFFB /* Aleo-Regular.otf */,
 				92DE18DA1D39DA1900E8C45A /* Images.xcassets */,
 				92DE18DC1D39DA1900E8C45A /* LaunchScreen.xib */,
 				92DE18D11D39DA1900E8C45A /* Supporting Files */,
@@ -200,7 +201,7 @@
 			);
 			name = pokemonGoAssistant;
 			productName = pokemonGoAssistant;
-			productReference = 92DE18CE1D39DA1900E8C45A /* pokemonGoAssistant.app */;
+			productReference = 92DE18CE1D39DA1900E8C45A /* PokéLocate.app */;
 			productType = "com.apple.product-type.application";
 		};
 		92DE18E21D39DA1900E8C45A /* pokemonGoAssistantTests */ = {
@@ -277,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92FF16DC1D5EC40300DAAFFB /* Aleo-Regular.otf in Resources */,
 				92DE18D91D39DA1900E8C45A /* Main.storyboard in Resources */,
 				92DE18DE1D39DA1900E8C45A /* LaunchScreen.xib in Resources */,
 				92DE18DB1D39DA1900E8C45A /* Images.xcassets in Resources */,
@@ -529,13 +531,13 @@
 			baseConfigurationReference = 860A5C51484C9432866A7215 /* Pods-pokemonGoAssistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pokemon Locator (8LCMB77DV5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = pokemonGoAssistant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kasa.pokeLocate;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "PokéLocate";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -545,13 +547,13 @@
 			baseConfigurationReference = FD6E10469C3CF7B8AFA8DB2E /* Pods-pokemonGoAssistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pokemon Locator (8LCMB77DV5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pokemon Locator (T24NKQARLL)";
 				INFOPLIST_FILE = pokemonGoAssistant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kasa.pokeLocate;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "PokéLocate";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
