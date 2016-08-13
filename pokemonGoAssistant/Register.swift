@@ -283,17 +283,17 @@ class Register: UIViewController, UITextFieldDelegate {
         
         let labelSize2 = CGSize(width: introSize.width * 0.325, height: introSize.height * 0.7)
         
-        annotationText.text = "Clicking on a Pokemon displays information such as Distance, Location, Post Rating, and User Rating."
+        annotationText.text = "Clicking on a Pokémon displays information such as Distance, Location, Post Rating, and User Rating."
         annotationText.numberOfLines = 15
         annotationText.font = UIFont(name: "Aleo-Regular", size: screenHeight / 40)
         annotationText.frame = CGRect(x: screenWidth * 0.05 + imageSize2.width, y: introSize.height * 0.15, width: labelSize2.width, height: labelSize2.height)
         
-        rateText.text = "Upvote or Downvote the post depending on whether the Pokemon is still in the area."
+        rateText.text = "Upvote or Downvote the post depending on whether the Pokémon is still in the area."
         rateText.numberOfLines = 15
         rateText.font = UIFont(name: "Aleo-Regular", size: screenHeight / 40)
         rateText.frame = CGRect(x: screenWidth * 0.05 + imageSize2.width, y: introSize.height * 0.15, width: labelSize2.width, height: labelSize2.height)
-        
-        reportText.text = "Use the Picker to Select and Report the Pokemon you find in Pokemon Go."
+
+        reportText.text = "Use the Picker to Select and Report the Pokémon you find in Pokémon Go."
         reportText.numberOfLines = 15
         reportText.font = UIFont(name: "Aleo-Regular", size: screenHeight / 40)
         reportText.frame = CGRect(x: screenWidth * 0.05 + imageSize2.width, y: introSize.height * 0.15, width: labelSize2.width, height: labelSize2.height)
@@ -301,7 +301,8 @@ class Register: UIViewController, UITextFieldDelegate {
         let titleSize = CGSize(width: introSize.width * 0.75, height: introSize.height * 0.075)
         
         annotationTitle.frame = CGRect(x: (introSize.width / 2) - (titleSize.width / 2), y: introSize.height * 0.0375, width: titleSize.width, height: titleSize.height)
-        annotationTitle.text = "Identifying Pokemon"
+
+        annotationTitle.text = "Identifying Pokémon"
         annotationTitle.textAlignment = NSTextAlignment.Center
         annotationTitle.font = UIFont(name: "Aleo-Regular", size: screenHeight / 30)
         
@@ -311,7 +312,8 @@ class Register: UIViewController, UITextFieldDelegate {
         rateTitle.font = UIFont(name: "Aleo-Regular", size: screenHeight / 30)
         
         reportTitle.frame = CGRect(x: (introSize.width / 2) - (titleSize.width / 2), y: introSize.height * 0.0375, width: titleSize.width, height: titleSize.height)
-        reportTitle.text = "Reporting Pokemon"
+
+        reportTitle.text = "Reporting Pokémon"
         reportTitle.textAlignment = NSTextAlignment.Center
         reportTitle.font = UIFont(name: "Aleo-Regular", size: screenHeight / 30)
         
@@ -382,80 +384,71 @@ class Register: UIViewController, UITextFieldDelegate {
         self.view.addSubview(reportPokemon)
         
     }
-//    
-//    @IBAction func instinctAction(sender: AnyObject) {
-//        instinctButton.layer.shadowColor = UIColor.yellowColor().CGColor
-//        instinctButton.layer.borderColor = UIColor.yellowColor().CGColor
-//        valorButton.layer.shadowColor = UIColor.blackColor().CGColor
-//        valorButton.layer.borderColor = UIColor.clearColor().CGColor
-//        mysticButton.layer.shadowColor = UIColor.blackColor().CGColor
-//        mysticButton.layer.borderColor = UIColor.clearColor().CGColor
-//    }
-//   
-//    @IBAction func valorAction(sender: AnyObject) {
-//        valorButton.layer.shadowColor = UIColor.redColor().CGColor
-//        valorButton.layer.borderColor = UIColor.redColor().CGColor
-//        instinctButton.layer.shadowColor = UIColor.blackColor().CGColor
-//        instinctButton.layer.borderColor = UIColor.clearColor().CGColor
-//        mysticButton.layer.shadowColor = UIColor.blackColor().CGColor
-//        mysticButton.layer.borderColor = UIColor.clearColor().CGColor
-//        
-//    }
-//   
-//    @IBAction func mysticAction(sender: AnyObject) {
-//        mysticButton.layer.shadowColor = UIColor.blueColor().CGColor
-//        mysticButton.layer.borderColor = UIColor.blueColor().CGColor
-//        valorButton.layer.shadowColor = UIColor.blackColor().CGColor
-//        valorButton.layer.borderColor = UIColor.clearColor().CGColor
-//        instinctButton.layer.shadowColor = UIColor.blackColor().CGColor
-//        instinctButton.layer.borderColor = UIColor.clearColor().CGColor
-//    }
-//    @IBAction func registerAction(sender: AnyObject) {
-//        
-//        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/users/add", parameters: ["name": nameField.text!, "username" : usernameField.text!, "password" : passwordField.text!, "team" : 1, "phone" : numberField.text!]).validate()
-//            .responseJSON { (_, _, response) in
-//                if let json = response.value {
-//                    var json = JSON(response.value!)
-//                    var success = json["success"].stringValue
-//                    if success == "0" {
-//                        
-//                        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
-//                        self.showViewController(vc as! UIViewController, sender: vc)
-//                    } else {
-//                        self.errorMessage.text = "Account information already exists."
-//                        self.errorMessage.hidden = false
-//                    }
-//                } else {
-//                    self.errorMessage.text = "Connection Error: Server not found"
-//                    self.errorMessage.hidden = false
-//                }
-//        }
-//    }
     
     func regAction(sender: UIButton!) {
-        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/users/add", parameters: ["name": name.text!, "username" : username.text!, "password" : password.text!, "team" : 1, "phone" : phone.text!]).validate()
-            .responseJSON { (_, _, response) in
-                if let json = response.value {
-                    var json = JSON(response.value!)
-                    var success = json["success"].stringValue
-                    if success == "0" {
-                        let aHeight = self.clickAnnotation.frame.size.height
-                        let aWidth = self.clickAnnotation.frame.size.width
-                        let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
-                        let yCoord = self.clickAnnotation.frame.origin.y
-                        
-                        UIView.animateWithDuration(0.33, animations: {
-                            self.clickAnnotation.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
-                            self.shadow.alpha = 0.5
-                        })
+        if (username.text!.characters.count < 10 && username.text!.characters.count > 0 && password.text!.characters.count > 0) {
+            Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/users/add", parameters: ["name": name.text!, "username" : username.text!, "password" : password.text!, "team" : 1, "phone" : phone.text!]).validate()
+                .responseJSON { (_, _, response) in
+                    if let json = response.value {
+                        var json = JSON(response.value!)
+                        var success = json["success"].stringValue
+                        if success == "0" {
+                            let aHeight = self.clickAnnotation.frame.size.height
+                            let aWidth = self.clickAnnotation.frame.size.width
+                            let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
+                            let yCoord = self.clickAnnotation.frame.origin.y
+                            
+                            UIView.animateWithDuration(0.33, animations: {
+                                self.clickAnnotation.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
+                                self.shadow.alpha = 0.5
+                            })
+                        } else {
+                            self.errorMsg.text = "Account information already exists."
+                            self.errorMsg.hidden = false
+                        }
                     } else {
-                        self.errorMsg.text = "Account information already exists."
+                        self.errorMsg.text = "Connection Error: Server not found"
                         self.errorMsg.hidden = false
                     }
-                } else {
-                    self.errorMsg.text = "Connection Error: Server not found"
-                    self.errorMsg.hidden = false
-                }
+            }
+        } else {
+            var errorText = "Error"
+            if (username.text!.characters.count > 10) {
+                errorText = "Username must be less than 10 characters."
+            } else if (username.text!.characters.count == 0) {
+                errorText = "Make sure to include a username."
+            } else if (password.text!.characters.count == 0) {
+                errorText = "Make sure to include a password."
+            }
+            self.errorMsg.text = errorText
+            self.errorMsg.hidden = false
+        }
+    }
+    
+    func nextAction(sender: UIButton!) {
+        if sender == annotationNext {
+            let aHeight = self.ratePosts.frame.size.height
+            let aWidth = self.ratePosts.frame.size.width
+            let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
+            let yCoord = self.ratePosts.frame.origin.y
+            
+            UIView.animateWithDuration(0.33, animations: {
+                self.clickAnnotation.frame = CGRectMake(0 - self.view.frame.size.width, yCoord, aWidth, aHeight)
+                self.ratePosts.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
+            })
+        } else if sender == rateNext {
+            let aHeight = self.reportPokemon.frame.size.height
+            let aWidth = self.reportPokemon.frame.size.width
+            let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
+            let yCoord = self.reportPokemon.frame.origin.y
+            
+            UIView.animateWithDuration(0.33, animations: {
+                self.ratePosts.frame = CGRectMake(0 - self.view.frame.size.width, yCoord, aWidth, aHeight)
+                self.reportPokemon.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
+            })
+        } else {
+            let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
+            self.showViewController(vc as! UIViewController, sender: vc)
         }
     }
     

@@ -27,6 +27,7 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
     let pokeImage = UIImageView()
     let searchBar = UISearchBar()
     let reportButton = UIButton()
+    var error = Error()
     
     let orderData = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran-f", "nidorina", "nidoqueen", "nidoran-m", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno","zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew"]
     
@@ -37,6 +38,9 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let errorRect = CGRect(x: 0, y: -1 * self.view.frame.height / 10, width: self.view.frame.width, height: self.view.frame.height / 10)
+        self.error = Error(frame: errorRect)
+        self.error.hidden = true
         pokemonData = orderData.sort()
         var filteredPokemon = pokemonData
         
@@ -68,7 +72,7 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
         self.view.addSubview(pokeImage)
         self.view.addSubview(searchBar)
         self.view.addSubview(reportButton)
-        
+        self.view.addSubview(error)
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
     }
@@ -80,38 +84,42 @@ class Report: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UI
                 var data = JSON(json)
                 var succesful = data["success"].stringValue
                 if succesful == "1" {
-                    //print error message
+                    UIView.animateWithDuration(0.28, animations: {
+                        self.error.hidden = false
+                        self.error.frame = CGRectMake(0, 0, self.error.frame.width, self.error.frame.height)
+                        self.error.label.text = "Failed to report Pokémon."
+                        let delay = 2.0 * Double(NSEC_PER_SEC)
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        dispatch_after(time, dispatch_get_main_queue()) {
+                            UIView.animateWithDuration(0.28, animations: {
+                                self.error.frame = CGRectMake(0, -1 * self.error.frame.height, self.error.frame.width, self.error.frame.height)
+                            })
+                        }
+                    })
                 } else {
-                    
+                    self.error.hidden = true
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
             } else {
-                print("There was a network error while reporting.")
-                //network error
+                UIView.animateWithDuration(0.28, animations: {
+                    self.error.hidden = false
+                    self.error.frame = CGRectMake(0, 0, self.error.frame.width, self.error.frame.height)
+                    self.error.label.text = "Failed to report Pokémon."
+                    let delay = 2.0 * Double(NSEC_PER_SEC)
+                    let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                    dispatch_after(time, dispatch_get_main_queue()) {
+                        UIView.animateWithDuration(0.28, animations: {
+                            self.error.frame = CGRectMake(0, -1 * self.error.frame.height, self.error.frame.width, self.error.frame.height)
+                        })
+                    }
+                })
             }
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
-//    @IBAction func postAction(sender: AnyObject) {
-//        let defaults = NSUserDefaults()
-//        Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/reports/add", parameters: ["pokemon": pokemonIndex, "latitude": self.latitude, "longitude" : self.longitude, "user_id" : defaults.stringForKey("user_id")!]).validate().responseJSON { (_, _, response) in
-//            if let json = response.value {
-//                var data = JSON(json)
-//                var succesful = data["success"].stringValue
-//                if succesful == "1" {
-//                    //print error message
-//                } else {
-//
-//                }
-//            } else {
-//                print("There was a network error while reporting.")
-//                //network error
-//            }
-//        }
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//    }
-    
     @IBAction func backAction(sender: AnyObject) {
+        self.error.hidden = true
         self.dismissViewControllerAnimated(true, completion: nil)
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
         self.showViewController(vc as! UIViewController, sender: vc)
