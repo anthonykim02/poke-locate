@@ -15,6 +15,7 @@
 		9245B4F41D39F3BA00996B5D /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B4F31D39F3BA00996B5D /* Report.swift */; };
 		9245B5001D3A6F2400996B5D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B4FF1D3A6F2400996B5D /* Login.swift */; };
 		9245B5021D3A745B00996B5D /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245B5011D3A745B00996B5D /* Register.swift */; };
+		9265AF0E1D5DAC2F00F94E94 /* Aleo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9265AF0D1D5DAC2100F94E94 /* Aleo-Regular.otf */; };
 		92DE18D41D39DA1900E8C45A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE18D31D39DA1900E8C45A /* AppDelegate.swift */; };
 		92DE18D61D39DA1900E8C45A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE18D51D39DA1900E8C45A /* ViewController.swift */; };
 		92DE18D91D39DA1900E8C45A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DE18D71D39DA1900E8C45A /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		9245B4F31D39F3BA00996B5D /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		9245B4FF1D3A6F2400996B5D /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		9245B5011D3A745B00996B5D /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		9265AF0D1D5DAC2100F94E94 /* Aleo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aleo-Regular.otf"; path = "../../../Downloads/Aleo_font_v1.2.2/Desktop OTF/Aleo-Regular.otf"; sourceTree = "<group>"; };
 		92DE18CE1D39DA1900E8C45A /* pokemonGoAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemonGoAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DE18D21D39DA1900E8C45A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DE18D31D39DA1900E8C45A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };

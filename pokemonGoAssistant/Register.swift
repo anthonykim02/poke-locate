@@ -292,7 +292,7 @@ class Register: UIViewController, UITextFieldDelegate {
         rateText.numberOfLines = 15
         rateText.font = UIFont(name: "Aleo-Regular", size: screenHeight / 40)
         rateText.frame = CGRect(x: screenWidth * 0.05 + imageSize2.width, y: introSize.height * 0.15, width: labelSize2.width, height: labelSize2.height)
-        
+
         reportText.text = "Use the Picker to Select and Report the Pokémon you find in Pokémon Go."
         reportText.numberOfLines = 15
         reportText.font = UIFont(name: "Aleo-Regular", size: screenHeight / 40)
@@ -301,6 +301,7 @@ class Register: UIViewController, UITextFieldDelegate {
         let titleSize = CGSize(width: introSize.width * 0.75, height: introSize.height * 0.075)
         
         annotationTitle.frame = CGRect(x: (introSize.width / 2) - (titleSize.width / 2), y: introSize.height * 0.0375, width: titleSize.width, height: titleSize.height)
+
         annotationTitle.text = "Identifying Pokémon"
         annotationTitle.textAlignment = NSTextAlignment.Center
         annotationTitle.font = UIFont(name: "Aleo-Regular", size: screenHeight / 30)
@@ -311,6 +312,7 @@ class Register: UIViewController, UITextFieldDelegate {
         rateTitle.font = UIFont(name: "Aleo-Regular", size: screenHeight / 30)
         
         reportTitle.frame = CGRect(x: (introSize.width / 2) - (titleSize.width / 2), y: introSize.height * 0.0375, width: titleSize.width, height: titleSize.height)
+
         reportTitle.text = "Reporting Pokémon"
         reportTitle.textAlignment = NSTextAlignment.Center
         reportTitle.font = UIFont(name: "Aleo-Regular", size: screenHeight / 30)
@@ -391,9 +393,15 @@ class Register: UIViewController, UITextFieldDelegate {
                         var json = JSON(response.value!)
                         var success = json["success"].stringValue
                         if success == "0" {
+                            let aHeight = self.clickAnnotation.frame.size.height
+                            let aWidth = self.clickAnnotation.frame.size.width
+                            let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
+                            let yCoord = self.clickAnnotation.frame.origin.y
                             
-                            let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
-                            self.showViewController(vc as! UIViewController, sender: vc)
+                            UIView.animateWithDuration(0.33, animations: {
+                                self.clickAnnotation.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
+                                self.shadow.alpha = 0.5
+                            })
                         } else {
                             self.errorMsg.text = "Account information already exists."
                             self.errorMsg.hidden = false
@@ -414,6 +422,33 @@ class Register: UIViewController, UITextFieldDelegate {
             }
             self.errorMsg.text = errorText
             self.errorMsg.hidden = false
+        }
+    }
+    
+    func nextAction(sender: UIButton!) {
+        if sender == annotationNext {
+            let aHeight = self.ratePosts.frame.size.height
+            let aWidth = self.ratePosts.frame.size.width
+            let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
+            let yCoord = self.ratePosts.frame.origin.y
+            
+            UIView.animateWithDuration(0.33, animations: {
+                self.clickAnnotation.frame = CGRectMake(0 - self.view.frame.size.width, yCoord, aWidth, aHeight)
+                self.ratePosts.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
+            })
+        } else if sender == rateNext {
+            let aHeight = self.reportPokemon.frame.size.height
+            let aWidth = self.reportPokemon.frame.size.width
+            let xCoord = (self.view.frame.size.width / 2) - (aWidth / 2)
+            let yCoord = self.reportPokemon.frame.origin.y
+            
+            UIView.animateWithDuration(0.33, animations: {
+                self.ratePosts.frame = CGRectMake(0 - self.view.frame.size.width, yCoord, aWidth, aHeight)
+                self.reportPokemon.frame = CGRectMake(xCoord, yCoord, aWidth, aHeight)
+            })
+        } else {
+            let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController")
+            self.showViewController(vc as! UIViewController, sender: vc)
         }
     }
     
