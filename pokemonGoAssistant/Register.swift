@@ -30,8 +30,6 @@ class Register: UIViewController, UITextFieldDelegate {
     
     let name = UITextField()
     let nameLine = UIImageView()
-    let phone = UITextField()
-    let phoneLine = UIImageView()
     let username = UITextField()
     let userLine = UIImageView()
     let password = UITextField()
@@ -113,7 +111,6 @@ class Register: UIViewController, UITextFieldDelegate {
         // ========================== ui programmatically ==================
         
         name.delegate = self
-        phone.delegate = self
         username.delegate = self
         password.delegate = self
         
@@ -131,7 +128,6 @@ class Register: UIViewController, UITextFieldDelegate {
         registerTitle.textAlignment = NSTextAlignment.Center
         
         name.borderStyle = UITextBorderStyle.None
-        phone.borderStyle = UITextBorderStyle.None
         username.borderStyle = UITextBorderStyle.None
         password.borderStyle = UITextBorderStyle.None
         
@@ -139,11 +135,6 @@ class Register: UIViewController, UITextFieldDelegate {
         name.font = UIFont(name: "Aleo-Regular", size: screenHeight / 25)
         name.textColor = labelColor
         name.tintColor = labelColor
-        
-        phone.attributedPlaceholder = NSAttributedString(string:"PHONE", attributes: [NSForegroundColorAttributeName: labelColor])
-        phone.font = UIFont(name: "Aleo-Regular", size: screenHeight / 25)
-        phone.textColor = labelColor
-        phone.tintColor = labelColor
         
         username.attributedPlaceholder = NSAttributedString(string:"USERNAME", attributes: [NSForegroundColorAttributeName: labelColor])
         username.font = UIFont(name: "Aleo-Regular", size: screenHeight / 25)
@@ -157,7 +148,6 @@ class Register: UIViewController, UITextFieldDelegate {
 
         
         nameLine.image = UIImage(named: "Line")
-        phoneLine.image = UIImage(named: "Line")
         userLine.image = UIImage(named: "Line")
         passLine.image = UIImage(named: "Line")
         
@@ -167,10 +157,7 @@ class Register: UIViewController, UITextFieldDelegate {
         userLine.frame = CGRect(x: (screenWidth / 2) - (lineSize.width / 2), y: password.frame.minY - lineSize.height, width: lineSize.width, height: lineSize.height)
         username.frame = CGRect(x: (screenWidth / 2) - (fieldSize.width / 2), y: userLine.frame.minY - fieldSize.height, width: fieldSize.width, height: fieldSize.height)
         
-        phoneLine.frame = CGRect(x: (screenWidth / 2) - (lineSize.width / 2), y: username.frame.minY - lineSize.height, width: lineSize.width, height: lineSize.height)
-        phone.frame = CGRect(x: (screenWidth / 2) - (fieldSize.width / 2), y: phoneLine.frame.minY -  fieldSize.height, width: fieldSize.width, height: fieldSize.height)
-        
-        nameLine.frame = CGRect(x: (screenWidth / 2) - (lineSize.width / 2), y: phone.frame.minY - lineSize.height, width: lineSize.width, height: lineSize.height)
+        nameLine.frame = CGRect(x: (screenWidth / 2) - (lineSize.width / 2), y: username.frame.minY - lineSize.height, width: lineSize.width, height: lineSize.height)
         name.frame = CGRect(x: (screenWidth / 2) - (fieldSize.width / 2), y: nameLine.frame.minY -  fieldSize.height, width: fieldSize.width, height: fieldSize.height)
         
         let labelSize = CGSize(width: screenWidth * 0.75, height: screenHeight / 25)
@@ -410,8 +397,6 @@ class Register: UIViewController, UITextFieldDelegate {
         self.view.addSubview(registerTitle)
         self.view.addSubview(name)
         self.view.addSubview(nameLine)
-        self.view.addSubview(phone)
-        self.view.addSubview(phoneLine)
         self.view.addSubview(username)
         self.view.addSubview(userLine)
         self.view.addSubview(password)
@@ -437,7 +422,7 @@ class Register: UIViewController, UITextFieldDelegate {
     
     func regAction(sender: UIButton!) {
         if (username.text!.characters.count < 10 && username.text!.characters.count > 0 && password.text!.characters.count > 0) {
-            Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/users/add", parameters: ["name": name.text!, "username" : username.text!, "password" : password.text!, "team" : 1, "phone" : phone.text!]).validate()
+            Alamofire.request(.GET, "http://pokemongo-dev.us-west-1.elasticbeanstalk.com/api/users/add", parameters: ["name": name.text!, "username" : username.text!, "password" : password.text!, "team" : 1, "phone" : 0]).validate()
                 .responseJSON { (_, _, response) in
                     if let json = response.value {
                         var json = JSON(response.value!)

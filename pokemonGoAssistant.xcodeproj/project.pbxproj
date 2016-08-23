@@ -49,7 +49,7 @@
 		9245B4F31D39F3BA00996B5D /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		9245B4FF1D3A6F2400996B5D /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		9245B5011D3A745B00996B5D /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
-		92DE18CE1D39DA1900E8C45A /* PokéLocate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PokéLocate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92DE18CE1D39DA1900E8C45A /* PokéLocate for Pokémon Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PokéLocate for Pokémon Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DE18D21D39DA1900E8C45A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DE18D31D39DA1900E8C45A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92DE18D51D39DA1900E8C45A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		92DE18CF1D39DA1900E8C45A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92DE18CE1D39DA1900E8C45A /* PokéLocate.app */,
+				92DE18CE1D39DA1900E8C45A /* PokéLocate for Pokémon Go.app */,
 				92DE18E31D39DA1900E8C45A /* pokemonGoAssistantTests.xctest */,
 			);
 			name = Products;
@@ -201,7 +201,7 @@
 			);
 			name = pokemonGoAssistant;
 			productName = pokemonGoAssistant;
-			productReference = 92DE18CE1D39DA1900E8C45A /* PokéLocate.app */;
+			productReference = 92DE18CE1D39DA1900E8C45A /* PokéLocate for Pokémon Go.app */;
 			productType = "com.apple.product-type.application";
 		};
 		92DE18E21D39DA1900E8C45A /* pokemonGoAssistantTests */ = {
@@ -537,7 +537,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kasa.pokeLocate;
-				PRODUCT_NAME = "PokéLocate";
+				PRODUCT_NAME = "PokéLocate for Pokémon Go";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -553,7 +553,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kasa.pokeLocate;
-				PRODUCT_NAME = "PokéLocate";
+				PRODUCT_NAME = "PokéLocate for Pokémon Go";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

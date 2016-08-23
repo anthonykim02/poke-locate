@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1909" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBg-5b-6C6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBg-5b-6C6">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Map-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="ViewController" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="ViewController" customModule="PokéLocate_for_Pokémon_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -21,6 +21,14 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="K5C-Qh-rTX">
                                 <rect key="frame" x="0.0" y="-32" width="600" height="632"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djV-wn-szt">
+                                <rect key="frame" x="220" y="167" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.30804142426946968" blue="0.27953168637843206" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="x8V-Fd-H3m" kind="show" id="E2Y-87-aI3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -44,7 +52,7 @@
         <!--Report-->
         <scene sceneID="Dw3-s0-dwQ">
             <objects>
-                <viewController storyboardIdentifier="Report" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CBd-dB-1xN" customClass="Report" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Report" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CBd-dB-1xN" customClass="Report" customModule="PokéLocate_for_Pokémon_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Uf-mw-R96"/>
                         <viewControllerLayoutGuide type="bottom" id="S0q-T8-uDj"/>
@@ -107,7 +115,7 @@
         <!--Tracking-->
         <scene sceneID="0mO-DF-5YC">
             <objects>
-                <viewController storyboardIdentifier="VCTracking" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wLN-ra-IzX" customClass="VCTracking" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VCTracking" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wLN-ra-IzX" customClass="VCTracking" customModule="PokéLocate_for_Pokémon_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W9V-Zo-gqE"/>
                         <viewControllerLayoutGuide type="bottom" id="Q8V-Kf-uRT"/>
@@ -125,7 +133,7 @@
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackingTableViewCell" rowHeight="130" id="vAS-MF-jPH" customClass="TrackingTableViewCell" customModule="pokemonGoAssistant" customModuleProvider="target">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackingTableViewCell" rowHeight="130" id="vAS-MF-jPH" customClass="TrackingTableViewCell" customModule="PokéLocate_for_Pokémon_Go" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="vAS-MF-jPH" id="Lbs-VR-hq7">
@@ -161,7 +169,7 @@
         <!--Start Screen-->
         <scene sceneID="Rbe-6Z-KfM">
             <objects>
-                <viewController storyboardIdentifier="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hBg-5b-6C6" customClass="StartScreen" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hBg-5b-6C6" customClass="StartScreen" customModule="PokéLocate_for_Pokémon_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lHv-Ob-9MA"/>
                         <viewControllerLayoutGuide type="bottom" id="DY1-iY-blD"/>
@@ -190,7 +198,7 @@
         <!--Login-->
         <scene sceneID="i6q-tD-PuF">
             <objects>
-                <viewController storyboardIdentifier="Login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TYz-xC-sak" customClass="Login" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TYz-xC-sak" customClass="Login" customModule="PokéLocate_for_Pokémon_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4kd-ls-1YX"/>
                         <viewControllerLayoutGuide type="bottom" id="smG-re-aEg"/>
@@ -274,7 +282,7 @@
         <!--Register-->
         <scene sceneID="vxA-h5-UlT">
             <objects>
-                <viewController storyboardIdentifier="Register" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x8V-Fd-H3m" customClass="Register" customModule="pokemonGoAssistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x8V-Fd-H3m" customClass="Register" customModule="PokéLocate_for_Pokémon_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NNf-g9-p08"/>
                         <viewControllerLayoutGuide type="bottom" id="5h1-5o-KeT"/>
