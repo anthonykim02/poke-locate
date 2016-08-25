@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "92DE18CD1D39DA1900E8C45A"
-               BuildableName = "Poke&#x301;Locate.app"
+               BuildableName = "Poke&#x301;Locate for Poke&#x301;mon Go.app"
                BlueprintName = "pokemonGoAssistant"
                ReferencedContainer = "container:pokemonGoAssistant.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "92DE18CD1D39DA1900E8C45A"
-            BuildableName = "Poke&#x301;Locate.app"
+            BuildableName = "Poke&#x301;Locate for Poke&#x301;mon Go.app"
             BlueprintName = "pokemonGoAssistant"
             ReferencedContainer = "container:pokemonGoAssistant.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "92DE18CD1D39DA1900E8C45A"
-            BuildableName = "Poke&#x301;Locate.app"
+            BuildableName = "Poke&#x301;Locate for Poke&#x301;mon Go.app"
             BlueprintName = "pokemonGoAssistant"
             ReferencedContainer = "container:pokemonGoAssistant.xcodeproj">
          </BuildableReference>
@@ -99,7 +99,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "92DE18CD1D39DA1900E8C45A"
-            BuildableName = "Poke&#x301;Locate.app"
+            BuildableName = "Poke&#x301;Locate for Poke&#x301;mon Go.app"
             BlueprintName = "pokemonGoAssistant"
             ReferencedContainer = "container:pokemonGoAssistant.xcodeproj">
          </BuildableReference>
